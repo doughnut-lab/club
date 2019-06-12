@@ -8,6 +8,7 @@ module.exports.register = (req, res, next) => {
     user.username = req.body.username;
     user.email = req.body.email;
     user.password = req.body.password;
+    user.type = req.body.type;
     user.save((err, doc) => {
         if (!err)
             res.send(doc);

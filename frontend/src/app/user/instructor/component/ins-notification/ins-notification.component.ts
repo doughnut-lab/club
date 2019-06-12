@@ -4,6 +4,7 @@ import { Notification } from '../../../../shared/notification.model';
 import { HistoryService } from '../../../../shared/history.service';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-ins-notification',
@@ -26,6 +27,10 @@ export class InsNotificationComponent implements OnInit {
       
       
     });
+  }
+  ondelete()
+  {
+
   }
 
 }

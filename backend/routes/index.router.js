@@ -5,6 +5,7 @@ const ctrlUser =require('../controllers/user.controller');
 const ctrlInstructor=require('../controllers/instructor.controller');
 const ctrlCheff=require('../controllers/cheff.controller');
 const ctrlCashier=require('../controllers/cashier.controller');
+const ctrlCustomer=require('../controllers/customer.controller');
 
 const jwtHelper = require('../config/jwtHelper');
  
@@ -33,5 +34,5 @@ router.post('/ins_no',ctrlInstructor.ins_notification);
 router.post('/cheff_no',ctrlCheff.cheff_notification);
 router.post('/cashier_no',ctrlCashier.cashier_notification);
 router.get('/view_instructor_notification/:email',ctrlInstructor.view_instructor_notification);
-
+router.post('/customer_register',ctrlCustomer.customer_register);
 module.exports = router;
