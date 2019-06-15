@@ -44,7 +44,7 @@ userSchema.methods.verifyType = function(type)
 };
 
 userSchema.methods.generateJwt = function () {
-    return jwt.sign({ _id: this._id },
+    return jwt.sign({ _id: this._id,type: this.type },
         process.env.JWT_SECRET,
         {  expiresIn: process.env.JWT_EXP
 

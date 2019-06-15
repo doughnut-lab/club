@@ -5,6 +5,7 @@ import { UserService } from '../shared/user.service';
 import { HistoryService } from '../shared/history.service';
 import { ToastrService } from 'ngx-toastr';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,38 +26,59 @@ export class LoginComponent implements OnInit {
   serverErrorMessages: string;
  // email:string;
   ngOnInit() {
+   
   }
+  getType():String {
+    var token = localStorage.getItem('token');
+    if (token) {
+      var userPayload = JSON.parse(atob(token.split('.')[1]));
+      return userPayload.type;
+    }
+    else
+      return null;
+  } 
 
   onSubmit(email:string,form : NgForm){
    // this.email=title;
     console.log(email);
+    
     this.userService.login(form.value).subscribe(
       res => {
-        if(form.value.type =="instructor")
-        {
         this.userService.setToken(res['token']);
+        if(this.getType() =="instructor")
+        {
+        
         this.router.navigateByUrl('/instructor');
         this.HistoryService.setEmail(email);
         this.tosatr.success('Login sucsessfully','Instructor');
+        
         //alert('sucess');
-      }else if(form.value.type =="cheff"){
-        this.userService.setToken(res['token']);
+      }else if(this.getType() =="cheff"){
+        //this.userService.setToken(res['token']);
         this.router.navigateByUrl('/cheff');
         this.HistoryService.setEmail(email);
         this.tosatr.success('Login sucsessfully','Cheff');
+        
       }
-      else{
-        this.userService.setToken(res['token']);
+      else if(this.getType() =="cashier"){
+        //this.userService.setToken(res['token']);
         this.router.navigateByUrl('/cashier');
         this.HistoryService.setEmail(email);
         this.tosatr.success('Login sucsessfully','Cashier');
       }
+      else{
+        //this.userService.setToken(res['token']);
+        this.router.navigateByUrl('/customer');
+        this.HistoryService.setEmail(email);
+        this.tosatr.success('Login sucsessfully','Customer');
+      }
     },
       err => {
         this.serverErrorMessages = err.error.message;
-        this.tosatr.warning(this.serverErrorMessages,'Customer');
+        this.tosatr.warning(this.serverErrorMessages,'User');
         //alert('error');
       }
     );
   }
+  
 }

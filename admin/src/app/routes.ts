@@ -10,6 +10,8 @@ import { NoInstructorComponent } from './Notification/no-instructor/no-instructo
 import { NoCheffComponent } from './Notification/no-cheff/no-cheff.component';
 import { NoCashierComponent } from './Notification/no-cashier/no-cashier.component';
 
+import { NotfoundComponent } from './pages/notfound/notfound.component';
+
 export const appRoutes: Routes = [
     {
         path: 'dashboard', component: PagesComponent,
@@ -49,6 +51,10 @@ export const appRoutes: Routes = [
     },
     {
         path: '', redirectTo: '/login', pathMatch: 'full'
+       
+    },
+    {
+        path: '**', component:NotfoundComponent
        
     }
 ];

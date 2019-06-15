@@ -5,8 +5,8 @@ const mongoose = require('mongoose');
 var User = mongoose.model('User');
 
 passport.use(
-    new localStrategy({ usernameField: 'email',passReqToCallback: true },
-        (req, username, password, done) => {
+    new localStrategy({ usernameField: 'email'},
+        (username, password, done) => {
             User.findOne({ email: username },
                 (err, user) => {
                     
@@ -19,8 +19,8 @@ passport.use(
                     else if (!user.verifyPassword(password))
                         return done(null, false, { message: 'Wrong password.' });
                     // wrong type
-                    else if (!user.verifyType(req.body.type))
-                        return done(null, false, { message: 'Wrong type.' });
+                    // else if (!user.verifyType(req.body.type))
+                    //     return done(null, false, { message: 'Wrong type.' });
                     // authentication succeeded
                     else
                         return done(null, user);

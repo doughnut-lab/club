@@ -40,5 +40,14 @@ export class UserService {
       return userPayload.exp > Date.now() / 1000;
     else
       return false;
-  } 
+  }
+  // getType():String {
+  //   var token = localStorage.getItem('token');
+  //   if (token) {
+  //     var userPayload = JSON.parse(atob(token.split('.')[1]));
+  //     return userPayload.type;
+  //   }
+  //   else
+  //     return null;
+  // } 
 }

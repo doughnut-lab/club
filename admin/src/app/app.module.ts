@@ -31,6 +31,7 @@ import { InsSideBarComponent } from './Registration/add-instructor/component/ins
 import { NoInstructorComponent } from './Notification/no-instructor/no-instructor.component';
 import { NoCheffComponent } from './Notification/no-cheff/no-cheff.component';
 import { NoCashierComponent } from './Notification/no-cashier/no-cashier.component';
+import { NotfoundComponent } from './pages/notfound/notfound.component';
 // import { MatFileUploadModule } from 'angular-material-fileupload';
 
 @NgModule({
@@ -51,7 +52,8 @@ import { NoCashierComponent } from './Notification/no-cashier/no-cashier.compone
     InsSideBarComponent,
     NoInstructorComponent,
     NoCheffComponent,
-    NoCashierComponent
+    NoCashierComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
