@@ -6,6 +6,12 @@ const ctrlInstructor=require('../controllers/instructor.controller');
 const ctrlCheff=require('../controllers/cheff.controller');
 const ctrlCashier=require('../controllers/cashier.controller');
 const ctrlCustomer=require('../controllers/customer.controller');
+const ctrlBooking=require('../controllers/booking.controller');
+const ctrlTable=require('../controllers/table.controller');
+const ctrlHall=require('../controllers/hall.controller');
+const ctrlSwimming=require('../controllers/swimmingpool.controller');
+const ctrlBilliard=require('../controllers/billiardtable.controlller');
+// const ctrlImage=require('../controllers/iamges.controller');
 
 const jwtHelper = require('../config/jwtHelper');
  
@@ -35,4 +41,10 @@ router.post('/cheff_no',ctrlCheff.cheff_notification);
 router.post('/cashier_no',ctrlCashier.cashier_notification);
 router.get('/view_instructor_notification/:email',ctrlInstructor.view_instructor_notification);
 router.post('/customer_register',ctrlCustomer.customer_register);
+router.post('/booking',ctrlBooking.register);
+router.post('/table',ctrlTable.addtable);
+router.post('/hall',ctrlHall.addhall);
+router.post('/suwimmingpool',ctrlSwimming.addsuwimmingpool);
+router.post('/billiardtable',ctrlBilliard.addbilliardtable);
+// router.post('/upload_image',ctrlImage.upload_image);
 module.exports = router;

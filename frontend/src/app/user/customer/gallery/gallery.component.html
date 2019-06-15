@@ -4,17 +4,27 @@
 <div id="colorlib-contact">
         <div class="container">
             
+
+
+
             <div class="row">
                     <mat-grid-list cols="4" rowHeight="100px">
-                        <mat-grid-tile
-                            *ngFor="let tile of tiles"
-                            [colspan]="tile.cols"
-                            [rowspan]="tile.rows"
-                            [style.background]="tile.color">
-                            {{tile.text}}
+                        <mat-grid-tile *ngFor="let food of foods | paginate: { itemsPerPage: 12, currentPage: p }" class="col-md-3 col-sm-3">
+                            <mat-card><p>DK</p></mat-card>
+
                         </mat-grid-tile>
                     </mat-grid-list>
-            </div>    
+            </div> 
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="text-center">
+                        <pagination-controls
+                        class="my-pagination"
+                        (pageChange)="p = $event"
+                        ></pagination-controls>
+                    </div>
+                </div>
+            </div>   
         </div>
     </div>
           

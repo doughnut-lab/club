@@ -34,10 +34,8 @@ module.exports.view_history = (req, res, next) => {
         if(!err) {res.send(docs); }
         else {console.log('Error in Retriving User :' + JSON.stringify(err, undefined, 2));}
     });
-
-
-
 }
+
 module.exports.view_person_history = (req, res, next) => {
     User.find({instructor:req.params.instructor},(err, docs) => {
         if(!err) {res.send(docs); }
@@ -102,10 +100,8 @@ module.exports.view_instructor = (req, res, next) => {
         if(!err) {res.send(docs); }
         else {console.log('Error in Retriving User :' + JSON.stringify(err, undefined, 2));}
     });
-
-
-
 }
+
 module.exports.user_ins_register = (req, res, next) => {
     var user = new User1();
     user.username = req.body.firstname;
@@ -119,8 +115,7 @@ module.exports.user_ins_register = (req, res, next) => {
             if (err.code == 11000)
                 res.status(422).send(['Duplicate Email Adress found.']);
             else
-                return next(err);
-                
+                return next(err);    
         }
     });
 }
@@ -137,17 +132,14 @@ module.exports.ins_notification = (req, res, next) => {
             if (err.code == 11000)
                 res.status(422).send(['Duplicate Email Adress found.']);
             else
-                return next(err);
-                
+                return next(err);    
         }
     });
 }
+
 module.exports.view_instructor_notification = (req, res, next) => {
     Notification.find({email:req.params.email},(err, docs) => {
         if(!err) {res.send(docs); }
         else {console.log('Error in Retriving User :' + JSON.stringify(err, undefined, 2));}
     });
-
-
-
 }

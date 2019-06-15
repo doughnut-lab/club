@@ -21,3 +21,4 @@ module.exports.customer_register = (req, res, next) => {
         }
     });
 }
+

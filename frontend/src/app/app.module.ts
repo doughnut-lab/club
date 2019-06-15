@@ -21,6 +21,8 @@ import {MatListModule} from '@angular/material/list';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 import {
   MatButtonModule,
   MatCheckboxModule,
@@ -74,6 +76,7 @@ import { InsHistoryComponent } from './user/instructor/component/ins-history/ins
 import { InsAssignDetailsComponent } from './user/instructor/component/ins-assign-details/ins-assign-details.component';
 import { CheffComponent } from './user/cheff/cheff.component';
 import { InsNotificationComponent } from './user/instructor/component/ins-notification/ins-notification.component';
+import { ProfileComponent } from './user/customer/profile/profile.component';
 //import {InstructorFilterPipe } from './user/instructor/component/ins-history/ins_history_filter.pipe';
 
 
@@ -117,6 +120,7 @@ import { InsNotificationComponent } from './user/instructor/component/ins-notifi
     InsAssignDetailsComponent,
     CheffComponent,
     InsNotificationComponent,
+    ProfileComponent,
     
   ],
   imports: [
@@ -144,6 +148,7 @@ import { InsNotificationComponent } from './user/instructor/component/ins-notifi
     MatRadioModule,
     MatListModule,
     MatCardModule,
+    NgxPaginationModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
