@@ -1,0 +1,63 @@
+<div class="page-container">
+    
+  <!-- import slider component -->
+    <app-sidebar></app-sidebar>
+
+    <!-- PAGE CONTENT -->
+    <div class="page-content">
+        
+        <!-- import nav bar component -->
+        <app-navbar></app-navbar>
+                  
+        <!-- import breadcrumb component -->
+        <app-breadcrumb></app-breadcrumb>
+  
+        <div class="page-content-wrap">              
+          <div class="container">
+            <form #InstructorForm="ngForm" (ngSubmit)="InstructorForm.valid && onSubmit(InstructorForm)">
+            <div class="row">
+              <div class="col-25">
+                <label for="fname">Title</label>
+              </div>
+              <div class="col-75">
+                <input type="text" name="title" #title="ngModel" [(ngModel)]="UserProfileService.selectNotification.title" placeholder="title" 
+                  required [ngClass]="{'invalid-textbox' :InstructorForm.submitted && !title.valid }">
+                  <div *ngIf="InstructorForm.submitted && !title.valid">
+                  <label class="validation-message">This field is required.</label>
+                  </div><br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label for="lname">Email</label>
+              </div>
+              <div class="col-75">
+                <input type="text" name="email" #email="ngModel" [(ngModel)]="UserProfileService.selectNotification.email" placeholder="email" 
+                  required [ngClass]="{'invalid-textbox' :InstructorForm.submitted && !email.valid }">
+                  <div *ngIf="InstructorForm.submitted && !email.valid">
+                  <label class="validation-message">This field is required.</label>
+                  </div><br>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-25">
+                <label for="subject">Message</label>
+              </div>
+              <div class="col-75">
+                <textarea name="message" #message="ngModel" [(ngModel)]="UserProfileService.selectNotification.message" placeholder="Write something.." 
+                required [ngClass]="{'invalid-textbox' :InstructorForm.submitted && !message.valid }" style="height:200px"></textarea>
+                <div *ngIf="InstructorForm.submitted && !message.valid">
+                  <label class="validation-message">This field is required.</label>
+                  </div><br>
+              </div>
+            </div>
+            <div class="row">
+              <input type="submit" value="Send">
+            </div>
+            </form>
+          </div>
+
+        </div>                             
+    </div>            
+</div>

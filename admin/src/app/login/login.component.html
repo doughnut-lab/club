@@ -1,3 +1,43 @@
-<p>
-  login works!
-</p>
+<!-- <head>
+  <meta charset="UTF-8">
+  <title>Instagram Login</title>
+  
+  
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="./style.css">
+
+  
+</head>
+
+<body>
+
+  <head>
+  <title>Login page</title>
+</head> -->
+
+<div class="well login-box center-block">
+  <!-- <img class="logo" src="http://www.dallasarboretum.org/assets/img/instagram-word.png"></img> -->
+  <!-- <form name="login">
+
+    <input type="text" class="form-control" placeholder="Username" name="userid" />
+
+    <input type="password" class="form-control" id="pass" placeholder="Password" name="pswrd" />
+    
+    <input class="btn btn-primary" type="button" onclick="check(this.form)" value="Log in" /> -->
+<!-- </div> -->
+<!-- </form> -->
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(model.email,loginForm)">
+  <input type="hidden"  name="username" #username="ngModel" [(ngModel)]="model.username">
+  <input type="text" class="form-control" placeholder="Email" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="email" required>
+  <input type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Password" required minlength="4"><br>
+  <select id="type" class="form-control" name="type" #type="ngModel" [(ngModel)]="model.type">
+    <option value="instructor">instructor</option>
+    <option value="cheff">cheff</option>
+    <option value="cashier">cashier</option>
+  </select>
+<input  class="form-control" type="submit" value="Login">
+</form>
+</div>
+
+

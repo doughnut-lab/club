@@ -1,0 +1,108 @@
+<div class="page-container">
+    
+    <!-- import slider component -->
+      <app-sidebar></app-sidebar>
+  
+      <!-- PAGE CONTENT -->
+      <div class="page-content">
+          
+          <!-- import nav bar component -->
+          <app-navbar></app-navbar>
+                    
+          <!-- import breadcrumb component -->
+          <app-breadcrumb></app-breadcrumb>
+    
+          <div class="page-content-wrap">              
+              <div class="container">
+                  <form #InstructorForm="ngForm">
+                      <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="UserProfileService.selectInstructor._id">
+                    <div class="row">
+                      <div class="col-25">
+                        <label for="fname">First Name</label>
+                      </div>
+                      <div class="col-75">
+                          <input type="text" name="firstname" #firstname="ngModel" [(ngModel)]="UserProfileService.selectInstructor.firstname" placeholder="firstname" 
+                          required  [ngClass]="{'invalid-textbox' :InstructorForm.submitted && !firstname.valid }">
+                          <div *ngIf="InstructorForm.submitted && !firstname.valid">
+                          <label class="validation-message">This field is required.</label>
+                         </div><br>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-25">
+                        <label for="lname">Last Name</label>
+                      </div>
+                      <div class="col-75">
+                          <input type="text" name="lastname" #lastname="ngModel" [(ngModel)]="UserProfileService.selectInstructor.lastname" placeholder="lastname" 
+                          required  [ngClass]="{'invalid-textbox' :InstructorForm.submitted && !lastname.valid }">
+                          <div *ngIf="InstructorForm.submitted && !lastname.valid">
+                          <label class="validation-message">This field is required.</label>
+                         </div><br>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                          <label for="lname">Address</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="address" #address="ngModel" [(ngModel)]="UserProfileService.selectInstructor.address" placeholder="address" 
+                            required  [ngClass]="{'invalid-textbox' :InstructorForm.submitted && !address.valid }">
+                          <div *ngIf="InstructorForm.submitted && !address.valid">
+                          <label class="validation-message">This field is required.</label>
+                         </div><br>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-25">
+                            <label for="lname">Email</label>
+                          </div>
+                          <div class="col-75">
+                              <input type="text" name="email" #email="ngModel" [(ngModel)]="UserProfileService.selectInstructor.email" placeholder="email" 
+                              required  [ngClass]="{'invalid-textbox' :InstructorForm.submitted && !email.valid }">
+                          <div *ngIf="InstructorForm.submitted && !email.valid">
+                          <label class="validation-message">This field is required.</label>
+                         </div><br>
+                          </div>
+                        </div>
+                    <div class="row">
+                      <input type="submit" value="Submit" (click)="onSubmit(InstructorForm)">
+                      <input type="submit" value="Update" (click)="onUpdate(InstructorForm)">
+                    </div>
+                  </form>
+                  <br><br>
+                  <table id="customers">
+                    <thead>
+                      <tr>
+                        <th>FirstName</th>
+                         <th>LastName</th>
+                         <th>Address</th>
+                         <th>Email</th>
+                         
+                         
+                         <th></th>
+                      </tr>
+                    </thead>
+                    <tr *ngFor="let ins of UserProfileService.instructor">
+                      <td>{{ins.firstname}}</td>
+                      <td>{{ins.lastname}}</td>
+                      <td>{{ins.address}}</td>
+                      <td>{{ins.email}}</td>
+                      
+                      
+                      <td>
+                          <a class="action-btn" >
+                            <i class="material-icons" (click)="onEdit(ins)">edit</i>
+                          </a>
+                          <a class="action-btn">
+                            <i class="material-icons" (click)="onDelete(ins._id,InstructorForm)">delete</i>
+                          </a>
+                        </td>
+                    </tr>
+                  </table>
+                  
+                </div>
+  
+          </div>                             
+      </div>            
+  </div>
+  

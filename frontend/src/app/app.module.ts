@@ -17,8 +17,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule} from '@angular/material';
+import {MatListModule} from '@angular/material/list';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import {
   MatButtonModule,
@@ -71,6 +74,10 @@ import { InstructorComponent } from './user/instructor/instructor.component';
 import { InsNavBarComponent } from './user/instructor/component/ins-nav-bar/ins-nav-bar.component';
 import { InsHistoryComponent } from './user/instructor/component/ins-history/ins-history.component';
 import { InsAssignDetailsComponent } from './user/instructor/component/ins-assign-details/ins-assign-details.component';
+import { CheffComponent } from './user/cheff/cheff.component';
+import { InsNotificationComponent } from './user/instructor/component/ins-notification/ins-notification.component';
+import { ProfileComponent } from './user/customer/profile/profile.component';
+import { SidebarComponent } from './user/customer/reservation/components/sidebar/sidebar.component';
 //import {InstructorFilterPipe } from './user/instructor/component/ins-history/ins_history_filter.pipe';
 
 
@@ -112,6 +119,10 @@ import { InsAssignDetailsComponent } from './user/instructor/component/ins-assig
     InsNavBarComponent,
     InsHistoryComponent,
     InsAssignDetailsComponent,
+    CheffComponent,
+    InsNotificationComponent,
+    ProfileComponent,
+    SidebarComponent,
     
   ],
   imports: [
@@ -139,6 +150,7 @@ import { InsAssignDetailsComponent } from './user/instructor/component/ins-assig
     MatRadioModule,
     MatListModule,
     MatCardModule,
+    NgxPaginationModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

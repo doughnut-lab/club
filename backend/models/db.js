@@ -12,3 +12,13 @@ mongoose.connect(process.env.MONGODB_URI, (err)=> {
 require('./customer');
 require('./user');
 require('./ins_history');
+require('./instructor');
+require('./cashier');
+require('./cheff');
+require('./notification');
+require('./booking');
+require('./gallery');
+require('./table');
+require('./billiardtable');
+require('./hall');
+require('./swimmingpool');

@@ -1,58 +1,59 @@
 .main {
-    margin-left: 150px; /* Same width as the sidebar + left position in px */
-    
-    margin-top: 60px;
-  }
-  .column {
-    float: left;
-    width: 50%;
-    padding: 10px;
-  }
+  margin-left: 250px; /* Same width as the sidebar + left position in px */
   
-  /* Clear floats after image containers */
-  .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-  .example-card {
-    width: 300px;
-    height:200px;
-    font-family: "Comic Sans MS", Comic Sans, cursive;
+  margin-top: 60px;
+}
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
 
-    
-  }
-  .mat-card-title {
-    font-family: "Comic Sans MS", Comic Sans, cursive;
-  }
-   
-  .button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 4px 8px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    margin: 4px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    cursor: pointer;
-  }
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.example-card {
+  width: 250px;
+  height:200px;
+  font-family: "Comic Sans MS", Comic Sans, cursive;
+  margin-top:20px; 
+
   
-  .mat-button {
-    background-color: white;
-    color: black;
-    border: 2px solid #555555;
-    
-  }
+}
+.mat-card-title {
+  font-family: "Comic Sans MS", Comic Sans, cursive;
+}
+ 
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 4px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.mat-button {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
   
-  .mat-button:hover {
-    background-color: #555555;
-    color: white;
-  }
-  .column1 {
-    float: left;
-    
-  }
+}
+
+.mat-button:hover {
+  background-color: #555555;
+  color: white;
+}
+.column1 {
+  float: left;
+  
+}

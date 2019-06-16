@@ -8,6 +8,7 @@ module.exports.register = (req, res, next) => {
     user.username = req.body.username;
     user.email = req.body.email;
     user.password = req.body.password;
+    user.type = req.body.type;
     user.save((err, doc) => {
         if (!err)
             res.send(doc);
@@ -25,7 +26,9 @@ module.exports.register = (req, res, next) => {
 
 module.exports.authenticate = (req, res, next) => {
     // call for passport authentication
-    passport.authenticate('local', (err, user, info) => {
+    //var type="instructor";
+     var type=req.body.type;
+    passport.authenticate('local',(err, user, info) => {
         // error from passport middleware
         if (err) return res.status(404).json(err);
         // registered user

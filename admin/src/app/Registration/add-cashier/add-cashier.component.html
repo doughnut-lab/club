@@ -1,0 +1,109 @@
+<div class="page-container">
+    
+    <!-- import slider component -->
+      <app-sidebar></app-sidebar>
+  
+      <!-- PAGE CONTENT -->
+      <div class="page-content">
+          
+          <!-- import nav bar component -->
+          <app-navbar></app-navbar>
+                    
+          <!-- import breadcrumb component -->
+          <app-breadcrumb></app-breadcrumb>
+    
+          <div class="page-content-wrap">              
+              <div class="container">
+                  <form #CashierForm="ngForm">
+                      <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="UserProfileService.selectCashier._id">
+                    <div class="row">
+                      <div class="col-25">
+                        <label for="fname">First Name</label>
+                      </div>
+                      <div class="col-75">
+                          <input type="text" name="firstname" #firstname="ngModel" [(ngModel)]="UserProfileService.selectCashier.firstname" placeholder="firstname" 
+                          required [ngClass]="{'invalid-textbox' :CashierForm.submitted && !firstname.valid }">
+                          <div *ngIf="CashierForm.submitted && !firstname.valid">
+                            <label class="validation-message">This field is required.</label>
+                          </div><br>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-25">
+                        <label for="lname">Last Name</label>
+                      </div>
+                      <div class="col-75">
+                          <input type="text" name="lastname" #lastname="ngModel" [(ngModel)]="UserProfileService.selectCashier.lastname" placeholder="lastname" 
+                          required [ngClass]="{'invalid-textbox' :CashierForm.submitted && !lastname.valid }">
+                          <div *ngIf="CashierForm.submitted && !lastname.valid">
+                            <label class="validation-message">This field is required.</label>
+                          </div><br>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                          <label for="lname">Address</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="address" #address="ngModel" [(ngModel)]="UserProfileService.selectCashier.address" placeholder="address" 
+                            required [ngClass]="{'invalid-textbox' :CashierForm.submitted && !address.valid }">
+                          <div *ngIf="CashierForm.submitted && !address.valid">
+                            <label class="validation-message">This field is required.</label>
+                          </div><br>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-25">
+                            <label for="lname">Email</label>
+                          </div>
+                          <div class="col-75">
+                              <input type="text" name="email" #email="ngModel" [(ngModel)]="UserProfileService.selectCashier.email" placeholder="email" 
+                              required [ngClass]="{'invalid-textbox' :CashierForm.submitted && !email.valid }">
+                          <div *ngIf="CashierForm.submitted && !email.valid">
+                            <label class="validation-message">This field is required.</label>
+                          </div><br>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <input type="submit" value="Submit" (click)="onSubmit(CashierForm)">
+                          <input type="submit" value="Update" (click)="onUpdate(CashierForm)">
+                        </div>
+                      </form>
+                      <br><br>
+                      <table id="customers">
+                        <thead>
+                          <tr>
+                            <th>FirstName</th>
+                             <th>LastName</th>
+                             <th>Address</th>
+                             <th>Email</th>
+                             
+                             
+                             <th></th>
+                          </tr>
+                        </thead>
+                        <tr *ngFor="let ins of UserProfileService.cashier">
+                          <td>{{ins.firstname}}</td>
+                          <td>{{ins.lastname}}</td>
+                          <td>{{ins.address}}</td>
+                          <td>{{ins.email}}</td>
+                          
+                          
+                          <td>
+                              <a class="action-btn" >
+                                <i class="material-icons" (click)="onEdit(ins)">edit</i>
+                              </a>
+                              <a class="action-btn">
+                                <i class="material-icons" (click)="onDelete(ins._id,CashierForm)">delete</i>
+                              </a>
+                            </td>
+                        </tr>
+                      </table>
+                      
+                    </div>
+      
+              </div>                             
+          </div>            
+      </div>
+      
+
