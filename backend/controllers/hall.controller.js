@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Hall = mongoose.model('Hall');
 var ObjectId =require('mongoose').Types.ObjectId;
-const passport = require('passport');
 const _ = require('lodash');
 mongoose.connect('mongodb://localhost/mongoose');
 
@@ -31,11 +30,11 @@ module.exports.update_hall = (req, res, next) => {
     if(!ObjectId.isValid(req.params.id))
       return res.status(400).send('No record with given id : ${req.params.id}');
     var ins ={
-        hallnumber = req.body.hallnumber,
-        chaircount = req.body.chaircount,
-        gustcount = req.body.gustcount,
-        description = req.body.description,
-        state = req.body.state
+        hallnumber : req.body.hallnumber,
+        chaircount : req.body.chaircount,
+        gustcount : req.body.gustcount,
+        description : req.body.description,
+        state : req.body.state
     };
     Hall.findByIdAndUpdate(req.params.id, { $set: ins},{ new: true},(err,doc) => {
         if(!err) { res.send(doc); }

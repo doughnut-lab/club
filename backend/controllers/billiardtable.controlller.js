@@ -28,8 +28,8 @@ module.exports.update_billiardtable = (req, res, next) => {
     if(!ObjectId.isValid(req.params.id))
       return res.status(400).send('No record with given id : ${req.params.id}');
     var ins ={
-        tablenumber = req.body.tablenumber,
-        state = req.body.state
+        tablenumber : req.body.tablenumber,
+        state : req.body.state
     };
     Billiardtable.findByIdAndUpdate(req.params.id, { $set: ins},{ new: true},(err,doc) => {
         if(!err) { res.send(doc); }

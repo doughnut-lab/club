@@ -32,12 +32,12 @@ module.exports.update_table = (req, res, next) => {
     if(!ObjectId.isValid(req.params.id))
       return res.status(400).send('No record with given id : ${req.params.id}');
     var ins ={
-        tablenumber = req.body.tablenumber,
-        chaircount = req.body.chaircount,
-        location = req.body.location,
-        description = req.body.description,
-        state = req.body.state,
-        saltSecret = req.body.saltSecret
+        tablenumber : req.body.tablenumber,
+        chaircount : req.body.chaircount,
+        location : req.body.location,
+        description : req.body.description,
+        state : req.body.state,
+        saltSecret : req.body.saltSecret
     };
     Table.findByIdAndUpdate(req.params.id, { $set: ins},{ new: true},(err,doc) => {
         if(!err) { res.send(doc); }
@@ -65,15 +65,13 @@ module.exports.view_tables = (req, res, next) => {
 }
 
 
-// module.exports.view_tables = (req, res, next) => {
-//     console.log("start view1");
-//     Table.find((err, docs) => {
-//         if(!err) {
-//             console.log("start view");
-//             res.send(docs); 
-//         }
-//         else {
-//             console.log('Error in Retriving User :');
-//         }
-//     });
-// }
+//view Table by id
+module.exports.view_table_id = (req, res, next) => {
+    if(!ObjectId.isValid(req.params.id))
+    return res.status(400).send('No record with given id : ${req.params.id}');
+
+    Table.findById(req.params.id,(err, docs) => {
+        if(!err) {res.send(docs); }
+        else {console.log('Error in Retriving Table :' + JSON.stringify(err, undefined, 2));}
+    });
+}

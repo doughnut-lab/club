@@ -8,13 +8,26 @@ import { Table } from '../models/table.model';
 })
 export class TableService {
   
-  readonly url='http://localhost:3000/view_tables';
+  readonly url='http://localhost:3000/view_table';
+  readonly url2='http://localhost:3000/view_table/';
+  id;
   constructor(private http: HttpClient) { }
   
   getTableList(){
     return this.http.get(this.url);
   }
 
+  setTableId(id){
+    this.id = id;
+  }
+
+  getTableId(){
+    return this.id;
+  }
+
+  getTableById(){
+    return this.http.get(this.url2+this.id);
+  }
 }
 
 

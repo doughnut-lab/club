@@ -43,23 +43,23 @@ module.exports.update_booking = (req, res, next) => {
     if(!ObjectId.isValid(req.params.id))
       return res.status(400).send('No record with given id : ${req.params.id}');
     var ins ={
-        payment = req.body.payment,
-        reserveddate = req.body.reserveddate,
-        bookingdate = req.body.bookingdate,
-        starttime  = req.body.starttime,
-        endtime = req.body.endtime,
-        contact = req.body.contact,
-        guestcount = req.body.guestcount,
-        duration = req.body.duration,
-        status = req.body.status,
-        tablenumber = req.body.tablenumber,
-        hallnumber = req.body.hallnumber,
-        swimmingpoolnumber = req.body.swimmingpoolnumber,
-        billiardtablenumber = req.body.billiardtablenumber,
-        customername = req.body.customername,
-        foodlist = req.body.foodlist,
-        address = req.body.address,
-        email = req.body.email
+        payment: req.body.payment,
+        reserveddate : req.body.reserveddate,
+        bookingdate : req.body.bookingdate,
+        starttime  : req.body.starttime,
+        endtime : req.body.endtime,
+        contact : req.body.contact,
+        guestcount : req.body.guestcount,
+        duration : req.body.duration,
+        status : req.body.status,
+        tablenumber : req.body.tablenumber,
+        hallnumber : req.body.hallnumber,
+        swimmingpoolnumber : req.body.swimmingpoolnumber,
+        billiardtablenumber : req.body.billiardtablenumber,
+        customername : req.body.customername,
+        foodlist : req.body.foodlist,
+        address : req.body.address,
+        email : req.body.email
     };
     Booking.findByIdAndUpdate(req.params.id, { $set: ins},{ new: true},(err,doc) => {
         if(!err) { res.send(doc); }

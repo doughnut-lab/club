@@ -1,8 +1,8 @@
 export class Table {
     _id:string;
-    imgurl: string;
-    name:string;
+    tablenumber: string;
+    chaircount:string;
     description:string;
-    price: string; 
+    location: string; 
+    state: string;
   }
-  

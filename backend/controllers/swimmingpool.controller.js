@@ -29,8 +29,8 @@ module.exports.update_suwimmingpool = (req, res, next) => {
     if(!ObjectId.isValid(req.params.id))
       return res.status(400).send('No record with given id : ${req.params.id}');
     var ins ={
-        poolnumber = req.body.poolnumber,
-        state = req.body.state
+        poolnumber : req.body.poolnumber,
+        state : req.body.state
     };
     Suwimmingpool.findByIdAndUpdate(req.params.id, { $set: ins},{ new: true},(err,doc) => {
         if(!err) { res.send(doc); }

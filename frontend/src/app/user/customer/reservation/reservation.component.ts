@@ -29,4 +29,8 @@ export class ReservationComponent implements OnInit {
     });
   }
 
+  setid(id){
+    this.tableService.setTableId(id);
+  }
+
 }
