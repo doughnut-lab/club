@@ -2,34 +2,49 @@ const mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
     payment: {
-        type: String,
-        required: 'FirstName can\'t be empty',
+        type: String
     },
     reserveddate: {
         type: Date,
         default: Date.now
     },
     bookingdate: {
-        type: Date,
-        default: Date.now
+        type: Date
+    },
+    starttime: {
+        type: Date
+    },
+    endtime: {
+        type: Date
     },
     contact: String,
     guestcount: Number,
-        duration: Number,
-        status: {
+    duration: Number,
+    status: {
         type: String,
-        default: "active"
+        default: "Not received"
     },
     tablenumber:{
-        type: Number
+        type: Number,
+        default: "-1"
     },
-    guidename: {
-        type: String,
-        default: "Not Assigned"
+    hallnumber:{
+        type: Number,
+        default: "-1"
     },
-    lastname: {
-        type: String,
-        required: 'LastName can\'t be empty',
+    swimmingpoolnumber:{
+        type: Number,
+        default: "-1"
+    },
+    billiardtablenumber:{
+        type: Number,
+        default: "-1"
+    },
+    customername: {
+        type: String
+    },
+    foodlist:{
+        type: String
     },
     address: {
         type: String,
@@ -37,13 +52,7 @@ var userSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: 'Email can\'t be empty',
-        unique: true
-    },
-    password: {
-        type: String,
-        required: 'Password can\'t be empty',
-        minlength : [4,'Password must be atleast 4 character long']
+        required: 'Email can\'t be empty'
     },
     saltSecret: String
 });

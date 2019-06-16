@@ -4,60 +4,37 @@
 
 <div id="colorlib-contact">
         <div class="container">
-                <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-                        {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-                      </button> -->
-                      <mat-horizontal-stepper [linear]="isLinear" #stepper>
-                        <mat-step [stepControl]="firstFormGroup">
-                          <form [formGroup]="firstFormGroup">
-                            <ng-template matStepLabel>Fill out booking details</ng-template>
-                            <!-- import personal details components -->
-                            <app-table-book></app-table-book>
-                            <br/>
-                            <!-- import swimming pool booking components -->
-                            <app-swimming-pool-booking></app-swimming-pool-booking>
-                            <br/>
-                            <!-- import hall booking component -->
-                            <app-hall-book></app-hall-book>
+          <div class="col-md-9">
+        
+              <div class="row">
+                  <div *ngIf="tables.length>0" class="wrap-division">
+                  <mat-grid-list cols="4" rowHeight="100px">
+                      <mat-grid-tile *ngFor="let table of tables | paginate: { itemsPerPage: 12, currentPage: p }" class="col-md-3 col-sm-3">
+                          <a routerLink="/profile">  
+                            <mat-card >
+                              <h3>Table No:</h3>
+                              <h3>{{table.tablenumber}}</h3>
+                            </mat-card>
+                          </a>
+                      </mat-grid-tile>
+                  </mat-grid-list>
+                  </div>
+          </div> 
+          <div class="row">
+              <div class="col-md-12 text-center">
+                  <div class="text-center">
+                      <pagination-controls
+                      class="my-pagination"
+                      (pageChange)="p = $event"
+                      ></pagination-controls>
+                  </div>
+              </div>
+          </div>  
 
-                            <div>
-                              <button mat-button matStepperNext>Next</button>
-                            </div>
-                          </form>
 
-                        </mat-step>
-                        <mat-step [stepControl]="secondFormGroup">
-                          <form [formGroup]="secondFormGroup">
-                            <ng-template matStepLabel>Fill out your details</ng-template>
-                                <div class="row">
-                                    <div class="col-md-8 animate-box">
-                                        <!-- import personal details components -->
-                                        <app-personal-details></app-personal-details>
-                                    </div>
-                                
-                                    <div class="col-md-4 col-md-offset-0 animate-box">
-                                        <!-- import order details components -->
-                                        <app-order-details></app-order-details>
-                                    </div>
-                                
-                                </div>
-                            <div>
-                              <button mat-button matStepperPrevious>Back</button>
-                              <button mat-button matStepperNext>Next</button>
-                            </div>
-                          </form>
-                        </mat-step>
-                        <mat-step>
-                          <ng-template matStepLabel>Done</ng-template>
-                          <!-- You are now done. -->
-                          <div>
-                              <!-- import complete order component -->
-                            <app-complete-order></app-complete-order>
-                            <button mat-button matStepperPrevious>Back</button>
-                            <button mat-button (click)="stepper.reset()">Reset</button>
-                          </div>
-                        </mat-step>
-                      </mat-horizontal-stepper>
+          </div>
+
+          <app-sidebar></app-sidebar>
         </div>
 </div>
     

@@ -17,6 +17,7 @@ import { InsHistoryComponent } from './user/instructor/component/ins-history/ins
 import { InsAssignDetailsComponent } from './user/instructor/component/ins-assign-details/ins-assign-details.component';
 
 import { InsNotificationComponent } from './user/instructor/component/ins-notification/ins-notification.component';
+import { ProfileComponent } from './user/customer/profile/profile.component';
 
 
 export const appRoutes: Routes = [
@@ -68,9 +69,11 @@ export const appRoutes: Routes = [
     {
         path: 'table-booking', component: TableBookingComponent
     },
-    
     {
         path: 'instructor/notification', component: InsNotificationComponent
+    },
+    {
+        path: 'profile', component: ProfileComponent
     },
     {
         path: '', redirectTo: '/login', pathMatch: 'full'

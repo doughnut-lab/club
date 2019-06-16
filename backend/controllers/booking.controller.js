@@ -1,34 +1,31 @@
 const mongoose = require('mongoose');
-const User = mongoose.model('Cashier');
 const Booking = mongoose.model('Booking');
-const User1 = mongoose.model('User');
-const Notification = mongoose.model('Notification');
 var ObjectId =require('mongoose').Types.ObjectId;
-const passport = require('passport');
 const _ = require('lodash');
-const pass="123456"
-const type="cashier"
 mongoose.connect('mongodb://localhost/mongoose');
 
-
-
+//add new booking
 module.exports.register = (req, res, next) => {
     var booking = new Booking();
     booking.payment = req.body.payment;
     booking.reserveddate = req.body.reserveddate;
     booking.bookingdate = req.body.bookingdate;
-    booking.closedate = req.body.closedate;
+    booking.starttime  = req.body.starttime;
+    booking.endtime = req.body.endtime;
     booking.contact = req.body.contact;
-    
     booking.guestcount = req.body.guestcount;
     booking.duration = req.body.duration;
     booking.status = req.body.status;
-    booking.lastname = req.body.lastname;
+    booking.tablenumber = req.body.tablenumber;
+    booking.hallnumber = req.body.hallnumber;
+    booking.swimmingpoolnumber = req.body.swimmingpoolnumber;
+    booking.billiardtablenumber = req.body.billiardtablenumber;
+    booking.customername = req.body.customername;
+    booking.foodlist = req.body.foodlist;
     booking.address = req.body.address;
     booking.email = req.body.email;
-    booking.password = req.body.password;
     booking.saltSecret = req.body.saltSecret;
-
+    
     booking.save((err, doc) => {
         if (!err)
             res.send(doc);
@@ -41,35 +38,51 @@ module.exports.register = (req, res, next) => {
     });
 }
 
+//update booking details
 module.exports.update_booking = (req, res, next) => {
     if(!ObjectId.isValid(req.params.id))
       return res.status(400).send('No record with given id : ${req.params.id}');
     var ins ={
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        address: req.body.address,
-        email: req.body.email,
+        payment = req.body.payment,
+        reserveddate = req.body.reserveddate,
+        bookingdate = req.body.bookingdate,
+        starttime  = req.body.starttime,
+        endtime = req.body.endtime,
+        contact = req.body.contact,
+        guestcount = req.body.guestcount,
+        duration = req.body.duration,
+        status = req.body.status,
+        tablenumber = req.body.tablenumber,
+        hallnumber = req.body.hallnumber,
+        swimmingpoolnumber = req.body.swimmingpoolnumber,
+        billiardtablenumber = req.body.billiardtablenumber,
+        customername = req.body.customername,
+        foodlist = req.body.foodlist,
+        address = req.body.address,
+        email = req.body.email
     };
-    User.findByIdAndUpdate(req.params.id, { $set: ins},{ new: true},(err,doc) => {
+    Booking.findByIdAndUpdate(req.params.id, { $set: ins},{ new: true},(err,doc) => {
         if(!err) { res.send(doc); }
         else {console.log('Error in Cashier Update :' + JSON.stringify(err, undefined, 2)); }
     });
 }
 
-module.exports.delete_cashier = (req, res, next) => {
+//delete booking
+module.exports.delete_booking = (req, res, next) => {
     if(!ObjectId.isValid(req.params.id))
     return res.status(400).send('No record with given id : ${req.params.id}');   
     
-   User.findByIdAndRemove(req.params.id, (err, doc) => {
+   Booking.findByIdAndRemove(req.params.id, (err, doc) => {
      if(!err) { res.send(doc); }
      else {console.log('Error in Cashier Delete :' + JSON.stringify(err, undefined, 2)); }
  });
 }
 
-module.exports.view_cashier = (req, res, next) => {
-    User.find((err, docs) => {
+//view booking
+module.exports.view_booking = (req, res, next) => {
+    Booking.find((err, docs) => {
         if(!err) {res.send(docs); }
-        else {console.log('Error in Retriving User :' + JSON.stringify(err, undefined, 2));}
+        else {console.log('Error in Retriving Booking :' + JSON.stringify(err, undefined, 2));}
     });
 }
 

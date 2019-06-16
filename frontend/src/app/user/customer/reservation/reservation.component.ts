@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { TableService } from 'src/app/shared/services/table.service';
+import { Table } from 'src/app/shared/models/table.model';
+// import { SwimmingpoolsService } from 'src/app/shared/services/swimmingpool.service';
+// import { Table } from 'src/app/shared/models/table.model';
+// import { TableService } from 'src/app/shared/services/table.service';
+// import { Table } from 'src/app/shared/models/table.model';
+// import { TableService } from 'src/app/shared/services/table.service';
+// import { Table } from 'src/app/shared/models/table.model';
 
 @Component({
   selector: 'app-reservation',
@@ -8,18 +15,17 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class ReservationComponent implements OnInit {
 
-  isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
+  p = 1;
+  tables:any;
+  halls:any;
+  swimmingpools:any;
+  billiardtables:any;
 
-  constructor( private _formBuilder: FormBuilder ) { }
+  constructor(private tableService: TableService) { }
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+    this.tableService.getTableList().subscribe((res)=> {
+      this.tables= res as Table[];
     });
   }
 

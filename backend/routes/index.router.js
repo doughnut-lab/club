@@ -1,5 +1,24 @@
 const express = require('express');
 const router = express.Router();
+var path = require("path");
+var cors = require('cors');
+
+// var cookieParser = require("cookie-parser");
+// var bodyParser = require("body-parser");
+// var logger = require("morgan");
+// var mongoose = require("mongoose");
+// const passport = require('passport');
+const keys =require('../config/config');
+// const passportSetup =require('./src/config/passport-setup');
+// const cookieSession =require('cookie-session');
+// var express = require('express');
+var app = express();
+
+//setting middleware
+app.use(express.static(__dirname + 'public')); //Serves resources from public folder
+
+
+var server = app.listen(5000);
  
 const ctrlUser =require('../controllers/user.controller');
 const ctrlInstructor=require('../controllers/instructor.controller');
@@ -43,6 +62,7 @@ router.get('/view_instructor_notification/:email',ctrlInstructor.view_instructor
 router.post('/customer_register',ctrlCustomer.customer_register);
 router.post('/booking',ctrlBooking.register);
 router.post('/table',ctrlTable.addtable);
+router.get('/view_tables',ctrlTable.view_tables);
 router.post('/hall',ctrlHall.addhall);
 router.post('/suwimmingpool',ctrlSwimming.addsuwimmingpool);
 router.post('/billiardtable',ctrlBilliard.addbilliardtable);

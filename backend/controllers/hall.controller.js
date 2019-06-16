@@ -5,7 +5,7 @@ const passport = require('passport');
 const _ = require('lodash');
 mongoose.connect('mongodb://localhost/mongoose');
 
-module.exports.addhall = (req, res, next) => {
+module.exports.add_hall = (req, res, next) => {
     var hall = new Hall();
     hall.hallnumber = req.body.hallnumber;
     hall.chaircount = req.body.chaircount;
@@ -26,8 +26,38 @@ module.exports.addhall = (req, res, next) => {
     });
 }
 
+//update Hall details
+module.exports.update_hall = (req, res, next) => {
+    if(!ObjectId.isValid(req.params.id))
+      return res.status(400).send('No record with given id : ${req.params.id}');
+    var ins ={
+        hallnumber = req.body.hallnumber,
+        chaircount = req.body.chaircount,
+        gustcount = req.body.gustcount,
+        description = req.body.description,
+        state = req.body.state
+    };
+    Hall.findByIdAndUpdate(req.params.id, { $set: ins},{ new: true},(err,doc) => {
+        if(!err) { res.send(doc); }
+        else {console.log('Error in Cashier Update :' + JSON.stringify(err, undefined, 2)); }
+    });
+}
 
+//delete Hall
+module.exports.delete_hall = (req, res, next) => {
+    if(!ObjectId.isValid(req.params.id))
+    return res.status(400).send('No record with given id : ${req.params.id}');   
+    
+   Hall.findByIdAndRemove(req.params.id, (err, doc) => {
+     if(!err) { res.send(doc); }
+     else {console.log('Error in Cashier Delete :' + JSON.stringify(err, undefined, 2)); }
+ });
+}
 
-
-
-
+//view Hall
+module.exports.view_hall = (req, res, next) => {
+    Hall.find((err, docs) => {
+        if(!err) {res.send(docs); }
+        else {console.log('Error in Retriving Hall :' + JSON.stringify(err, undefined, 2));}
+    });
+}

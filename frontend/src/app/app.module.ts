@@ -77,6 +77,7 @@ import { InsAssignDetailsComponent } from './user/instructor/component/ins-assig
 import { CheffComponent } from './user/cheff/cheff.component';
 import { InsNotificationComponent } from './user/instructor/component/ins-notification/ins-notification.component';
 import { ProfileComponent } from './user/customer/profile/profile.component';
+import { SidebarComponent } from './user/customer/reservation/components/sidebar/sidebar.component';
 //import {InstructorFilterPipe } from './user/instructor/component/ins-history/ins_history_filter.pipe';
 
 
@@ -121,6 +122,7 @@ import { ProfileComponent } from './user/customer/profile/profile.component';
     CheffComponent,
     InsNotificationComponent,
     ProfileComponent,
+    SidebarComponent,
     
   ],
   imports: [
