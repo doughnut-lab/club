@@ -30,6 +30,7 @@ const ctrlTable=require('../controllers/table.controller');
 const ctrlHall=require('../controllers/hall.controller');
 const ctrlSwimming=require('../controllers/swimmingpool.controller');
 const ctrlBilliard=require('../controllers/billiardtable.controlller');
+const ctrlFoodOrder =require('../controllers/foodOrder.controller');
 // const ctrlImage=require('../controllers/iamges.controller');
 
 const jwtHelper = require('../config/jwtHelper');
@@ -99,6 +100,12 @@ router.post('/billiardtable',ctrlBilliard.add_billiardtable);
 router.get('/view_billiardtable',ctrlBilliard.view_billiardtable);
 router.put('/update_billiardtable/:id',ctrlBilliard.update_billiardtable);
 router.delete('/delete_billiardtable/:id',ctrlBilliard.delete_billiardtable);
+
+//foodorder
+router.post('/add_foodorder',ctrlFoodOrder.add_orderFood);
+router.get('/view_foodOrder',ctrlFoodOrder.view_foodOrder);
+router.put('/update_foodOrder/:id',ctrlFoodOrder.update_foodOrder);
+router.delete('/delete_foodOrderByCheff/:id',ctrlFoodOrder.delete_foodOrderByCheff);
 
 
 module.exports = router;

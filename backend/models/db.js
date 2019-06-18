@@ -22,3 +22,4 @@ require('./table');
 require('./billiardtable');
 require('./hall');
 require('./swimmingpool');
+require('./foodOrder');
