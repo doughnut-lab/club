@@ -37,6 +37,7 @@ import {
   MatSidenavModule,
   MatStepperModule,
   MatRadioModule,
+  MatTooltipModule,
 
 } from '@angular/material';
 import { CashierComponent } from './user/cashier/cashier.component';
@@ -150,6 +151,7 @@ import { SidebarComponent } from './user/customer/reservation/components/sidebar
     MatRadioModule,
     MatListModule,
     MatCardModule,
+    MatTooltipModule,
     NgxPaginationModule,
     RouterModule.forRoot(appRoutes)
   ],

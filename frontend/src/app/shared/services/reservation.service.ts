@@ -1,36 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { Gallery } from '../models/gallery.model';
 
 @Injectable({
   providedIn: 'root'
 })
+export class ReservationService {
 
-export class GalleryService {
-  
-  readonly baseURL='http://localhost:3000/view_gallery';
+  category:String;
   constructor(private http: HttpClient) { }
-  
-  getFoodList(){
-    return this.http.get(this.baseURL);
+
+  setSelectedCategory(category){
+    this.category=category;
   }
 
-
-
-  findfood(email:string){
-
-  }
-
-  getgallery(){
-
+  getSelectedCategory(){
+    return this.category;
   }
 }
-
-
-
-
-
-
-
-

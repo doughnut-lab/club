@@ -4,14 +4,20 @@
         <h3 class="sidebar-heading">Find your booking</h3>
         <form method="post" class="colorlib-form">
                 <div class="row">
-                 <div class="col-md-12">
-                   <div class="form-group">
-                    <label for="date">Where:</label>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="guests">Guest</label>
                     <div class="form-field">
-                      <input type="text" id="location" class="form-control" placeholder="Search Location">
+                      <i class="icon icon-arrow-down3"></i>
+                      <select name="people" id="people" class="form-control" [(ngModel)]="category" (change)="setCategory()">
+                        <option value="Table">Table</option>
+                        <option value="Hall">Hall</option>
+                        <option value="Swimming Pool">Swimming Pool</option>
+                        <option value="Billiard Table">Billiard Table</option>
+                      </select>
                     </div>
                   </div>
-                 </div>
+                </div>
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="date">Check-in:</label>

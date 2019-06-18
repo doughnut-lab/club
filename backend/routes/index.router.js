@@ -12,13 +12,7 @@ const keys =require('../config/config');
 // const passportSetup =require('./src/config/passport-setup');
 // const cookieSession =require('cookie-session');
 // var express = require('express');
-var app = express();
 
-//setting middleware
-app.use(express.static(__dirname + 'public')); //Serves resources from public folder
-
-
-var server = app.listen(5000);
  
 const ctrlUser =require('../controllers/user.controller');
 const ctrlInstructor=require('../controllers/instructor.controller');
@@ -30,7 +24,7 @@ const ctrlTable=require('../controllers/table.controller');
 const ctrlHall=require('../controllers/hall.controller');
 const ctrlSwimming=require('../controllers/swimmingpool.controller');
 const ctrlBilliard=require('../controllers/billiardtable.controlller');
-// const ctrlImage=require('../controllers/iamges.controller');
+const ctrlGallery=require('../controllers/gallery.controller');
 
 const jwtHelper = require('../config/jwtHelper');
  
@@ -89,16 +83,22 @@ router.put('/update_hall/:id',ctrlHall.update_hall);
 router.delete('/delete_hall/:id',ctrlHall.delete_hall);
 
 //summingpool
-router.post('/suwimmingpool',ctrlSwimming.add_suwimmingpool);
-router.get('/view_suwimmingpool',ctrlSwimming.view_suwimmingpool);
-router.put('/update_suwimmingpool/:id',ctrlSwimming.update_suwimmingpool);
-router.delete('/delete_suwimmingpool/:id',ctrlSwimming.delete_suwimmingpool);
+router.post('/swimmingpool',ctrlSwimming.add_suwimmingpool);
+router.get('/view_swimmingpool',ctrlSwimming.view_suwimmingpool);
+router.put('/update_swimmingpool/:id',ctrlSwimming.update_suwimmingpool);
+router.delete('/delete_swimmingpool/:id',ctrlSwimming.delete_suwimmingpool);
 
 //billiardtable
 router.post('/billiardtable',ctrlBilliard.add_billiardtable);
 router.get('/view_billiardtable',ctrlBilliard.view_billiardtable);
 router.put('/update_billiardtable/:id',ctrlBilliard.update_billiardtable);
 router.delete('/delete_billiardtable/:id',ctrlBilliard.delete_billiardtable);
+
+//gallery
+router.post('/gallery',ctrlGallery.add_gallery);
+router.get('/view_gallery',ctrlGallery.view_gallerys);
+router.put('/update_gallery/:id',ctrlGallery.update_gallery);
+router.delete('/delete_gallery/:id',ctrlGallery.delete_gallery);
 
 
 module.exports = router;
