@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReservationService } from '../../../../../shared/services/reservation.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  category;
+  constructor(private reservationservice:ReservationService) { }
 
   ngOnInit() {
+  }
+
+  setCategory(){
+    console.log(this.category);
+    this.reservationservice.setSelectedCategory(this.category);
   }
 
 }
