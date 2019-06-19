@@ -2,7 +2,7 @@
 var express = require("express");
 var FileController = require("../controllers/fileController");
 var router = express.Router();
-var GalleryController = require("../controllers/galleryController");
+var GalleryController = require("../controllers/gallery.controller");
 var ObjectId =require('mongoose').Types.ObjectId;
 var galleryController = new GalleryController();
 var fileController = new FileController();
@@ -57,17 +57,7 @@ router.post("/deletefile/:name", function(req, res, next) {
   });
 });
 
-//delete
-// router.post("/delete/:name", function(req, res, next) {
-//   console.log(req.params.name)
-//   galleryController.delete(req.params.name,res,(err, gallery) => {
-//       if (err) {
-//         return next(err);
-//       } else {
-//         res.json(gallery);  
-//       }
-//   });
-// });
+
 
 //update
 router.put('/update/:id', (req, res) => {
@@ -83,10 +73,7 @@ router.put('/update/:id', (req, res) => {
         res.json(gallery);  
       }
   });
-  //  Driver.findByIdAndUpdate(req.params.id, { $set: gal},{ new: true},(err,doc) => {
-  //      if(!err) { res.send(doc); }
-  //      else {console.log('Error in Driver Update :' + JSON.stringify(err, undefined, 2)); }
-  //  });
+
 });
  
 

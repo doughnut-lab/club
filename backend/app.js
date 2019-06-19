@@ -12,6 +12,13 @@ const passport = require('passport');
 //const uri = "mongodb+srv://user-1:<ucscprj_3>@somiru-restaurant-cluster-pkdq6.mongodb.net/test?retryWrites=true"
 var usercontroller = require('./controllers/user.controller');
 var app = express();
+
+
+
+app.use(express.static('public'));
+
+
+
  
 // middleware
 app.use(bodyParser.json());

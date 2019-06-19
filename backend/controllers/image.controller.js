@@ -4,11 +4,12 @@ var FileController = require("../controllers/file.controller");
 var router = express.Router();
 // var AuthGuideController = require("../controllers/authGuideController");
 
+
 // var authGuideController = new AuthGuideController();
 var fileController = new FileController();
 
 // route for upload guideImage
-router.post("/uploadimage", fileController.coverUpload.single("file"), function(
+router.post("/uploadimage", fileController.upload.single("file"), function(
   req,
   res,
   next
