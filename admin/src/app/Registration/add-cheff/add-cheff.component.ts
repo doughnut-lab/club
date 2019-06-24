@@ -3,7 +3,7 @@ import { CheffService } from '../../shared/services/cheff.service';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
 import { Cheff } from '../../shared/models/cheff.model';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-add-cheff',
   templateUrl: './add-cheff.component.html',
@@ -12,7 +12,7 @@ import { Cheff } from '../../shared/models/cheff.model';
 })
 export class AddCheffComponent implements OnInit {
 
-  constructor(public UserProfileService:CheffService) { }
+  constructor(public UserProfileService:CheffService,public tosatr :ToastrService) { }
   serverErrorMessages: string;
   ngOnInit() {
     this.resetForm();
@@ -42,22 +42,23 @@ export class AddCheffComponent implements OnInit {
           res => {
             this.refreshCheffList();
             this.resetForm(form);
-            alert('sccess');
+            this.tosatr.success('Saved successfully','Somiru');
           },
           err => {
             if (err.status === 422) {
               this.serverErrorMessages = err.error.join('<br/>');
-              alert(this.serverErrorMessages);
+              this.tosatr.warning(this.serverErrorMessages,'Somiru');
             }
             else
-              //this.serverErrorMessages = 'Something went wrong.';
-              alert('error');
+              this.serverErrorMessages = err.error.message;
+              this.tosatr.warning(this.serverErrorMessages,'Somiru');
           }
         );
-        alert('success');
+        // alert('success');
       },
       err=>{
-        alert('error');
+        this.serverErrorMessages = err.error.message;
+        this.tosatr.warning(this.serverErrorMessages,'Somiru');
       }
     )
     
@@ -73,7 +74,7 @@ export class AddCheffComponent implements OnInit {
       this.UserProfileService.deleteCheff(_id).subscribe((res) => {
         this.refreshCheffList()
         this.resetForm(form);
-       //form.reset();
+        this.tosatr.success('Delete successfully','Somiru');
       });
       
     }
@@ -91,7 +92,7 @@ export class AddCheffComponent implements OnInit {
         
         this.refreshCheffList();
         this.resetForm(form);
-        alert("sucess");
+        this.tosatr.success('Update successfully','Somiru');
       },
       err => {
         if (err.status === 422) {

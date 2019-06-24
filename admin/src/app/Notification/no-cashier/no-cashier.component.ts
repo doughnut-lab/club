@@ -3,6 +3,7 @@ import { NotificationService } from '../../shared/services/notification.service'
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
 import { Notification } from '../../shared/models/notification.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-no-cashier',
@@ -12,8 +13,8 @@ import { Notification } from '../../shared/models/notification.model';
 })
 export class NoCashierComponent implements OnInit {
 
-  constructor(public UserProfileService:NotificationService) { }
-
+  constructor(public UserProfileService:NotificationService,public tosatr :ToastrService) { }
+  serverErrorMessages: string;
   ngOnInit() {
     this.resetForm();
   }
@@ -33,10 +34,11 @@ export class NoCashierComponent implements OnInit {
       res=>{
       //  this.refreshNotificationList();
             this.resetForm(form);
-            alert('sccess');
+            this.tosatr.success('Message sent Successfully','Somiru');
       },
       err=>{
-        alert('error');
+        this.serverErrorMessages = err.error.message;
+        this.tosatr.warning(this.serverErrorMessages,'Somiru');
       }
     );
   }
