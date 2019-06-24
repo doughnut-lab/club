@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Hall = mongoose.model('Hall');
 var ObjectId =require('mongoose').Types.ObjectId;
 const _ = require('lodash');
-mongoose.connect('mongodb://localhost/mongoose');
+// mongoose.connect('mongodb://localhost/mongoose');
 
 module.exports.add_hall = (req, res, next) => {
     var hall = new Hall();
@@ -56,6 +56,17 @@ module.exports.delete_hall = (req, res, next) => {
 //view Hall
 module.exports.view_hall = (req, res, next) => {
     Hall.find((err, docs) => {
+        if(!err) {res.send(docs); }
+        else {console.log('Error in Retriving Hall :' + JSON.stringify(err, undefined, 2));}
+    });
+}
+
+//view Hall by id
+module.exports.view_hall_id = (req, res, next) => {
+    if(!ObjectId.isValid(req.params.id))
+    return res.status(400).send('No record with given id : ${req.params.id}');
+
+    Hall.findById(req.params.id,(err, docs) => {
         if(!err) {res.send(docs); }
         else {console.log('Error in Retriving Hall :' + JSON.stringify(err, undefined, 2));}
     });

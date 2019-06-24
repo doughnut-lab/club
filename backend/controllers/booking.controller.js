@@ -2,25 +2,23 @@ const mongoose = require('mongoose');
 const Booking = mongoose.model('Booking');
 var ObjectId =require('mongoose').Types.ObjectId;
 const _ = require('lodash');
-mongoose.connect('mongodb://localhost/mongoose');
+// mongoose.connect('mongodb://localhost/mongoose');
 
 //add new booking
 module.exports.register = (req, res, next) => {
     var booking = new Booking();
-    booking.payment = req.body.payment;
+    booking.amount = req.body.amount;
     booking.reserveddate = req.body.reserveddate;
     booking.bookingdate = req.body.bookingdate;
     booking.starttime  = req.body.starttime;
     booking.endtime = req.body.endtime;
-    booking.contact = req.body.contact;
-    booking.guestcount = req.body.guestcount;
-    booking.duration = req.body.duration;
     booking.status = req.body.status;
     booking.tablenumber = req.body.tablenumber;
     booking.hallnumber = req.body.hallnumber;
     booking.swimmingpoolnumber = req.body.swimmingpoolnumber;
     booking.billiardtablenumber = req.body.billiardtablenumber;
     booking.customername = req.body.customername;
+    booking.contact = req.body.contact;
     booking.foodlist = req.body.foodlist;
     booking.address = req.body.address;
     booking.email = req.body.email;
@@ -43,20 +41,18 @@ module.exports.update_booking = (req, res, next) => {
     if(!ObjectId.isValid(req.params.id))
       return res.status(400).send('No record with given id : ${req.params.id}');
     var ins ={
-        payment: req.body.payment,
+        amount: req.body.amount,
         reserveddate : req.body.reserveddate,
         bookingdate : req.body.bookingdate,
         starttime  : req.body.starttime,
         endtime : req.body.endtime,
-        contact : req.body.contact,
-        guestcount : req.body.guestcount,
-        duration : req.body.duration,
         status : req.body.status,
         tablenumber : req.body.tablenumber,
         hallnumber : req.body.hallnumber,
         swimmingpoolnumber : req.body.swimmingpoolnumber,
         billiardtablenumber : req.body.billiardtablenumber,
         customername : req.body.customername,
+        contact : req.body.contact,
         foodlist : req.body.foodlist,
         address : req.body.address,
         email : req.body.email

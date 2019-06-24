@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
-    payment: {
+    amount: {
         type: String
     },
     reserveddate: {
@@ -17,12 +17,9 @@ var userSchema = new mongoose.Schema({
     endtime: {
         type: Date
     },
-    contact: String,
-    guestcount: Number,
-    duration: Number,
     status: {
         type: String,
-        default: "Not received"
+        default: "Not paid"
     },
     tablenumber:{
         type: Number,
@@ -43,6 +40,7 @@ var userSchema = new mongoose.Schema({
     customername: {
         type: String
     },
+    contact: String,
     foodlist:{
         type: String
     },

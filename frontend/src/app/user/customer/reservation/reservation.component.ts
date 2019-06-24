@@ -15,6 +15,7 @@ import { ReservationService } from 'src/app/shared/services/reservation.service'
   templateUrl: './reservation.component.html',
   styleUrls: ['./reservation.component.css']
 })
+
 export class ReservationComponent implements OnInit {
 
   p = 1;
@@ -28,6 +29,7 @@ export class ReservationComponent implements OnInit {
   urlswimmingpool="http://localhost:3000/images/swimpool/";
   urlhall="http://localhost:3000/images/hall/";
   urlbilliardtable="http://localhost:3000/images/billiardtable/";
+
   constructor(private tableService: TableService,
               private reservationservice:ReservationService,
               private hallService:HallService,
@@ -39,12 +41,15 @@ export class ReservationComponent implements OnInit {
     this.tableService.getTableList().subscribe((res)=> {
       this.tables= res as Table[];
     });
+
     this.hallService.getHallList().subscribe((res)=> {
       this.halls= res as Hall[];
     });
+
     this.swimmingpoolservice.getSwimmingpoolList().subscribe((res)=> {
       this.swimmingpools= res as Swimmingpool[];
     });
+
     this.billiardtableservice.getBilliardtableList().subscribe((res)=> {
       this.billiardtables= res as Billiardtable[];
     });
@@ -54,6 +59,20 @@ export class ReservationComponent implements OnInit {
     this.tableService.setTableId(id);
   }
 
-  
+  sethallid(id){
+    console.log(id);
+    this.hallService.setHallId(id);
+  }
 
+  setswimmingpoolid(id){
+    this.swimmingpoolservice.setSwimmingpoolId(id);
+  }
+
+  setbilliardid(id){
+    this.billiardtableservice.setbilliardid(id);
+  }
+
+  setreservationType(){
+    this.reservationservice.setSelectedCategory(this.category);
+  }
 }

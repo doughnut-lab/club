@@ -2,18 +2,9 @@ const express = require('express');
 const router = express.Router();
 var path = require("path");
 var cors = require('cors');
-
-// var cookieParser = require("cookie-parser");
-// var bodyParser = require("body-parser");
-// var logger = require("morgan");
-// var mongoose = require("mongoose");
-// const passport = require('passport');
 const keys =require('../config/config');
-// const passportSetup =require('./src/config/passport-setup');
-// const cookieSession =require('cookie-session');
-// var express = require('express');
 
- 
+//controllers
 const ctrlUser =require('../controllers/user.controller');
 const ctrlInstructor=require('../controllers/instructor.controller');
 const ctrlCheff=require('../controllers/cheff.controller');
@@ -79,18 +70,21 @@ router.delete('/delete_table/:id',ctrlTable.delete_table);
 //hall
 router.post('/hall',ctrlHall.add_hall);
 router.get('/view_hall',ctrlHall.view_hall);
+router.get('/view_hall/:id',ctrlHall.view_hall_id);
 router.put('/update_hall/:id',ctrlHall.update_hall);
 router.delete('/delete_hall/:id',ctrlHall.delete_hall);
 
 //summingpool
 router.post('/swimmingpool',ctrlSwimming.add_suwimmingpool);
 router.get('/view_swimmingpool',ctrlSwimming.view_suwimmingpool);
+router.get('/view_swimmingpool/:id',ctrlSwimming.view_suwimmingpool_id);
 router.put('/update_swimmingpool/:id',ctrlSwimming.update_suwimmingpool);
 router.delete('/delete_swimmingpool/:id',ctrlSwimming.delete_suwimmingpool);
 
 //billiardtable
 router.post('/billiardtable',ctrlBilliard.add_billiardtable);
 router.get('/view_billiardtable',ctrlBilliard.view_billiardtable);
+router.get('/view_billiardtable/:id',ctrlBilliard.view_billiardtable_id);
 router.put('/update_billiardtable/:id',ctrlBilliard.update_billiardtable);
 router.delete('/delete_billiardtable/:id',ctrlBilliard.delete_billiardtable);
 
