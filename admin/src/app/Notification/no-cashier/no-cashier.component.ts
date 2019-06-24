@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NotificationService } from '../../shared/notification.service';
+import { NotificationService } from '../../shared/services/notification.service';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
-import { Notification } from '../../shared/notification.model';
+import { Notification } from '../../shared/models/notification.model';
 
 @Component({
   selector: 'app-no-cashier',

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CashierService } from '../../shared/cashier.service';
+import { CashierService } from '../../shared/services/cashier.service';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
-import { Cashier } from '../../shared/cashier.model';
+import { Cashier } from '../../shared/models/cashier.model';
 import { ToastrService } from 'ngx-toastr';
-
 @Component({
   selector: 'app-add-cashier',
   templateUrl: './add-cashier.component.html',

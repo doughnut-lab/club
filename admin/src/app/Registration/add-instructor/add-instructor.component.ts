@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { InstructorService } from '../../shared/instructor.service';
+import { InstructorService } from '../../shared/services/instructor.service';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
-import { Instructor } from '../../shared/instructor.model';
+import { Instructor } from '../../shared/models/instructor.model';
 import { ToastrService } from 'ngx-toastr';
-
 @Component({
   selector: 'app-add-instructor',
   templateUrl: './add-instructor.component.html',
