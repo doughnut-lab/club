@@ -33,6 +33,8 @@ import { NoCheffComponent } from './Notification/no-cheff/no-cheff.component';
 import { NoCashierComponent } from './Notification/no-cashier/no-cashier.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 // import { MatFileUploadModule } from 'angular-material-fileupload';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
     MatButtonModule,
     MatCheckboxModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
