@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HistoryService } from '../../../../shared/history.service';
+import { HistoryService } from '../../../../shared/services/history.service';
 //import { UserService } from '../../../../shared/user.service';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
-import { History } from '../../../../shared/history.model';
+import { History } from '../../../../shared/models/history.model';
 //import { LoginComponent } from '../../../../login/login.component'
 
 @Component({
