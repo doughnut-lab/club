@@ -12,10 +12,9 @@ import { LoginComponent } from './login/login.component';
 import { PagesComponent } from './pages/pages.component';
 import { ImageComponent } from './pages/image/image.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { ComponentsComponent } from './pages/components/components.component';
-import { SidebarComponent } from './pages/components/sidebar/sidebar.component';
-import { NavbarComponent } from './pages/components/navbar/navbar.component';
-import { BreadcrumbComponent } from './pages/components/breadcrumb/breadcrumb.component';
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { BreadcrumbComponent } from './shared/components/breadcrumb/breadcrumb.component';
 
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -41,7 +40,6 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
     PagesComponent,
     ImageComponent,
     DashboardComponent,
-    ComponentsComponent,
     SidebarComponent,
     NavbarComponent,
     BreadcrumbComponent,

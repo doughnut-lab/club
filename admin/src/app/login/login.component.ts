@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from "@angular/router";
-import { UserService } from '../shared/user.service';
-import { HistoryService } from '../shared/history.service';
+import { UserService } from '../shared/services/user.service';
+import { HistoryService } from '../shared/services/history.service';
 import { ToastrService } from 'ngx-toastr';
 
 

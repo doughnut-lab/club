@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CheffService } from '../../shared/cheff.service';
+import { CheffService } from '../../shared/services/cheff.service';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
-import { Cheff } from '../../shared/cheff.model';
+import { Cheff } from '../../shared/models/cheff.model';
 
 @Component({
   selector: 'app-add-cheff',

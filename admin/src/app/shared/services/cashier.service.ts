@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from '../../environments/environment';
-import { Cashier } from './cashier.model';
+import { environment } from '../../../environments/environment';
+import { Cashier } from '../models/cashier.model';
 
 @Injectable({
   providedIn: 'root'
