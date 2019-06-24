@@ -10,6 +10,10 @@ export class DashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
+  // ngAfterViewInit(){
+  //   require('src/assets/js/plugins/morris/morris.min.js');
+  // }
 
 }
