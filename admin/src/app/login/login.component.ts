@@ -47,11 +47,11 @@ export class LoginComponent implements OnInit {
         this.userService.setToken(res['token']);
         if(this.getType() =="admin")
         {
-        
         this.router.navigateByUrl('/dashboard');
-        
         this.tosatr.success('Login sucsessfully','Admin');
-        //alert('sucess');
+        }
+        else{
+          this.tosatr.error('Invalid user','Admin');
         }
     },
       err => {
