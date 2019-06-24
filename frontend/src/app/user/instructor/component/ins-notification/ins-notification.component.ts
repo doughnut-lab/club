@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NotificationService } from '../../../../shared/notification.service';
-import { Notification } from '../../../../shared/notification.model';
-import { HistoryService } from '../../../../shared/history.service';
+import { NotificationService } from '../../../../shared/services/notification.service';
+import { Notification } from '../../../../shared/models/notification.model';
+import { HistoryService } from '../../../../shared/services/history.service';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
