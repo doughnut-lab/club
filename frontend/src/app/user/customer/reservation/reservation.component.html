@@ -15,7 +15,11 @@
                             <mat-card class="example-card">
                                 <mat-card-header>
                                     <mat-card-title>Table no:{{table.tablenumber}} </mat-card-title>
+                                    <mat-card-content *ngIf="table.state!='Not received'">
+                                      <p>Table will available on :{{table.state}} hours</p>
+                                    </mat-card-content>
                                   </mat-card-header>
+
                                   <img mat-card-image class="example-header-image" [src]="urltable+table.tablenumber+'.jpg'" alt="Photo of a Shiba Inu">
                                   <mat-card-subtitle>Location : {{table.location}}</mat-card-subtitle>
                                   <mat-card-subtitle>Chair count : {{table.chaircount}}</mat-card-subtitle>
@@ -39,17 +43,15 @@
                           <a routerLink="/profile">  
                             <mat-card class="example-card">
                                 <mat-card-header>
-                                    <mat-card-title>Table no:{{swimmingpool.poolnumber}} </mat-card-title>
-                                  </mat-card-header>
-                                  <img mat-card-image class="example-header-image" [src]="urlswimmingpool+swimmingpool.poolnumber+'.jpg'" alt="Photo of a Shiba Inu">
-                                  <!-- <mat-card-subtitle>Location : {{table.location}}</mat-card-subtitle>
-                                  <mat-card-subtitle>Chair count : {{table.location}}</mat-card-subtitle>
-                                  <mat-card-content>
-                                    <p>{{table.description}}</p>
-                                  </mat-card-content> -->
-                                  <mat-card-actions>
-                                    <button mat-raised-button color="primary" (click)="setid(swimmingpool._id)">BOOK NOW</button>
-                                  </mat-card-actions>
+                                  <mat-card-title>Summing Pool no:{{swimmingpool.poolnumber}} </mat-card-title>
+                                </mat-card-header>
+                                <img mat-card-image class="example-header-image" [src]="urlswimmingpool+swimmingpool.poolnumber+'.jpg'" alt="Photo of a Shiba Inu">
+                                <mat-card-content *ngIf="swimmingpool.state=='received'">
+                                  <p>Swimming pool will available on :{{swimmingpool.state}} hours</p>
+                                </mat-card-content>
+                                <mat-card-actions>
+                                  <button mat-raised-button color="primary" (click)="setswimmingpoolid(swimmingpool._id)">BOOK NOW</button>
+                                </mat-card-actions>
                             </mat-card>
                           </a>
                       </mat-grid-tile>
@@ -64,7 +66,7 @@
                           <a routerLink="/profile">  
                             <mat-card class="example-card">
                                 <mat-card-header>
-                                    <mat-card-title>Table no:{{hall.hallnumber}} </mat-card-title>
+                                    <mat-card-title>Hall no:{{hall.hallnumber}} </mat-card-title>
                                   </mat-card-header>
                                   <img mat-card-image class="example-header-image" [src]="urlhall+hall.hallnumber+'.jpg'" alt="Photo of a Shiba Inu">
                                   <!-- <mat-card-subtitle>Location : {{hall.chaircount}}</mat-card-subtitle> -->
@@ -74,7 +76,7 @@
                                     <p>{{hall.description}}</p>
                                   </mat-card-content>
                                   <mat-card-actions>
-                                    <button mat-raised-button color="primary" (click)="setid(hall._id)">BOOK NOW</button>
+                                    <button mat-raised-button color="primary" (click)="sethallid(hall._id)">BOOK NOW</button>
                                   </mat-card-actions>
                             </mat-card>
                           </a>
@@ -90,7 +92,7 @@
                           <a routerLink="/profile">  
                             <mat-card class="example-card">
                                 <mat-card-header>
-                                    <mat-card-title>Table no:{{billiardtable.tablenumber}} </mat-card-title>
+                                    <mat-card-title>Billiard Table no:{{billiardtable.tablenumber}} </mat-card-title>
                                   </mat-card-header>
                                   <img mat-card-image class="example-header-image" [src]="urlbilliardtable+billiardtable.tablenumber+'.jpg'" alt="Photo of a Shiba Inu">
                                   <!-- <mat-card-subtitle>Location : {{table.location}}</mat-card-subtitle>
@@ -99,7 +101,7 @@
                                     <p>{{table.description}}</p>
                                   </mat-card-content> -->
                                   <mat-card-actions>
-                                    <button mat-raised-button color="primary" (click)="setid(billiardtable._id)">BOOK NOW</button>
+                                    <button mat-raised-button color="primary" (click)="setbilliardid(billiardtable._id)">BOOK NOW</button>
                                   </mat-card-actions>
                             </mat-card>
                           </a>
@@ -135,8 +137,8 @@
                             <label for="guests">Order Type</label>
                             <div class="form-field">
                               <i class="icon icon-arrow-down3"></i>
-                              <select name="people" id="people" class="form-control" [(ngModel)]="category" >
-                                <option value="Table" selected>Table</option>
+                              <select name="people" id="people" class="form-control" [(ngModel)]="category" (change)="setreservationType()">
+                                <option value="Table" >Table</option>
                                 <option value="Hall">Hall</option>
                                 <option value="Swimming Pool">Swimming Pool</option>
                                 <option value="Billiard Table">Billiard Table</option>

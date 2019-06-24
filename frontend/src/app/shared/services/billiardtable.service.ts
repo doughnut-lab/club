@@ -19,7 +19,7 @@ export class BilliardtableService {
     return this.http.get(this.url);
   }
 
-  setSwimmingpoolId(id){
+  setbilliardid(id){
     this.billiardtable_id = id;
   }
 

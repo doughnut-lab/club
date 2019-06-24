@@ -3,7 +3,7 @@ const Table = mongoose.model('Table');
 var ObjectId =require('mongoose').Types.ObjectId;
 const passport = require('passport');
 const _ = require('lodash');
-mongoose.connect('mongodb://localhost/mongoose');
+// mongoose.connect('mongodb://localhost/mongoose');
 
 //add table
 module.exports.add_table = (req, res, next) => {

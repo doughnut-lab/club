@@ -5,7 +5,8 @@
         "MONGODB_URI": "mongodb+srv://user-1:NVpsvbw99NsKl3lc@cluster0-gb58g.mongodb.net/somiru?retryWrites=true&w=majority",
         "JWT_SECRET": "SECRET#123",
         "JWT_EXP": "2m"
-    },
+    }
+    ,
     "production": {
         "PORT": 80,
         "MONGODB_URI": "mongodb+srv://user-1:NVpsvbw99NsKl3lc@cluster0-gb58g.mongodb.net/test?retryWrites=true&w=majority",
