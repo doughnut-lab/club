@@ -38,7 +38,7 @@ export class NoInstructorComponent implements OnInit {
       },
       err=>{
         this.serverErrorMessages = err.error.message;
-        this.tosatr.warning(this.serverErrorMessages,'Somiru');
+        this.tosatr.warning(this.serverErrorMessages,'Somiru');  
       }
     );
   }
