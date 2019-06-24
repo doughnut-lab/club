@@ -33,10 +33,11 @@ export class NoCheffComponent implements OnInit {
       res=>{
       //  this.refreshNotificationList();
             this.resetForm(form);
-            alert('sccess');
+            this.tosatr.success('Message sent Successfully','Somiru');
       },
       err=>{
-        alert('error');
+        this.serverErrorMessages = err.error.message;
+        this.tosatr.warning(this.serverErrorMessages,'Somiru');
       }
     );
   }
