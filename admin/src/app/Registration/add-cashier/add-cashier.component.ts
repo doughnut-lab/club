@@ -3,6 +3,7 @@ import { CashierService } from '../../shared/cashier.service';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
 import { Cashier } from '../../shared/cashier.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-cashier',
@@ -12,7 +13,7 @@ import { Cashier } from '../../shared/cashier.model';
 })
 export class AddCashierComponent implements OnInit {
 
-  constructor(public UserProfileService:CashierService) { }
+  constructor(public UserProfileService:CashierService,public tosatr :ToastrService) { }
   serverErrorMessages: string;
   ngOnInit() {
     this.refreshCashierList();
@@ -42,22 +43,23 @@ export class AddCashierComponent implements OnInit {
           res => {
             this.refreshCashierList();
             this.resetForm(form);
-            alert('sccess');
+            this.tosatr.success('Saved successfully','Somiru');
           },
           err => {
             if (err.status === 422) {
               this.serverErrorMessages = err.error.join('<br/>');
-              alert(this.serverErrorMessages);
+              this.tosatr.warning(this.serverErrorMessages,'Somiru');
             }
             else
-              //this.serverErrorMessages = 'Something went wrong.';
-              alert('error');
+            this.serverErrorMessages = err.error.message;
+            this.tosatr.warning(this.serverErrorMessages,'Somiru');
           }
         );
-        alert('success');
+        // alert('success');
       },
       err=>{
-        alert('error');
+        this.serverErrorMessages = err.error.message;
+        this.tosatr.warning(this.serverErrorMessages,'Somiru');
       }
     )
     
@@ -73,7 +75,7 @@ export class AddCashierComponent implements OnInit {
       this.UserProfileService.deleteCashier(_id).subscribe((res) => {
         this.refreshCashierList()
         this.resetForm(form);
-       //form.reset();
+        this.tosatr.success('Delete successfully','Somiru');
       });
       
     }
@@ -91,7 +93,7 @@ export class AddCashierComponent implements OnInit {
         
         this.refreshCashierList();
         this.resetForm(form);
-        alert("sucess");
+        this.tosatr.success('Update successfully','Somiru');
       },
       err => {
         if (err.status === 422) {
