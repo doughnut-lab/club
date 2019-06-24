@@ -1,27 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { CashierService } from '../../shared/services/cashier.service';
+import { InstructorService } from '../../../shared/services/instructor.service';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
-import { Cashier } from '../../shared/models/cashier.model';
+import { Instructor } from '../../../shared/models/instructor.model';
 
 @Component({
-  selector: 'app-add-cashier',
-  templateUrl: './add-cashier.component.html',
-  styleUrls: ['./add-cashier.component.css'],
-  providers:[CashierService]
+  selector: 'app-add-instructor',
+  templateUrl: './add-instructor.component.html',
+  styleUrls: ['./add-instructor.component.css'],
+  providers:[InstructorService]
 })
-export class AddCashierComponent implements OnInit {
+export class AddInstructorComponent implements OnInit {
 
-  constructor(public UserProfileService:CashierService) { }
+  constructor(public UserProfileService:InstructorService) { }
   serverErrorMessages: string;
   ngOnInit() {
-    this.refreshCashierList();
+    this.refreshInstructorList();
     this.resetForm();
   }
+
   resetForm(form?: NgForm) {
     if(form)
     form.resetForm();
-    this.UserProfileService.selectCashier = {
+    this.UserProfileService.selectInstructor = {
       _id:"",
       firstname :"",
       lastname : "",
@@ -36,11 +37,11 @@ export class AddCashierComponent implements OnInit {
   }
 
   onSubmit(form : NgForm){
-    this.UserProfileService.userCashier(form.value).subscribe(
+    this.UserProfileService.userInstructor(form.value).subscribe(
       res=>{
-        this.UserProfileService.userpostCashier(form.value).subscribe(
+        this.UserProfileService.userpostInstructor(form.value).subscribe(
           res => {
-            this.refreshCashierList();
+            this.refreshInstructorList();
             this.resetForm(form);
             alert('sccess');
           },
@@ -60,36 +61,35 @@ export class AddCashierComponent implements OnInit {
         alert('error');
       }
     )
-    
-  }
-  onEdit(ins : Cashier)
-  { this.UserProfileService.selectCashier=ins;
+    }
+  
+  onEdit(ins : Instructor)
+  { this.UserProfileService.selectInstructor=ins;
 
   }
   onDelete(_id: string,form: NgForm) {
     
     if (confirm('Are you sure to delete this record ?') == true) {
       
-      this.UserProfileService.deleteCashier(_id).subscribe((res) => {
-        this.refreshCashierList()
+      this.UserProfileService.deleteInstructor(_id).subscribe((res) => {
+        this.refreshInstructorList();
         this.resetForm(form);
        //form.reset();
       });
       
     }
   }
-  refreshCashierList()
+  refreshInstructorList()
   {
-    this.UserProfileService.getCashierList().subscribe((res)=> {
-      this.UserProfileService.cashier= res as Cashier[];
+    this.UserProfileService.getInstrutorList().subscribe((res)=> {
+      this.UserProfileService.instructor= res as Instructor[];
     });
   }
-
   onUpdate(form : NgForm){
-    this.UserProfileService.putCashier(form.value).subscribe(
+    this.UserProfileService.putInstructor(form.value).subscribe(
       res => {
         
-        this.refreshCashierList();
+        this.refreshInstructorList();
         this.resetForm(form);
         alert("sucess");
       },
@@ -103,4 +103,5 @@ export class AddCashierComponent implements OnInit {
     );
 
   }
+  
 }

@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { CheffService } from '../../shared/services/cheff.service';
+import { CashierService } from '../../../shared/services/cashier.service';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
-import { Cheff } from '../../shared/models/cheff.model';
+import { Cashier } from '../../../shared/models/cashier.model';
 
 @Component({
-  selector: 'app-add-cheff',
-  templateUrl: './add-cheff.component.html',
-  styleUrls: ['./add-cheff.component.css'],
-  providers:[CheffService]
+  selector: 'app-add-cashier',
+  templateUrl: './add-cashier.component.html',
+  styleUrls: ['./add-cashier.component.css'],
+  providers:[CashierService]
 })
-export class AddCheffComponent implements OnInit {
+export class AddCashierComponent implements OnInit {
 
-  constructor(public UserProfileService:CheffService) { }
+  constructor(public UserProfileService:CashierService) { }
   serverErrorMessages: string;
   ngOnInit() {
+    this.refreshCashierList();
     this.resetForm();
-    this.refreshCheffList();
   }
   resetForm(form?: NgForm) {
     if(form)
     form.resetForm();
-    this.UserProfileService.selectCheff = {
+    this.UserProfileService.selectCashier = {
       _id:"",
       firstname :"",
       lastname : "",
@@ -36,11 +36,11 @@ export class AddCheffComponent implements OnInit {
   }
 
   onSubmit(form : NgForm){
-    this.UserProfileService.userCheff(form.value).subscribe(
+    this.UserProfileService.userCashier(form.value).subscribe(
       res=>{
-        this.UserProfileService.userpostCheff(form.value).subscribe(
+        this.UserProfileService.userpostCashier(form.value).subscribe(
           res => {
-            this.refreshCheffList();
+            this.refreshCashierList();
             this.resetForm(form);
             alert('sccess');
           },
@@ -62,34 +62,34 @@ export class AddCheffComponent implements OnInit {
     )
     
   }
-  onEdit(ins : Cheff)
-  { this.UserProfileService.selectCheff=ins;
+  onEdit(ins : Cashier)
+  { this.UserProfileService.selectCashier=ins;
 
   }
   onDelete(_id: string,form: NgForm) {
     
     if (confirm('Are you sure to delete this record ?') == true) {
       
-      this.UserProfileService.deleteCheff(_id).subscribe((res) => {
-        this.refreshCheffList()
+      this.UserProfileService.deleteCashier(_id).subscribe((res) => {
+        this.refreshCashierList()
         this.resetForm(form);
        //form.reset();
       });
       
     }
   }
-  refreshCheffList()
+  refreshCashierList()
   {
-    this.UserProfileService.getCheffList().subscribe((res)=> {
-      this.UserProfileService.ceff= res as Cheff[];
+    this.UserProfileService.getCashierList().subscribe((res)=> {
+      this.UserProfileService.cashier= res as Cashier[];
     });
   }
 
   onUpdate(form : NgForm){
-    this.UserProfileService.putCheff(form.value).subscribe(
+    this.UserProfileService.putCashier(form.value).subscribe(
       res => {
         
-        this.refreshCheffList();
+        this.refreshCashierList();
         this.resetForm(form);
         alert("sucess");
       },
@@ -104,5 +104,3 @@ export class AddCheffComponent implements OnInit {
 
   }
 }
-
-

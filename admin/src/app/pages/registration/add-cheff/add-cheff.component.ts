@@ -1,28 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { InstructorService } from '../../shared/services/instructor.service';
+import { CheffService } from '../../../shared/services/cheff.service';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
-import { Instructor } from '../../shared/models/instructor.model';
+import { Cheff } from '../../../shared/models/cheff.model';
 
 @Component({
-  selector: 'app-add-instructor',
-  templateUrl: './add-instructor.component.html',
-  styleUrls: ['./add-instructor.component.css'],
-  providers:[InstructorService]
+  selector: 'app-add-cheff',
+  templateUrl: './add-cheff.component.html',
+  styleUrls: ['./add-cheff.component.css'],
+  providers:[CheffService]
 })
-export class AddInstructorComponent implements OnInit {
+export class AddCheffComponent implements OnInit {
 
-  constructor(public UserProfileService:InstructorService) { }
+  constructor(public UserProfileService:CheffService) { }
   serverErrorMessages: string;
   ngOnInit() {
-    this.refreshInstructorList();
     this.resetForm();
+    this.refreshCheffList();
   }
-
   resetForm(form?: NgForm) {
     if(form)
     form.resetForm();
-    this.UserProfileService.selectInstructor = {
+    this.UserProfileService.selectCheff = {
       _id:"",
       firstname :"",
       lastname : "",
@@ -37,11 +36,11 @@ export class AddInstructorComponent implements OnInit {
   }
 
   onSubmit(form : NgForm){
-    this.UserProfileService.userInstructor(form.value).subscribe(
+    this.UserProfileService.userCheff(form.value).subscribe(
       res=>{
-        this.UserProfileService.userpostInstructor(form.value).subscribe(
+        this.UserProfileService.userpostCheff(form.value).subscribe(
           res => {
-            this.refreshInstructorList();
+            this.refreshCheffList();
             this.resetForm(form);
             alert('sccess');
           },
@@ -61,35 +60,36 @@ export class AddInstructorComponent implements OnInit {
         alert('error');
       }
     )
-    }
-  
-  onEdit(ins : Instructor)
-  { this.UserProfileService.selectInstructor=ins;
+    
+  }
+  onEdit(ins : Cheff)
+  { this.UserProfileService.selectCheff=ins;
 
   }
   onDelete(_id: string,form: NgForm) {
     
     if (confirm('Are you sure to delete this record ?') == true) {
       
-      this.UserProfileService.deleteInstructor(_id).subscribe((res) => {
-        this.refreshInstructorList();
+      this.UserProfileService.deleteCheff(_id).subscribe((res) => {
+        this.refreshCheffList()
         this.resetForm(form);
        //form.reset();
       });
       
     }
   }
-  refreshInstructorList()
+  refreshCheffList()
   {
-    this.UserProfileService.getInstrutorList().subscribe((res)=> {
-      this.UserProfileService.instructor= res as Instructor[];
+    this.UserProfileService.getCheffList().subscribe((res)=> {
+      this.UserProfileService.ceff= res as Cheff[];
     });
   }
+
   onUpdate(form : NgForm){
-    this.UserProfileService.putInstructor(form.value).subscribe(
+    this.UserProfileService.putCheff(form.value).subscribe(
       res => {
         
-        this.refreshInstructorList();
+        this.refreshCheffList();
         this.resetForm(form);
         alert("sucess");
       },
@@ -103,5 +103,6 @@ export class AddInstructorComponent implements OnInit {
     );
 
   }
-  
 }
+
+
