@@ -13,6 +13,8 @@ export class HistoryService {
   
   readonly baseURL='http://localhost:3000/view_person_history';
   readonly baseURL1='http://localhost:3000/view_history';
+  readonly baseURL2='http://localhost:3000/accept';
+  readonly baseURL3='http://localhost:3000/cancel';
   constructor(private http: HttpClient) { }
 
   setEmail(email:string){
@@ -33,6 +35,12 @@ export class HistoryService {
   console.log(instructor);
   return this.http.get(this.baseURL + `/${instructor}`);
   
+}
+getaccept(ins: History){
+  return this.http.post(this.baseURL2,ins);
+}
+getcancel(ins: History){
+  return this.http.post(this.baseURL3,ins);
 }
 
 

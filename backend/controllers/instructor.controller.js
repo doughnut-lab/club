@@ -8,12 +8,15 @@ const passport = require('passport');
 const _ = require('lodash');
 const pass="1234"
 const type="instructor"
+var nodemailer = require('nodemailer');
 
 module.exports.enter_history = (req, res, next) => {
     var user = new User();
     user.customer_name = req.body.customer_name;
+    user.customer_email = req.body.customer_email;
     user.tel = req.body.tel;
     user.instructor = req.body.instructor;
+    user.instructor_name = req.body.instructor_name;
     user.date = req.body.date;
     user.time = req.body.time;
     user.save((err, doc) => {
@@ -137,4 +140,67 @@ module.exports.view_instructor_notification = (req, res, next) => {
         if(!err) {res.send(docs); }
         else {console.log('Error in Retriving User :' + JSON.stringify(err, undefined, 2));}
     });
+}
+
+module.exports.accept = (req, res, next) => {
+    console.log('email send');
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'somiruclub@gmail.com',
+          secure: false, // use SSL
+          port: 25,
+          pass: ''
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+      });
+      var mailOptions = {
+          from: 'somiruclub@gmail.com',
+          to: req.body.customer_email,
+          subject: 'Somiru Club',
+          text: 'Customer Name : '+req.body.customer_name+'\nTel : '+req.body.tel+'\nInstructor : '+req.body.instructor_name+'\nDate : '+req.body.date+ '\nTime : '+req.body.time
+                 
+        };
+      
+      
+      transporter.sendMail(mailOptions, function (error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
+}
+module.exports.cancel = (req, res, next) => {
+    console.log('email sent');
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'somiruclub@gmail.com',
+          secure: false, // use SSL
+          port: 25,
+          pass: ''
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+      });
+      var mailOptions = {
+          from: 'somiruclub@gmail.com',
+          to: 'somiruclub@gmail.com',
+          subject: 'Appointment cancellation',
+          text: 'Instructor :'+req.body.instructor_name+'\nCustomer :'+req.body.customer_name
+                 
+        };
+      
+      
+      transporter.sendMail(mailOptions, function (error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
 }
