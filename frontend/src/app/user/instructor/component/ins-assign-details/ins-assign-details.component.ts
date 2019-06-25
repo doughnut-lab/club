@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HistoryService } from '../../../../shared/history.service'
-import { History } from '../../../../shared/history.model';
-import { NgForm } from '@angular/forms';
+import { HistoryService } from '../../../../shared/services/history.service'
+import { History } from '../../../../shared/models/history.model';
 
 @Component({
   selector: 'app-ins-assign-details',
