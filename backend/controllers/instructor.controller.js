@@ -181,7 +181,7 @@ module.exports.cancel = (req, res, next) => {
           user: 'somiruclub@gmail.com',
           secure: false, // use SSL
           port: 25,
-          pass: 'somiru123'
+          pass: ''
         },
         tls: {
             rejectUnauthorized: false
