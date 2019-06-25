@@ -50,6 +50,8 @@ router.post('/user_ins_register',ctrlInstructor.user_ins_register);
 router.get('/view_person_history/:instructor',ctrlInstructor.view_person_history);
 router.post('/enter_history',ctrlInstructor.enter_history);
 router.get('/view_history',ctrlInstructor.view_history);
+router.post('/accept',ctrlInstructor.accept);
+router.post('/cancel',ctrlInstructor.cancel);
 
 //customer
 router.post('/customer_register',ctrlCustomer.customer_register);
