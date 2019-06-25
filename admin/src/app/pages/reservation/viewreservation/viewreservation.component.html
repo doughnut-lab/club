@@ -1,3 +1,46 @@
-<p>
-  viewreservation works!
-</p>
+<div class="page-container">
+  <!-- import slider component -->
+    <app-sidebar></app-sidebar>
+    <!-- PAGE CONTENT -->
+    <div class="page-content">
+        <!-- import nav bar component -->
+        <app-navbar></app-navbar>
+        <!-- import breadcrumb component -->
+        <app-breadcrumb></app-breadcrumb>
+
+        <div class="page-content-wrap">              
+            <!-- input here -->
+          <div>
+            <table id="customers">
+              <thead>
+                <tr>
+                  <th>Customer Name</th>
+                   <th>Email</th>
+                   <th>Telephone</th>
+                   <th>Details</th>
+                   <th>Payment</th>
+                   <th>State</th>
+                   <th></th>
+                </tr>
+              </thead>
+              <tr *ngFor="let ins of UserProfileService.cashier">
+                <td>{{ins.firstname}}</td>
+                <td>{{ins.lastname}}</td>
+                <td>{{ins.address}}</td>
+                <td>{{ins.email}}</td>
+                
+                
+                <td>
+                    <a class="action-btn" >
+                      <i class="material-icons" (click)="onEdit(ins)">edit</i>
+                    </a>
+                    <a class="action-btn">
+                      <i class="material-icons" (click)="onDelete(ins._id,CashierForm)">delete</i>
+                    </a>
+                  </td>
+              </tr>
+            </table>
+          </div>
+        </div>                             
+    </div>            
+</div>
