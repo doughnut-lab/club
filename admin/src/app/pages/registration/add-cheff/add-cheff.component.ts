@@ -1,28 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { InstructorService } from '../../shared/services/instructor.service';
+import { CheffService } from '../../../shared/services/cheff.service';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
-import { Instructor } from '../../shared/models/instructor.model';
+import { Cheff } from '../../../shared/models/cheff.model';
 import { ToastrService } from 'ngx-toastr';
 @Component({
-  selector: 'app-add-instructor',
-  templateUrl: './add-instructor.component.html',
-  styleUrls: ['./add-instructor.component.css'],
-  providers:[InstructorService]
+  selector: 'app-add-cheff',
+  templateUrl: './add-cheff.component.html',
+  styleUrls: ['./add-cheff.component.css'],
+  providers:[CheffService]
 })
-export class AddInstructorComponent implements OnInit {
+export class AddCheffComponent implements OnInit {
 
-  constructor(public UserProfileService:InstructorService,public tosatr :ToastrService) { }
+  constructor(public UserProfileService:CheffService,public tosatr :ToastrService) { }
   serverErrorMessages: string;
   ngOnInit() {
-    this.refreshInstructorList();
     this.resetForm();
+    this.refreshCheffList();
   }
-
   resetForm(form?: NgForm) {
     if(form)
     form.resetForm();
-    this.UserProfileService.selectInstructor = {
+    this.UserProfileService.selectCheff = {
       _id:"",
       firstname :"",
       lastname : "",
@@ -37,23 +36,22 @@ export class AddInstructorComponent implements OnInit {
   }
 
   onSubmit(form : NgForm){
-    this.UserProfileService.userInstructor(form.value).subscribe(
+    this.UserProfileService.userCheff(form.value).subscribe(
       res=>{
-        this.UserProfileService.userpostInstructor(form.value).subscribe(
+        this.UserProfileService.userpostCheff(form.value).subscribe(
           res => {
-            this.refreshInstructorList();
+            this.refreshCheffList();
             this.resetForm(form);
             this.tosatr.success('Saved successfully','Somiru');
           },
           err => {
             if (err.status === 422) {
               this.serverErrorMessages = err.error.join('<br/>');
-              // this.serverErrorMessages = err.error.message;
               this.tosatr.warning(this.serverErrorMessages,'Somiru');
             }
             else
-            this.serverErrorMessages = err.error.message;
-            this.tosatr.warning(this.serverErrorMessages,'Somiru');
+              this.serverErrorMessages = err.error.message;
+              this.tosatr.warning(this.serverErrorMessages,'Somiru');
           }
         );
         // alert('success');
@@ -63,42 +61,42 @@ export class AddInstructorComponent implements OnInit {
         this.tosatr.warning(this.serverErrorMessages,'Somiru');
       }
     )
-    }
-  
-  onEdit(ins : Instructor)
-  { this.UserProfileService.selectInstructor=ins;
+    
+  }
+  onEdit(ins : Cheff)
+  { this.UserProfileService.selectCheff=ins;
 
   }
   onDelete(_id: string,form: NgForm) {
     
     if (confirm('Are you sure to delete this record ?') == true) {
       
-      this.UserProfileService.deleteInstructor(_id).subscribe((res) => {
-        this.refreshInstructorList();
+      this.UserProfileService.deleteCheff(_id).subscribe((res) => {
+        this.refreshCheffList()
         this.resetForm(form);
         this.tosatr.success('Delete successfully','Somiru');
       });
       
     }
   }
-  refreshInstructorList()
+  refreshCheffList()
   {
-    this.UserProfileService.getInstrutorList().subscribe((res)=> {
-      this.UserProfileService.instructor= res as Instructor[];
+    this.UserProfileService.getCheffList().subscribe((res)=> {
+      this.UserProfileService.ceff= res as Cheff[];
     });
   }
+
   onUpdate(form : NgForm){
-    this.UserProfileService.putInstructor(form.value).subscribe(
+    this.UserProfileService.putCheff(form.value).subscribe(
       res => {
         
-        this.refreshInstructorList();
+        this.refreshCheffList();
         this.resetForm(form);
         this.tosatr.success('Update successfully','Somiru');
       },
       err => {
         if (err.status === 422) {
           this.serverErrorMessages = err.error.join('<br/>');
-          this.tosatr.warning(this.serverErrorMessages,'Somiru');
         }
         else
           this.serverErrorMessages = 'Something went wrong.';
@@ -106,5 +104,6 @@ export class AddInstructorComponent implements OnInit {
     );
 
   }
-  
 }
+
+
