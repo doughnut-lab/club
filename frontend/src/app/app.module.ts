@@ -80,6 +80,7 @@ import { InsNotificationComponent } from './user/instructor/component/ins-notifi
 import { ProfileComponent } from './user/customer/profile/profile.component';
 import { SidebarComponent } from './user/customer/reservation/components/sidebar/sidebar.component';
 import { PaymentComponent } from './user/customer/profile/components/payment/payment.component';
+import { InsNavComponent } from './user/instructor/component/ins-nav/ins-nav.component';
 //import {InstructorFilterPipe } from './user/instructor/component/ins-history/ins_history_filter.pipe';
 
 
@@ -126,6 +127,7 @@ import { PaymentComponent } from './user/customer/profile/components/payment/pay
     ProfileComponent,
     SidebarComponent,
     PaymentComponent,
+    InsNavComponent,
     
   ],
   imports: [

@@ -3,7 +3,7 @@ import { InstructorService } from '../../../shared/services/instructor.service';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
 import { Instructor } from '../../../shared/models/instructor.model';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-add-instructor',
   templateUrl: './add-instructor.component.html',
@@ -12,7 +12,7 @@ import { Instructor } from '../../../shared/models/instructor.model';
 })
 export class AddInstructorComponent implements OnInit {
 
-  constructor(public UserProfileService:InstructorService) { }
+  constructor(public UserProfileService:InstructorService,public tosatr :ToastrService) { }
   serverErrorMessages: string;
   ngOnInit() {
     this.refreshInstructorList();
@@ -43,22 +43,24 @@ export class AddInstructorComponent implements OnInit {
           res => {
             this.refreshInstructorList();
             this.resetForm(form);
-            alert('sccess');
+            this.tosatr.success('Saved successfully','Somiru');
           },
           err => {
             if (err.status === 422) {
               this.serverErrorMessages = err.error.join('<br/>');
-              alert(this.serverErrorMessages);
+              // this.serverErrorMessages = err.error.message;
+              this.tosatr.warning(this.serverErrorMessages,'Somiru');
             }
             else
-              //this.serverErrorMessages = 'Something went wrong.';
-              alert('error');
+            this.serverErrorMessages = err.error.message;
+            this.tosatr.warning(this.serverErrorMessages,'Somiru');
           }
         );
-        alert('success');
+        // alert('success');
       },
       err=>{
-        alert('error');
+        this.serverErrorMessages = err.error.message;
+        this.tosatr.warning(this.serverErrorMessages,'Somiru');
       }
     )
     }
@@ -74,7 +76,7 @@ export class AddInstructorComponent implements OnInit {
       this.UserProfileService.deleteInstructor(_id).subscribe((res) => {
         this.refreshInstructorList();
         this.resetForm(form);
-       //form.reset();
+        this.tosatr.success('Delete successfully','Somiru');
       });
       
     }
@@ -91,11 +93,12 @@ export class AddInstructorComponent implements OnInit {
         
         this.refreshInstructorList();
         this.resetForm(form);
-        alert("sucess");
+        this.tosatr.success('Update successfully','Somiru');
       },
       err => {
         if (err.status === 422) {
           this.serverErrorMessages = err.error.join('<br/>');
+          this.tosatr.warning(this.serverErrorMessages,'Somiru');
         }
         else
           this.serverErrorMessages = 'Something went wrong.';

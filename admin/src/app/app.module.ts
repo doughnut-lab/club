@@ -29,6 +29,8 @@ import { AsigninstructorComponent } from './pages/asigninstructor/asigninstructo
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { SalaryComponent } from './pages/salary/salary.component';
 // import { MatFileUploadModule } from 'angular-material-fileupload';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { SalaryComponent } from './pages/salary/salary.component';
     MatButtonModule,
     MatCheckboxModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
