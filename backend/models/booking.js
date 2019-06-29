@@ -25,17 +25,33 @@ var userSchema = new mongoose.Schema({
         type: Number,
         default: "-1"
     },
+    tableslot:{
+        type: Array,
+        default: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
+    },
     hallnumber:{
         type: Number,
         default: "-1"
+    },
+    hallslot:{
+        type: Array,
+        default: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
     },
     swimmingpoolnumber:{
         type: Number,
         default: "-1"
     },
+    swimmingpoolslot:{
+        type: Array,
+        default: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
+    },
     billiardtablenumber:{
         type: Number,
         default: "-1"
+    },
+    billiardtableslot:{
+        type: Array,
+        default: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
     },
     customername: {
         type: String

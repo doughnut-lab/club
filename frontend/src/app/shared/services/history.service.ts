@@ -11,10 +11,10 @@ export class HistoryService {
   selectHistory: History;
   history: History[];
   
-  readonly baseURL='http://localhost:3000/view_person_history';
-  readonly baseURL1='http://localhost:3000/view_history';
-  readonly baseURL2='http://localhost:3000/accept';
-  readonly baseURL3='http://localhost:3000/cancel';
+  readonly baseURL=environment.appUrl+'/view_person_history';
+  readonly baseURL1=environment.appUrl+'/view_history';
+  readonly baseURL2=environment.appUrl+'/accept';
+  readonly baseURL3=environment.appUrl+'/cancel';
   constructor(private http: HttpClient) { }
 
   setEmail(email:string){

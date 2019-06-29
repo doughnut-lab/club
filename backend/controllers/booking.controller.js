@@ -14,9 +14,13 @@ module.exports.register = (req, res, next) => {
     booking.endtime = req.body.endtime;
     booking.status = req.body.status;
     booking.tablenumber = req.body.tablenumber;
+    booking.tableslot = req.body.tableslot;
     booking.hallnumber = req.body.hallnumber;
+    booking.hallslot = req.body.hallslot;
     booking.swimmingpoolnumber = req.body.swimmingpoolnumber;
+    booking.swimmingpoolslot = req.body.swimmingpoolslot;
     booking.billiardtablenumber = req.body.billiardtablenumber;
+    booking.billiardtableslot = req.body.billiardtableslot;
     booking.customername = req.body.customername;
     booking.contact = req.body.contact;
     booking.foodlist = req.body.foodlist;

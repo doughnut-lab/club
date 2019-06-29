@@ -15,7 +15,7 @@ var userSchema = new mongoose.Schema({
     },
     state: {
         type: String,
-        default: "Not received"
+        default: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
     },
     saltSecret: String
 });
