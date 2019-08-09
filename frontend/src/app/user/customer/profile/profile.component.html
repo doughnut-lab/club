@@ -13,7 +13,7 @@
                 </mat-card-header>
                 <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu">
                 <mat-card-subtitle>Location : {{table.location}}</mat-card-subtitle>
-                <mat-card-subtitle>Chair count : {{table.location}}</mat-card-subtitle>
+                <mat-card-subtitle>Chair count : {{table.chaircount}}</mat-card-subtitle>
                 <mat-card-content>
                   <p>{{table.description}}</p>
                 </mat-card-content>
@@ -57,30 +57,17 @@
             <div class="col-md-7">
                 <form class="example-form" (ngSubmit)="addbooking()" method="POST" action="www">
                   <div class="example-h2">
-                      <mat-checkbox [(ngModel)]="slot1" [ngModelOptions]="{standalone: 1}" id="slot1" name="slot1" class="example-margin" color="warn">09:00-10:00</mat-checkbox>
-                      <mat-checkbox [(ngModel)]="slot2" [ngModelOptions]="{standalone: 1}" id="slot2" name="slot2" class="example-margin" color="warn">10:00-11:00</mat-checkbox>
-                      <mat-checkbox [(ngModel)]="slot3" [ngModelOptions]="{standalone: 1}" id="slot3" name="slot3" class="example-margin" color="warn">11:00-12:00</mat-checkbox>
-                      <mat-checkbox [(ngModel)]="slot4" [ngModelOptions]="{standalone: 1}" id="slot4" name="slot4" class="example-margin" color="warn">12:00-13:00</mat-checkbox>
-                  </div>
-                  <div class="example-h2">
-                      <mat-checkbox [(ngModel)]="slot5" [ngModelOptions]="{standalone: 1}" id="slot5" name="slot5" class="example-margin" color="warn">13:00-14:00</mat-checkbox>
-                      <mat-checkbox [(ngModel)]="slot6" [ngModelOptions]="{standalone: 1}" id="slot6" name="slot6" class="example-margin" color="warn">14:00-15:00</mat-checkbox>
-                      <mat-checkbox [(ngModel)]="slot7" [ngModelOptions]="{standalone: 1}" id="slot7" name="slot7" class="example-margin" color="warn">15:00-16:00</mat-checkbox>
-                      <mat-checkbox [(ngModel)]="slot8" [ngModelOptions]="{standalone: 1}" id="slot8" name="slot8" class="example-margin" color="warn">16:00-17:00</mat-checkbox>
-                  </div>
-                  <div class="example-h2">
-                      <mat-checkbox [(ngModel)]="slot9"  [ngModelOptions]="{standalone: 1}" id="slot9"  name="slot9" class="example-margin" color="warn">17:00-18:00</mat-checkbox>
-                      <mat-checkbox [(ngModel)]="slot10" [ngModelOptions]="{standalone: 1}" id="slot10" name="slot10" class="example-margin" color="warn">18:00-19:00</mat-checkbox>
-                      <mat-checkbox [(ngModel)]="slot11" [ngModelOptions]="{standalone: 1}" id="slot11" name="slot11" class="example-margin" color="warn">19:00-20:00</mat-checkbox>
-                      <mat-checkbox [(ngModel)]="slot12" [ngModelOptions]="{standalone: 1}" id="slot12" name="slot12" class="example-margin" color="warn">20:00-21:00</mat-checkbox>
+                      <mat-checkbox [(ngModel)]="breakfast" id="breakfast" name="breakfast" class="example-margin" color="warn">Breakfast</mat-checkbox>
+                      <mat-checkbox [(ngModel)]="lunch" id="lunch" name="lunch" class="example-margin" color="warn">Lunch</mat-checkbox>
+                      <mat-checkbox [(ngModel)]="dinner" id="dinner" name="dinner" class="example-margin" color="warn">Dinner</mat-checkbox>
                   </div>
                   <mat-divider></mat-divider>
                 
-                  <table class="example-full-width" cellspacing="0"><tr>
+                  <!-- <table class="example-full-width" cellspacing="0"><tr>
                     <td><mat-form-field class="example-full-width">
-                      <input matInput placeholder="Amount" [(ngModel)]="amount" id="Amount" name="amount">
+                      <input matInput placeholder="Amount" [(ngModel)]="amount" id="Amount" name="amount" placeholder="Rs: {{table.price}}" disabled>
                     </mat-form-field></td>
-                  </tr></table>
+                  </tr></table> -->
 
                   <table class="example-full-width" cellspacing="0"><tr>
                     <td><mat-form-field class="example-full-width">
@@ -97,6 +84,12 @@
                     <td><mat-form-field class="example-full-width">
                         <input matInput placeholder="Enter your email" [(ngModel)]="email" id="Email" name="email" required>
                         <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                    </mat-form-field></td>                    
+                  </tr></table>
+
+                  <table class="example-full-width" cellspacing="0"><tr>
+                    <td><mat-form-field class="example-full-width">
+                        <input matInput placeholder="Address" [(ngModel)]="address" id="Address" name="address" required>
                     </mat-form-field></td>                    
                   </tr></table>
 

@@ -8,7 +8,8 @@ import { Hall } from 'src/app/shared/models/hall.model';
 import { BilliardtableService } from 'src/app/shared/services/billiardtable.service';
 import { Billiardtable } from 'src/app/shared/models/billiardtable.model';
 import { ReservationService } from 'src/app/shared/services/reservation.service';
-
+import { environment } from '../../../../environments/environment';
+import { defineBase } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-reservation',
@@ -19,18 +20,22 @@ import { ReservationService } from 'src/app/shared/services/reservation.service'
 export class ReservationComponent implements OnInit {
 
   p = 1;
-  tables:any;
-  halls:any;
-  swimmingpools:any;
-  billiardtables:any;
-  selected:string;
   category;
-  urltable="http://localhost:3000/images/table/";
-  urlswimmingpool="http://localhost:3000/images/swimpool/";
-  urlhall="http://localhost:3000/images/hall/";
-  urlbilliardtable="http://localhost:3000/images/billiardtable/";
 
-  constructor(private tableService: TableService,
+  tables        : any;
+  halls         : any;
+  swimmingpools : any;
+  billiardtables: any;
+  selected      : string;
+  selectdate    : Date;
+
+  urltable          = environment.appUrl+"/images/table/";
+  urlswimmingpool   = environment.appUrl+"/images/swimpool/";
+  urlhall           = environment.appUrl+"/images/hall/";
+  urlbilliardtable  = environment.appUrl+"/images/billiardtable/";
+
+  constructor(
+              private tableService: TableService,
               private reservationservice:ReservationService,
               private hallService:HallService,
               private swimmingpoolservice:SwimmingpoolService,
@@ -74,5 +79,9 @@ export class ReservationComponent implements OnInit {
 
   setreservationType(){
     this.reservationservice.setSelectedCategory(this.category);
+  }
+
+  filterdate(){
+    
   }
 }

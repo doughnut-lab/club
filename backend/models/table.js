@@ -13,9 +13,8 @@ var userSchema = new mongoose.Schema({
     description: {
         type: String
     },
-    state: {
-        type: String,
-        default: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
+    price: {
+        type: String
     },
     saltSecret: String
 });
