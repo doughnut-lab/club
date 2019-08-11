@@ -50,7 +50,8 @@ export class ProfileComponent implements OnInit {
               private reservationservice:ReservationService,
               private hallService:HallService,
               private swimmingpoolservice:SwimmingpoolService,
-              private billiardtableservice:BilliardtableService
+              private billiardtableservice:BilliardtableService,
+              private router: Router
               ) { }
 
   ngOnInit() {
@@ -148,7 +149,7 @@ export class ProfileComponent implements OnInit {
     dinner :this.dinner,
     contact :this.contact,
     foodlist :"",
-    address :"this.address",
+    address :this.address,
     email :this.email
 
       }
@@ -158,6 +159,7 @@ export class ProfileComponent implements OnInit {
         if(result){
           console.log('in result'+ result)
           alert("booking success");
+          this.router.navigateByUrl('/payment');
         }
       },
         (err) => {
