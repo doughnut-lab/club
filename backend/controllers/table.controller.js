@@ -12,7 +12,7 @@ module.exports.add_table = (req, res, next) => {
     table.chaircount = req.body.chaircount;
     table.location = req.body.location;
     table.description = req.body.description;
-    table.state = req.body.state;
+    table.price = req.body.price;
     table.saltSecret = req.body.saltSecret;
 
     table.save((err, doc) => {
@@ -36,7 +36,7 @@ module.exports.update_table = (req, res, next) => {
         chaircount : req.body.chaircount,
         location : req.body.location,
         description : req.body.description,
-        state : req.body.state,
+        price : req.body.price,
         saltSecret : req.body.saltSecret
     };
     Table.findByIdAndUpdate(req.params.id, { $set: ins},{ new: true},(err,doc) => {

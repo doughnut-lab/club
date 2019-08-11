@@ -10,7 +10,7 @@ export class NotificationService {
   selectNotification: Notification;
   notification: Notification[];
 
-  readonly baseURL='http://localhost:3000/view_instructor_notification';
+  readonly baseURL=environment.appUrl+'/view_instructor_notification';
   constructor(private http: HttpClient) { }
 
   getNotificationList(email: string){

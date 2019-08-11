@@ -3,15 +3,79 @@
 
 
 <div id="colorlib-contact">
-        <div class="container">
-          <div class="col-md-9">
-        
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="sidebar-wrap">
+              <div class="side search-wrap animate-box">
+                <h3 class="sidebar-heading">Find your booking</h3>
+                <form method="post" class="colorlib-form">
+                        <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <!-- <label for="guests">Order Type</label> -->
+                            <div class="form-field">
+                              <i class="icon icon-arrow-down3"></i>
+                              <select name="people" id="people" class="form-control" [(ngModel)]="category" (change)="setreservationType()">
+                                <option value="Table" >Table</option>
+                                <option value="Hall">Hall</option>
+                                <option value="Swimming Pool">Swimming Pool</option>
+                                <option value="Billiard Table">Billiard Table</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+      
+                        <!-- <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="guests">Time</label>
+                            <div class="form-field">
+                              <i class="icon icon-arrow-down3"></i>
+                              <select name="time" id="time" class="form-control" [(ngModel)]="timeSlot" >
+                                <option value="Breakfast" >Breakfast</option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Dinner">Dinner</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+      
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="date">Check-in:</label>
+                            <div class="form-field">
+                              <i class="icon icon-calendar2"></i>
+                              <input type="text" id="date" class="form-control date" placeholder="Check-in date">
+                            </div>
+                          </div>
+                        </div> -->
+                        <!-- <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="date">Check-out:</label>
+                            <div class="form-field">
+                              <i class="icon icon-calendar2"></i>
+                              <input type="text" id="date" class="form-control date" placeholder="Check-out date">
+                            </div>
+                          </div>
+                        </div> -->
+                        <!-- <div class="col-md-12">
+                          <input type="submit" name="submit" id="submit" value="Find" class="btn btn-primary btn-block">
+                        </div> -->
+                      </div>
+                    </form>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+  
             <div class="row">
               <div *ngIf="category=='Table'">
                 <div *ngIf="tables.length>0" class="wrap-division">
                   <mat-grid-list cols="2" rows="2" rowHeight="450px">
                       <mat-grid-tile *ngFor="let table of tables | paginate: { itemsPerPage: 4, currentPage: p }" class="col-md-3 col-sm-3">
-                          <a routerLink="/profile">  
+                          <a routerLink="/table-booking">  
                             <mat-card class="example-card">
                                 <mat-card-header>
                                     <mat-card-title>Table no:{{table.tablenumber}} </mat-card-title>
@@ -19,7 +83,7 @@
                                       <p>Table will available on :{{table.state}} hours</p>
                                     </mat-card-content>
                                   </mat-card-header>
-
+      
                                   <img mat-card-image class="example-header-image" [src]="urltable+table.tablenumber+'.jpg'" alt="Photo of a Shiba Inu">
                                   <mat-card-subtitle>Location : {{table.location}}</mat-card-subtitle>
                                   <mat-card-subtitle>Chair count : {{table.chaircount}}</mat-card-subtitle>
@@ -35,12 +99,12 @@
                   </mat-grid-list>
                 </div>
               </div>
-
+      
               <div *ngIf="category=='Swimming Pool'">
                 <div *ngIf="swimmingpools.length>0" class="wrap-division">
                   <mat-grid-list cols="2" rows="2" rowHeight="450px">
                       <mat-grid-tile *ngFor="let swimmingpool of swimmingpools | paginate: { itemsPerPage: 4, currentPage: p }" class="col-md-3 col-sm-3">
-                          <a routerLink="/profile">  
+                          <a routerLink="/swimming-pool-booking">  
                             <mat-card class="example-card">
                                 <mat-card-header>
                                   <mat-card-title>Summing Pool no:{{swimmingpool.poolnumber}} </mat-card-title>
@@ -58,12 +122,12 @@
                   </mat-grid-list>
                 </div>
               </div>
-
+      
               <div *ngIf="category=='Hall'">
                 <div *ngIf="halls.length>0" class="wrap-division">
                   <mat-grid-list cols="2" rows="2" rowHeight="450px">
                       <mat-grid-tile *ngFor="let hall of halls | paginate: { itemsPerPage: 4, currentPage: p }" class="col-md-3 col-sm-3">
-                          <a routerLink="/profile">  
+                          <a routerLink="/hall-booking">  
                             <mat-card class="example-card">
                                 <mat-card-header>
                                     <mat-card-title>Hall no:{{hall.hallnumber}} </mat-card-title>
@@ -84,7 +148,7 @@
                   </mat-grid-list>
                 </div>
               </div>
-
+      
               <div *ngIf="category=='Billiard Table'">
                 <div *ngIf="billiardtables.length>0" class="wrap-division">
                   <mat-grid-list cols="2" rows="2" rowHeight="450px">
@@ -120,62 +184,18 @@
                   </div>
               </div>
           </div>  
-
-
-          </div>
-
-          <!-- <app-sidebar></app-sidebar> -->
-
-          <div class="col-md-3">
-            <div class="sidebar-wrap">
-              <div class="side search-wrap animate-box">
-                <h3 class="sidebar-heading">Find your booking</h3>
-                <form method="post" class="colorlib-form">
-                        <div class="row">
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label for="guests">Order Type</label>
-                            <div class="form-field">
-                              <i class="icon icon-arrow-down3"></i>
-                              <select name="people" id="people" class="form-control" [(ngModel)]="category" (change)="setreservationType()">
-                                <option value="Table" >Table</option>
-                                <option value="Hall">Hall</option>
-                                <option value="Swimming Pool">Swimming Pool</option>
-                                <option value="Billiard Table">Billiard Table</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label for="date">Check-in:</label>
-                            <div class="form-field">
-                              <i class="icon icon-calendar2"></i>
-                              <input type="text" id="date" class="form-control date" placeholder="Check-in date">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label for="date">Check-out:</label>
-                            <div class="form-field">
-                              <i class="icon icon-calendar2"></i>
-                              <input type="text" id="date" class="form-control date" placeholder="Check-out date">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-12">
-                          <input type="submit" name="submit" id="submit" value="Find" class="btn btn-primary btn-block">
-                        </div>
-                      </div>
-                    </form>
-              </div>
-            </div>
-          </div>
-
-
-
+      
+      
         </div>
+    </div>
+
+    
+
+    <!-- <app-sidebar></app-sidebar> -->
+
+    
+
+  </div>
 </div>
     
       

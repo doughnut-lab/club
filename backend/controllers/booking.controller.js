@@ -2,21 +2,29 @@ const mongoose = require('mongoose');
 const Booking = mongoose.model('Booking');
 var ObjectId =require('mongoose').Types.ObjectId;
 const _ = require('lodash');
+
+// Download the Node helper library from twilio.com/docs/node/install
+// These are your accountSid and authToken from https://www.twilio.com/console
+const accountSid = 'AC35b07c0fb85a8dac36b031af16f58a8b';
+const authToken = 'a1d0a803e1c76fe0b13461b0304f388b';
+// const twilio = require('twilio');
+// const client = new twilio(accountSid, authToken);
+const client = require('twilio')(accountSid, authToken);
+
+
+
+
+
 // mongoose.connect('mongodb://localhost/mongoose');
 
 //add new booking
 module.exports.register = (req, res, next) => {
+    console.log("came to register")
     var booking = new Booking();
-    booking.amount = req.body.amount;
-    booking.reserveddate = req.body.reserveddate;
-    booking.bookingdate = req.body.bookingdate;
-    booking.starttime  = req.body.starttime;
-    booking.endtime = req.body.endtime;
-    booking.status = req.body.status;
-    booking.tablenumber = req.body.tablenumber;
-    booking.hallnumber = req.body.hallnumber;
-    booking.swimmingpoolnumber = req.body.swimmingpoolnumber;
-    booking.billiardtablenumber = req.body.billiardtablenumber;
+    
+    booking.breakfast = req.body.breakfast;
+    booking.lunch = req.body.lunch;
+    booking.dinner = req.body.dinner;
     booking.customername = req.body.customername;
     booking.contact = req.body.contact;
     booking.foodlist = req.body.foodlist;
@@ -25,8 +33,15 @@ module.exports.register = (req, res, next) => {
     booking.saltSecret = req.body.saltSecret;
     
     booking.save((err, doc) => {
-        if (!err)
+        if (!err){
+            // client.messages.create({body: 'Hi there!', from: '+14805256961', to: '+94703177445'},
+            // function (err,data) {
+            //     if(err){
+            //         console.log("error : " + err)
+            //     }console.log(data)
+            // })
             res.send(doc);
+        }       
         else{
             if (err.code == 11000)
                 res.status(422).send(['Duplicate Email Adress found.']);
@@ -80,5 +95,10 @@ module.exports.view_booking = (req, res, next) => {
         if(!err) {res.send(docs); }
         else {console.log('Error in Retriving Booking :' + JSON.stringify(err, undefined, 2));}
     });
+}
+
+//filter date
+module.exports.filter_date =(req, res, next) => {
+    Booking.find({reserveddate: req.params.bookingdate})
 }
 

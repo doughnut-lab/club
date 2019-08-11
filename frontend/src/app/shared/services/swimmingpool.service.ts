@@ -3,14 +3,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Swimmingpool } from '../models/swimmingpool.model';
 
+const urlupdate = environment.appUrl+"/update_swimmingpool/";
+const urldelete = environment.appUrl+"/delete_swimmingpool/";
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class SwimmingpoolService {
 
-  readonly url='http://localhost:3000/view_swimmingpool';
-  readonly url2='http://localhost:3000/view_swimmingpool/';
+  readonly url=environment.appUrl+'/view_swimmingpool';
+  readonly url2=environment.appUrl+'/view_swimmingpool/';
   swimmingpool_id;
 
   constructor(private http: HttpClient) { }
@@ -29,6 +32,14 @@ export class SwimmingpoolService {
 
   getSwimmingpoolById(){
     return this.http.get(this.url2+this.swimmingpool_id);
+  }
+
+  updateSwimmingpool(data){
+    return this.http.put(urlupdate+this.swimmingpool_id,data)
+  }
+
+  deleteSwimmingpool(){
+    return this.http.delete(urldelete+this.swimmingpool_id)
   }
   
 }

@@ -9,7 +9,7 @@ import { Gallery } from '../models/gallery.model';
 
 export class GalleryService {
   
-  readonly baseURL='http://localhost:3000/view_gallery';
+  readonly baseURL=environment.appUrl+'/view_gallery';
   constructor(private http: HttpClient) { }
   
   getFoodList(){
