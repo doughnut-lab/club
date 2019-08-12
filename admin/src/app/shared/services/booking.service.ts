@@ -3,21 +3,36 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Booking } from '../models/booking.model';
 
-const urladdbooking = "localhost:3000/booking"; 
-
 @Injectable({
   providedIn: 'root'
 })
+
 export class BookingService {
+
+  urladdbooking = environment.appUrl+"/booking";
+  readonly viewbooking = environment.appUrl+'/view_booking'; 
 
   constructor(private http: HttpClient) { }
 
   addBooking(data){
-    return this.http.post(urladdbooking,data,{
+    return this.http.post(this.urladdbooking,data,{
       observe: 'body',
       withCredentials: true,
       headers: new HttpHeaders().append('Content-Type','application/json')
     })
   }
 
+  getBookingList(){
+    return this.http.get(this.viewbooking);
+  }
+  
 }
+
+
+
+
+
+
+
+
+

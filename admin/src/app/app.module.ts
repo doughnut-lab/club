@@ -32,6 +32,8 @@ import { SalaryComponent } from './pages/salary/salary.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +68,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   exports: [RouterModule],
   providers: [],
