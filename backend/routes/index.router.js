@@ -101,7 +101,7 @@ router.delete('/delete_gallery/:id',ctrlGallery.delete_gallery);
 router.post('/add_foodOrder',ctrlFoodOrder.add_foodOrder);
 router.put('/update_foodOrder/:id',ctrlFoodOrder.update_foodOrder);
 router.get('/view_foodOrder',ctrlFoodOrder.view_foodOrder);
-router.delete('./delete_foodOrderByCheff:id',ctrlFoodOrder.delete_foodOrderByCheff);
+router.delete('./delete_foodOrder/:id',ctrlFoodOrder.delete_foodOrderByCheff);
 
 
 module.exports = router;
