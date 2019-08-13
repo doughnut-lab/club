@@ -8,23 +8,23 @@
 
 
             <div class="row">
-                    <mat-grid-list cols="3" rowHeight="400px">
-                        <mat-grid-tile *ngFor="let gallery of galleries | paginate: { itemsPerPage: 6, currentPage: p }" class="col-md-3 col-sm-3">
-                            <mat-card>
-                                <img
-                                    class="avatar border-gray"
-                                    [src]="url+gallery.imgurl+'.jpg'"
-                                    alt=""
-                                    style="width:350px;height: 200px;"
-                                    matTooltip={{gallery.name}}
-                                />
-                                <mat-card-subtitle>Name : {{gallery.name}}</mat-card-subtitle>
-                                <mat-card-subtitle>Description : {{gallery.description}}</mat-card-subtitle>
-                                <mat-card-subtitle>Price : {{gallery.price}}</mat-card-subtitle>
-                            </mat-card>
+                <mat-grid-list cols="3" rowHeight="400px">
+                    <mat-grid-tile *ngFor="let gallery of galleries | paginate: { itemsPerPage: 6, currentPage: p }" class="col-md-3 col-sm-3">
+                        <mat-card>
+                            <img
+                                class="avatar border-gray"
+                                [src]="url+gallery.imgurl+'.jpg'"
+                                alt=""
+                                style="width:350px;height: 200px;"
+                                matTooltip={{gallery.name}}
+                            />
+                            <mat-card-subtitle>Name : {{gallery.name}}</mat-card-subtitle>
+                            <mat-card-subtitle>Description : {{gallery.description}}</mat-card-subtitle>
+                            <mat-card-subtitle>Price : {{gallery.price}}</mat-card-subtitle>
+                        </mat-card>
 
-                        </mat-grid-tile>
-                    </mat-grid-list>
+                    </mat-grid-tile>
+                </mat-grid-list>
             </div> 
             <div class="row">
                 <div class="col-md-12 text-center">

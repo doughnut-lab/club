@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BookingService } from 'src/app/shared/services/booking.service';
+import { Booking } from 'src/app/shared/models/booking.model';
 
 @Component({
   selector: 'app-viewreservation',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewreservationComponent implements OnInit {
 
-  constructor() { }
+  bookinglist: Booking[];
+  p: number = 1;
+  constructor(
+    private bookingService: BookingService
+  ) { }
 
   ngOnInit() {
+    this.bookingService.getBookingList().subscribe((res)=> {
+      console.log("in function")
+      this.bookinglist= res as Booking[];
+    });
   }
 
 }

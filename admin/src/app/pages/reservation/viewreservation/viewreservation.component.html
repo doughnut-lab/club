@@ -23,13 +23,12 @@
                    <th></th>
                 </tr>
               </thead>
-              <tr *ngFor="let ins of UserProfileService.cashier">
-                <td>{{ins.firstname}}</td>
-                <td>{{ins.lastname}}</td>
-                <td>{{ins.address}}</td>
+              <tr *ngFor="let ins of bookinglist  | paginate: { itemsPerPage: 10, currentPage: p }">
+                <td>{{ins.customername}}</td>
                 <td>{{ins.email}}</td>
-                
-                
+                <td>{{ins.contact}}</td>
+                <td>{{ins.address}}</td>
+                <td>Payment</td>
                 <td>
                     <a class="action-btn" >
                       <i class="material-icons" (click)="onEdit(ins)">edit</i>
@@ -40,6 +39,16 @@
                   </td>
               </tr>
             </table>
+            <div class="row">
+              <div class="col-md-12 text-center">
+                  <div class="text-center">
+                      <pagination-controls
+                      class="my-pagination"
+                      (pageChange)="p = $event"
+                      ></pagination-controls>
+                  </div>
+              </div>
+          </div> 
           </div>
         </div>                             
     </div>            
