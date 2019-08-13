@@ -79,16 +79,16 @@
                             <mat-card class="example-card">
                                 <mat-card-header>
                                     <mat-card-title>Table no:{{table.tablenumber}} </mat-card-title>
-                                    <mat-card-content *ngIf="table.state!='Not received'">
+                                    <!-- <mat-card-content *ngIf="table.state!='Not received'">
                                       <p>Table will available on :{{table.state}} hours</p>
-                                    </mat-card-content>
+                                    </mat-card-content> -->
                                   </mat-card-header>
       
                                   <img mat-card-image class="example-header-image" [src]="urltable+table.tablenumber+'.jpg'" alt="Photo of a Shiba Inu">
                                   <mat-card-subtitle>Location : {{table.location}}</mat-card-subtitle>
                                   <mat-card-subtitle>Chair count : {{table.chaircount}}</mat-card-subtitle>
                                   <mat-card-content>
-                                    <p>{{table.description}}</p>
+                                    <p>Description : {{table.description}}</p>
                                   </mat-card-content>
                                   <mat-card-actions>
                                     <button mat-raised-button color="primary" (click)="setid(table._id)">BOOK NOW</button>

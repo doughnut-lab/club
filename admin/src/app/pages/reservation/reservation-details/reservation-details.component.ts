@@ -1,10 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
-export interface DialogData {
-  animal: string;
-  name: string;
-}
+import { BookingService } from 'src/app/shared/services/booking.service';
+import { Booking } from 'src/app/shared/models/booking.model';
 
 @Component({
   selector: 'app-reservation-details',
@@ -13,14 +9,26 @@ export interface DialogData {
 })
 export class ReservationDetailsComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<ReservationDetailsComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  bookings: Booking;
+  bookingId: String;
+
+  constructor(
+    private bookingService: BookingService,
+  ) { }
 
   ngOnInit() {
+    this.bookingId = this.bookingService.getBookimgId();
+    this.bookingService.findBookingDetails(this.bookingId).subscribe((res)=> {
+      this.bookings= res as Booking;
+    });
   }
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
+
+
 
 }
+
+
+
+
+

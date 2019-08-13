@@ -3,21 +3,67 @@
 
 <div id="colorlib-contact">
   <div class="container">
-    <mat-list>
-      <h3 mat-subheader>Folders</h3>
-      <mat-list-item *ngFor="let folder of folders">
-        <mat-icon mat-list-icon>F</mat-icon>
-        <h4 mat-line>{{folder.name}}</h4>
-        <p mat-line> {{folder.updated | date}} </p>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <h3 mat-subheader>Notes</h3>
-      <mat-list-item *ngFor="let note of notes">
-        <mat-icon mat-list-icon>N</mat-icon>
-        <h4 mat-line>{{note.name}}</h4>
-        <p mat-line> {{note.updated | date}} </p>
-      </mat-list-item>
-    </mat-list>
+    <div class = "col-md-3">
+      <mat-list role="list">
+        <mat-list-item role="listitem">
+            <button mat-raised-button color="primary" style="width: 200px">All</button>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+            <button mat-raised-button color="primary" style="width: 200px">Breakfast</button>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+            <button mat-raised-button color="primary" style="width: 200px">Lunch</button>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+            <button mat-raised-button color="primary" style="width: 200px">Dinner</button>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+            <button mat-raised-button color="primary" style="width: 200px">Beverage</button>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+            <button mat-raised-button color="primary" style="width: 200px">Dessert</button>
+        </mat-list-item>
+      </mat-list>   
+    </div>
+    <div class = "col-md-9">
+        <div class="row">
+            <mat-grid-list cols="3" rowHeight="280px">
+                <mat-grid-tile *ngFor="let gallery of galleries | paginate: { itemsPerPage: 6, currentPage: p }" class="col-md-3 col-sm-3">
+                    <mat-card>
+                        <img
+                            class="avatar border-gray"
+                            [src]="url+gallery.imgurl+'.jpg'"
+                            alt=""
+                            style="width:200px;height: 150px;"
+                            matTooltip={{gallery.name}}
+                        />
+                    
+                        <div class = "col-md-6">
+                          <mat-card-subtitle>{{gallery.name}}</mat-card-subtitle>
+                          <mat-card-subtitle>{{gallery.price}}</mat-card-subtitle>
+                        </div>
+                        <div class = "col-md-4">
+                            <button mat-raised-button color="accent">Add</button>
+                        </div>
+                    </mat-card>
+
+                </mat-grid-tile>
+            </mat-grid-list>
+
+            <div class="row">
+              <div class="col-md-12 text-center">
+                  <div class="text-center">
+                      <pagination-controls
+                      class="my-pagination"
+                      (pageChange)="p = $event"
+                      ></pagination-controls>
+                  </div>
+              </div>
+            </div> 
+
+        </div> 
+        
+    </div>
   </div>
 </div>
 

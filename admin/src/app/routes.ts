@@ -13,6 +13,7 @@ import { NoCashierComponent } from './Notification/no-cashier/no-cashier.compone
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { AddreservationComponent } from './pages/reservation/addreservation/addreservation.component';
 import { ViewreservationComponent } from './pages/reservation/viewreservation/viewreservation.component';
+import { ReservationDetailsComponent } from './pages/reservation/reservation-details/reservation-details.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { AsigninstructorComponent } from './pages/asigninstructor/asigninstructor.component';
 
@@ -50,6 +51,9 @@ export const appRoutes: Routes = [
     },
     {
         path: 'reservation/viewreservation', component: ViewreservationComponent
+    },
+    {
+        path: 'reservation/viewreservation-details', component: ReservationDetailsComponent
     },
     {
         path: 'gallery', component: GalleryComponent

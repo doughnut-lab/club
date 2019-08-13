@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GalleryService } from 'src/app/shared/services/gallery.service';
+import { Gallery } from '../../../shared/models/gallery.model';
 
 export interface Section {
   name: string;
@@ -12,34 +14,16 @@ export interface Section {
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  p=1;
+  galleries: any
+  url="http://localhost:3000/images/gallery/";
+  constructor(private galleryservice: GalleryService) { }
 
   ngOnInit() {
-  }
+    this.galleryservice.getFoodList().subscribe((res)=> {
+      this.galleries= res as Gallery[];
+    });
 
-  folders: Section[] = [
-    {
-      name: 'Photos',
-      updated: new Date('1/1/16'),
-    },
-    {
-      name: 'Recipes',
-      updated: new Date('1/17/16'),
-    },
-    {
-      name: 'Work',
-      updated: new Date('1/28/16'),
-    }
-  ];
-  notes: Section[] = [
-    {
-      name: 'Vacation Itinerary',
-      updated: new Date('2/20/16'),
-    },
-    {
-      name: 'Kitchen Remodel',
-      updated: new Date('1/18/16'),
-    }
-  ];
+  }
 
 }
