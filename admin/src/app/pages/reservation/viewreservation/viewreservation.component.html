@@ -23,7 +23,7 @@
                    <th></th>
                 </tr>
               </thead>
-              <tr *ngFor="let ins of bookinglist  | paginate: { itemsPerPage: 10, currentPage: p }">
+              <tr *ngFor="let ins of bookinglist  | paginate: { itemsPerPage: 12, currentPage: p }">
                 <td>{{ins.customername}}</td>
                 <td>{{ins.email}}</td>
                 <td>{{ins.contact}}</td>
@@ -31,10 +31,10 @@
                 <td>Payment</td>
                 <td>
                     <a class="action-btn" >
-                      <i class="material-icons" (click)="onEdit(ins)">edit</i>
+                      <i class="material-icons" (click)="openDialog()">View</i>
                     </a>
                     <a class="action-btn">
-                      <i class="material-icons" (click)="onDelete(ins._id,CashierForm)">delete</i>
+                      <i class="material-icons" >delete</i>
                     </a>
                   </td>
               </tr>
@@ -48,7 +48,23 @@
                       ></pagination-controls>
                   </div>
               </div>
-          </div> 
+          </div>
+          
+          <!-- <ol>
+            <li>
+              <mat-form-field>
+                <input matInput [(ngModel)]="name" placeholder="What's your name?">
+              </mat-form-field>
+            </li>
+            <li>
+              <button mat-raised-button (click)="openDialog()">Pick one</button>
+            </li>
+            <li *ngIf="animal">
+              You chose: <i>{{animal}}</i>
+            </li>
+          </ol> -->
+
+          
           </div>
         </div>                             
     </div>            

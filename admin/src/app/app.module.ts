@@ -13,7 +13,14 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { BreadcrumbComponent } from './shared/components/breadcrumb/breadcrumb.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+// import { DialogOverviewExampleDialog } from './pages/reservation/viewreservation/viewreservation.component';
+
+import { 
+          MatButtonModule, 
+          MatCheckboxModule,
+          MatDialogModule,
+          MatFormFieldModule
+        } from '@angular/material';
 import { AssignInstructorComponent } from './assign_details/assign-instructor/assign-instructor.component';
 import { AddInstructorComponent } from './pages/registration/add-instructor/add-instructor.component';
 import { AddCheffComponent } from './pages/registration/add-cheff/add-cheff.component';
@@ -32,7 +39,9 @@ import { SalaryComponent } from './pages/salary/salary.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule} from 'ngx-pagination';
+import { ReservationDetailsComponent } from './pages/reservation/reservation-details/reservation-details.component';
+
 
 @NgModule({
   declarations: [
@@ -57,10 +66,13 @@ import {NgxPaginationModule} from 'ngx-pagination';
     ViewreservationComponent,
     AsigninstructorComponent,
     GalleryComponent,
-    SalaryComponent
+    SalaryComponent,
+    ReservationDetailsComponent,
   ],
   imports: [
     BrowserModule,
+    MatDialogModule,
+    MatFormFieldModule,
     NoopAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
@@ -71,9 +83,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     HttpClientModule,
     NgxPaginationModule
   ],
-  exports: [RouterModule],
+  exports: [RouterModule,ReservationDetailsComponent],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
 export class PizzaPartyAppModule { }
