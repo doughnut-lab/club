@@ -1,0 +1,39 @@
+<div class="page-sidebar">
+    <ul class="x-navigation">
+         <li class="xn-logo">
+            <a href="index.html">SOMIRU ADMIN</a>
+            <a href="#" class="x-navigation-control"></a>
+        </li>
+        
+        <li class="xn-title">Navigation</li>
+        <li class="active">
+            <a><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>                        
+        </li>                    
+        <li class="xn-openable">
+            <a><span class="fa fa-user"></span> <span class="xn-text">Registration</span></a>
+            <ul>
+                <!-- <li><a href="/register/customer"><span class="fa fa-user"></span> Customer</a></li> -->
+                <li><a routerLink="/register/instructor" routerLinkActive="active"><span class="fa fa-image"></span> Instructor</a></li>
+                <li><a routerLink="/register/cheff" routerLinkActive="active"><span class="fa fa-user"></span> Cheff</a></li>
+                <li><a routerLink="/register/cashier" routerLinkActive="active"><span class="fa fa-table"></span> Cashier</a></li> 
+            </ul>
+        </li>
+        <li><a href="/asigninstructor"><span class="fa fa-user"></span>Assign Instructor</a></li>
+        <li><a href="reservation/viewreservation"><span class="fa fa-user"></span>Reservation</a></li>
+        <!-- <li class="xn-openable">
+            <a><span class="fa fa-cogs"></span> <span class="xn-text">Reservation</span></a>                        
+            <ul>
+                <li><a href="reservation/viewreservation"><span class="fa fa-heart"></span>View Reservation</a></li>                            
+                <li><a href="reservation/addreservation"><span class="fa fa-cogs"></span>Add Reservation</a></li>
+            </ul>
+        </li>  -->
+        <li><a href="form-layouts-one-column.html"><span class="fa fa-money"></span>Manage Salary</a></li>                   
+        <li class="xn-openable">
+            <a><span class="fa fa-clock-o"></span> <span class="xn-text">Send Notification</span></a>
+            <ul>                            
+                <li><a routerLink="/notification/instructor" routerLinkActive="active"><span class="fa fa-image"></span> Instructor</a></li>
+                <li><a routerLink="/notification/cheff" routerLinkActive="active"><span class="fa fa-user"></span> Cheff</a></li>
+                <li><a routerLink="/notification/cashier" routerLinkActive="active"><span class="fa fa-table"></span> Cashier</a></li>                           
+            </ul>
+        </li>
+       

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HistoryService } from '../../../../shared/history.service'
-import { History } from '../../../../shared/history.model';
+import { HistoryService } from '../../../../shared/services/history.service'
+import { History } from '../../../../shared/models/history.model';
 
 @Component({
   selector: 'app-ins-assign-details',
@@ -27,5 +27,32 @@ AssignList()
       
     });
   }
+Accept(ins: History){
+  this.UserProfileService.getaccept(ins).subscribe(
+    res=>{
+      console.log(ins);
+      alert('sucess');
+    },
+    err=>{
+      alert('error');
+      // this.serverErrorMessages = err.error.message;
+      // this.tosatr.warning(this.serverErrorMessages,'Somiru');
+    }
+  )
 
+}
+Cancel(ins: History){
+  this.UserProfileService.getcancel(ins).subscribe(
+    res=>{
+      console.log(ins);
+      alert('sucess');
+    },
+    err=>{
+      alert('error');
+      // this.serverErrorMessages = err.error.message;
+      // this.tosatr.warning(this.serverErrorMessages,'Somiru');
+    }
+  )
+
+}
 }

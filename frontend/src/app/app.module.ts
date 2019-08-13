@@ -38,6 +38,7 @@ import {
   MatStepperModule,
   MatRadioModule,
   MatTooltipModule,
+  
 
 } from '@angular/material';
 import { CashierComponent } from './user/cashier/cashier.component';
@@ -79,8 +80,13 @@ import { CheffComponent } from './user/cheff/cheff.component';
 import { InsNotificationComponent } from './user/instructor/component/ins-notification/ins-notification.component';
 import { ProfileComponent } from './user/customer/profile/profile.component';
 import { SidebarComponent } from './user/customer/reservation/components/sidebar/sidebar.component';
+<<<<<<< HEAD
 import { CheffSidebarComponent } from './user/cheff/component/cheff-sidebar/cheff-sidebar.component';
 import { CheffFoodOrderComponent } from './user/cashier/cheff-food-order/cheff-food-order.component';
+=======
+import { PaymentComponent } from './user/customer/profile/components/payment/payment.component';
+import { InsNavComponent } from './user/instructor/component/ins-nav/ins-nav.component';
+>>>>>>> 6819d32a49b4f19f01c69c06f0175ab1246d8d1f
 //import {InstructorFilterPipe } from './user/instructor/component/ins-history/ins_history_filter.pipe';
 
 
@@ -126,8 +132,13 @@ import { CheffFoodOrderComponent } from './user/cashier/cheff-food-order/cheff-f
     InsNotificationComponent,
     ProfileComponent,
     SidebarComponent,
+<<<<<<< HEAD
     CheffSidebarComponent,
     CheffFoodOrderComponent,
+=======
+    PaymentComponent,
+    InsNavComponent,
+>>>>>>> 6819d32a49b4f19f01c69c06f0175ab1246d8d1f
     
   ],
   imports: [

@@ -1,50 +1,21 @@
 const mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
-    payment: {
-        type: String
-    },
-    reserveddate: {
-        type: Date,
-        default: Date.now
-    },
-    bookingdate: {
-        type: Date
-    },
-    starttime: {
-        type: Date
-    },
-    endtime: {
-        type: Date
-    },
-    contact: String,
-    guestcount: Number,
-    duration: Number,
-    status: {
-        type: String,
-        default: "Not received"
-    },
-    tablenumber:{
-        type: Number,
-        default: "-1"
-    },
-    hallnumber:{
-        type: Number,
-        default: "-1"
-    },
-    swimmingpoolnumber:{
-        type: Number,
-        default: "-1"
-    },
-    billiardtablenumber:{
-        type: Number,
-        default: "-1"
-    },
     customername: {
         type: String
     },
+    breakfast: {
+        type: Boolean
+    },
+    lunch: {
+        type: Boolean
+    },
+    dinner: {
+        type: Boolean
+    },
+    contact: String,
     foodlist:{
-        type: String
+        type: Array
     },
     address: {
         type: String,

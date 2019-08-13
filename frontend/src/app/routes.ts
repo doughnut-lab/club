@@ -18,7 +18,18 @@ import { InsAssignDetailsComponent } from './user/instructor/component/ins-assig
 
 import { InsNotificationComponent } from './user/instructor/component/ins-notification/ins-notification.component';
 import { ProfileComponent } from './user/customer/profile/profile.component';
+<<<<<<< HEAD
 import { CheffFoodOrderComponent} from './user/cashier/cheff-food-order/cheff-food-order.component'
+=======
+import { PaymentComponent } from './user/customer/profile/components/payment/payment.component';
+
+import { TableBookComponent } from './user/customer/reservation/components/table-book/table-book.component';
+import { SwimmingPoolBookingComponent } from './user/customer/reservation/components/swimming-pool-booking/swimming-pool-booking.component';
+import { HallBookComponent } from './user/customer/reservation/components/hall-book/hall-book.component';
+
+
+
+>>>>>>> 6819d32a49b4f19f01c69c06f0175ab1246d8d1f
 
 export const appRoutes: Routes = [
     {
@@ -67,9 +78,6 @@ export const appRoutes: Routes = [
         path: 'sports', component: SportsComponent
     },
     {
-        path: 'table-booking', component: TableBookingComponent
-    },
-    {
         path: 'instructor/notification', component: InsNotificationComponent
     },
     {
@@ -78,6 +86,18 @@ export const appRoutes: Routes = [
     //food-order from cashier
     {
         path: 'food-order', component: CheffFoodOrderComponent
+    },
+    {
+        path: 'payment', component: PaymentComponent
+    },
+    {
+        path: 'table-booking', component: TableBookComponent
+    },
+    {
+        path: 'hall-booking', component: HallBookComponent
+    },
+    {
+        path: 'swimming-pool-booking', component: SwimmingPoolBookingComponent
     },
     {
         path: '', redirectTo: '/login', pathMatch: 'full'

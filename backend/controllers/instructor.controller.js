@@ -8,12 +8,19 @@ const passport = require('passport');
 const _ = require('lodash');
 const pass="1234"
 const type="instructor"
+var nodemailer = require('nodemailer');
+const accountSid = 'AC35b07c0fb85a8dac36b031af16f58a8b';
+const authToken = '1234';
+const client = require('twilio')(accountSid, authToken);
+
 
 module.exports.enter_history = (req, res, next) => {
     var user = new User();
     user.customer_name = req.body.customer_name;
+    user.customer_email = req.body.customer_email;
     user.tel = req.body.tel;
     user.instructor = req.body.instructor;
+    user.instructor_name = req.body.instructor_name;
     user.date = req.body.date;
     user.time = req.body.time;
     user.save((err, doc) => {
@@ -49,6 +56,7 @@ module.exports.register_instructor = (req, res, next) => {
     user.lastname = req.body.lastname;
     user.address = req.body.address;
     user.email = req.body.email;
+    user.tel = req.body.tel;
     user.password = pass;
     user.save((err, doc) => {
         if (!err)
@@ -72,7 +80,7 @@ module.exports.update_instructor = (req, res, next) => {
         lastname: req.body.lastname,
         address: req.body.address,
         email: req.body.email,
-        
+        tel: req.body.tel,
     };
     Instructor.findByIdAndUpdate(req.params.id, { $set: ins},{ new: true},(err,doc) => {
         if(!err) { res.send(doc); }
@@ -116,20 +124,26 @@ module.exports.user_ins_register = (req, res, next) => {
 }
 
 module.exports.ins_notification = (req, res, next) => {
-    var user = new Notification();
-    user.title = req.body.title;
-    user.email = req.body.email;
-    user.message = req.body.message;
-    user.save((err, doc) => {
-        if (!err)
-            res.send(doc);
-        else{
-            if (err.code == 11000)
-                res.status(422).send(['Duplicate Email Adress found.']);
-            else
-                return next(err);    
-        }
-    });
+    // var user = new Notification();
+    // user.title = req.body.title;
+    // user.email = req.body.email;
+    // user.message = req.body.message;
+    // user.save((err, doc) => {
+    //     if (!err)
+    //         res.send(doc);
+    //     else{
+    //         if (err.code == 11000)
+    //             res.status(422).send(['Duplicate Email Adress found.']);
+    //         else
+    //             return next(err);    
+    //     }
+    // });
+    client.messages.create({body: req.body.message, from: '+14805256961', to: req.body.tel},
+            function (err,data) {
+                 if(err){
+                     console.log("error : " + err)
+                 }console.log(data)
+             })
 }
 
 module.exports.view_instructor_notification = (req, res, next) => {
@@ -137,4 +151,67 @@ module.exports.view_instructor_notification = (req, res, next) => {
         if(!err) {res.send(docs); }
         else {console.log('Error in Retriving User :' + JSON.stringify(err, undefined, 2));}
     });
+}
+
+module.exports.accept = (req, res, next) => {
+    console.log('email send');
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'somiruclub@gmail.com',
+          secure: false, // use SSL
+          port: 25,
+          pass: ''
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+      });
+      var mailOptions = {
+          from: 'somiruclub@gmail.com',
+          to: req.body.customer_email,
+          subject: 'Somiru Club',
+          text: 'Customer Name : '+req.body.customer_name+'\nTel : '+req.body.tel+'\nInstructor : '+req.body.instructor_name+'\nDate : '+req.body.date+ '\nTime : '+req.body.time
+                 
+        };
+      
+      
+      transporter.sendMail(mailOptions, function (error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
+}
+module.exports.cancel = (req, res, next) => {
+    console.log('email sent');
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'somiruclub@gmail.com',
+          secure: false, // use SSL
+          port: 25,
+          pass: ''
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+      });
+      var mailOptions = {
+          from: 'somiruclub@gmail.com',
+          to: 'somiruclub@gmail.com',
+          subject: 'Appointment cancellation',
+          text: 'Instructor :'+req.body.instructor_name+'\nCustomer :'+req.body.customer_name
+                 
+        };
+      
+      
+      transporter.sendMail(mailOptions, function (error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
 }

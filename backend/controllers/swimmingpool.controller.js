@@ -3,7 +3,7 @@ const Suwimmingpool = mongoose.model('Suwimmingpool');
 var ObjectId =require('mongoose').Types.ObjectId;
 const passport = require('passport');
 const _ = require('lodash');
-mongoose.connect('mongodb://localhost/mongoose');
+// mongoose.connect('mongodb://localhost/mongoose');
 
 //add Suwimmingpool 
 module.exports.add_suwimmingpool = (req, res, next) => {
@@ -52,6 +52,17 @@ module.exports.delete_suwimmingpool = (req, res, next) => {
 //view Suwimmingpool
 module.exports.view_suwimmingpool = (req, res, next) => {
     Suwimmingpool.find((err, docs) => {
+        if(!err) {res.send(docs); }
+        else {console.log('Error in Retriving Suwimmingpool :' + JSON.stringify(err, undefined, 2));}
+    });
+}
+
+//view Suwimmingpool by id
+module.exports.view_suwimmingpool_id = (req, res, next) => {
+    if(!ObjectId.isValid(req.params.id))
+    return res.status(400).send('No record with given id : ${req.params.id}');
+
+    Suwimmingpool.findById(req.params.id,(err, docs) => {
         if(!err) {res.send(docs); }
         else {console.log('Error in Retriving Suwimmingpool :' + JSON.stringify(err, undefined, 2));}
     });

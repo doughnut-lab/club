@@ -5,55 +5,121 @@
 <div id="colorlib-contact">
         <div class="container">
           <div class="col-md-4"> 
-            <mat-card class="example-card">
+
+            <div *ngIf="reservstion=='Table'" >
+              <mat-card class="example-card">
                 <mat-card-header>
-                  <mat-card-subtitle>Table No: {{table.tablenumber}}</mat-card-subtitle>
+                  <mat-card-subtitle [(ngModel)]="tablenumber" id="tablenumber" name="tablenumber" >Table No: {{table.tablenumber}}</mat-card-subtitle>
                 </mat-card-header>
                 <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu">
                 <mat-card-subtitle>Location : {{table.location}}</mat-card-subtitle>
-                <mat-card-subtitle>Chair count : {{table.location}}</mat-card-subtitle>
+                <mat-card-subtitle>Chair count : {{table.chaircount}}</mat-card-subtitle>
                 <mat-card-content>
                   <p>{{table.description}}</p>
                 </mat-card-content>
               </mat-card>
             </div>
+
+            <div *ngIf="reservstion=='Billiard Table'" >
+              <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-subtitle>Billiard Table No: {{billiardtable.tablenumber}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu">
+              </mat-card>
+            </div>
+
+            <div *ngIf="reservstion=='Hall'" >
+              <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-subtitle>Hall No: {{hall.hallnumber}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu">
+                <mat-card-subtitle>Gust count : {{hall.gustcount}}</mat-card-subtitle>
+                <mat-card-subtitle>Chair count : {{hall.chaircount}}</mat-card-subtitle>
+                <mat-card-content>
+                  <p>{{hall.description}}</p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+
+            <div *ngIf="reservstion=='Swimming Pool'" >
+              <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-subtitle>Swimming Pool No: {{swimmingpool.poolnumber}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu">
+              </mat-card>
+            </div>
+
+            </div>
             <div class="col-md-1"></div>
             <div class="col-md-7">
-                <form class="example-form">
+                <form class="example-form" (ngSubmit)="addbooking()" method="POST" action="www">
+                  <div class="example-h2">
+                      <mat-checkbox [(ngModel)]="breakfast" id="breakfast" name="breakfast" class="example-margin" color="warn">Breakfast</mat-checkbox>
+                      <mat-checkbox [(ngModel)]="lunch" id="lunch" name="lunch" class="example-margin" color="warn">Lunch</mat-checkbox>
+                      <mat-checkbox [(ngModel)]="dinner" id="dinner" name="dinner" class="example-margin" color="warn">Dinner</mat-checkbox>
+                  </div>
+                  <mat-divider></mat-divider>
+                
+                  <!-- <table class="example-full-width" cellspacing="0"><tr>
+                    <td><mat-form-field class="example-full-width">
+                      <input matInput placeholder="Amount" [(ngModel)]="amount" id="Amount" name="amount" placeholder="Rs: {{table.price}}" disabled>
+                    </mat-form-field></td>
+                  </tr></table> -->
+
+                  <table class="example-full-width" cellspacing="0"><tr>
+                    <td><mat-form-field class="example-full-width">
+                      <input matInput placeholder="Customer Name" [(ngModel)]="customername" id="customername" name="customername">
+                    </mat-form-field></td>
+                  </tr></table>
+
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Company (disabled)" disabled value="Google">
+                    <span matPrefix>+94 &nbsp;</span>
+                    <input type="tel" matInput placeholder="Telephone" [(ngModel)]="contact" id="Contact" name="contact">
                   </mat-form-field>
-                
+
                   <table class="example-full-width" cellspacing="0"><tr>
                     <td><mat-form-field class="example-full-width">
-                      <input matInput placeholder="First name">
-                    </mat-form-field></td>
-                    <td><mat-form-field class="example-full-width">
-                      <input matInput placeholder="Long Last Name That Will Be Truncated">
-                    </mat-form-field></td>
+                        <input matInput placeholder="Enter your email" [(ngModel)]="email" id="Email" name="email" required>
+                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                    </mat-form-field></td>                    
                   </tr></table>
-                
-                  <p>
-                    <mat-form-field class="example-full-width">
-                      <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
-                    </mat-form-field>
-                    <mat-form-field class="example-full-width">
-                      <textarea matInput placeholder="Address 2"></textarea>
-                    </mat-form-field>
-                  </p>
-                
+
                   <table class="example-full-width" cellspacing="0"><tr>
                     <td><mat-form-field class="example-full-width">
-                      <input matInput placeholder="City">
-                    </mat-form-field></td>
-                    <td><mat-form-field class="example-full-width">
-                      <input matInput placeholder="State">
-                    </mat-form-field></td>
-                    <td><mat-form-field class="example-full-width">
-                      <input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
-                      <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
-                    </mat-form-field></td>
+                        <input matInput placeholder="Address" [(ngModel)]="address" id="Address" name="address" required>
+                    </mat-form-field></td>                    
                   </tr></table>
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput  placeholder="Choose a date" [(ngModel)]="bookingdate" id="Bookingdate" name="bookingdate">
+                  </mat-form-field>
+                  
+                  
+                  
+                  
+
+                  <!-- <mat-form-field class="example-full-width">
+                    <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field> -->
+                  
+
+                
+                  <!-- <p>
+                    <mat-form-field class="example-full-width">
+                      <textarea matInput placeholder="Address"></textarea>
+                    </mat-form-field>
+                  </p> -->
+                  
+                  
+                  <mat-card-actions>
+                    <button mat-raised-button color="primary" type="submit" >CONFIRM</button>
+                  </mat-card-actions>
+                  
                 </form> 
             </div> 
         </div>

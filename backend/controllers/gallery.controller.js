@@ -3,7 +3,7 @@ const Gallery = mongoose.model('Gallery');
 var ObjectId =require('mongoose').Types.ObjectId;
 const passport = require('passport');
 const _ = require('lodash');
-mongoose.connect('mongodb://localhost/mongoose');
+// mongoose.connect('mongodb://localhost/mongoose');
 
 //add gallery
 module.exports.add_gallery = (req, res, next) => {

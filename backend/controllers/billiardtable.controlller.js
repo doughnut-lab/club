@@ -3,7 +3,7 @@ const Billiardtable = mongoose.model('Billiardtable');
 var ObjectId =require('mongoose').Types.ObjectId;
 const passport = require('passport');
 const _ = require('lodash');
-mongoose.connect('mongodb://localhost/mongoose');
+// mongoose.connect('mongodb://localhost/mongoose');
 
 module.exports.add_billiardtable = (req, res, next) => {
     var billiardtable = new Billiardtable();
@@ -52,6 +52,17 @@ module.exports.delete_billiardtable = (req, res, next) => {
 module.exports.view_billiardtable = (req, res, next) => {
     Billiardtable.find((err, docs) => {
         if(!err) {res.send(docs); }
-        else {console.log('Error in Retriving Suwimmingpool :' + JSON.stringify(err, undefined, 2));}
+        else {console.log('Error in Retriving billiardtable :' + JSON.stringify(err, undefined, 2));}
+    });
+}
+
+//view Billiardtable by id
+module.exports.view_billiardtable_id = (req, res, next) => {
+    if(!ObjectId.isValid(req.params.id))
+    return res.status(400).send('No record with given id : ${req.params.id}');
+
+    Billiardtable.findById(req.params.id,(err, docs) => {
+        if(!err) {res.send(docs); }
+        else {console.log('Error in Retriving Billiardtable :' + JSON.stringify(err, undefined, 2));}
     });
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { User } from './user.model';
+import { User } from './models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class UserService {
     type:'',
     
   };
-  readonly baseURL='http://localhost:3000/authenticate';
+  readonly baseURL=environment.appUrl+'/authenticate';
   constructor(private http: HttpClient) { }
   login(authCredentials) {
     return this.http.post(this.baseURL, authCredentials);

@@ -1,0 +1,71 @@
+<div class="page-container">
+  <!-- import slider component -->
+    <app-sidebar></app-sidebar>
+    <!-- PAGE CONTENT -->
+    <div class="page-content">
+        <!-- import nav bar component -->
+        <app-navbar></app-navbar>
+        <!-- import breadcrumb component -->
+        <app-breadcrumb></app-breadcrumb>
+
+        <div class="page-content-wrap">              
+            <!-- input here -->
+          <div>
+            <table id="customers">
+              <thead>
+                <tr>
+                  <th>Customer Name</th>
+                   <th>Email</th>
+                   <th>Telephone</th>
+                   <th>Details</th>
+                   <th>Payment</th>
+                   <th>State</th>
+                   <th></th>
+                </tr>
+              </thead>
+              <tr *ngFor="let ins of bookinglist  | paginate: { itemsPerPage: 12, currentPage: p }">
+                <td>{{ins.customername}}</td>
+                <td>{{ins.email}}</td>
+                <td>{{ins.contact}}</td>
+                <td>{{ins.address}}</td>
+                <td>Payment</td>
+                <td>
+                    <a class="action-btn" >
+                      <i class="material-icons" (click)="openDialog()">View</i>
+                    </a>
+                    <a class="action-btn">
+                      <i class="material-icons" >delete</i>
+                    </a>
+                  </td>
+              </tr>
+            </table>
+            <div class="row">
+              <div class="col-md-12 text-center">
+                  <div class="text-center">
+                      <pagination-controls
+                      class="my-pagination"
+                      (pageChange)="p = $event"
+                      ></pagination-controls>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- <ol>
+            <li>
+              <mat-form-field>
+                <input matInput [(ngModel)]="name" placeholder="What's your name?">
+              </mat-form-field>
+            </li>
+            <li>
+              <button mat-raised-button (click)="openDialog()">Pick one</button>
+            </li>
+            <li *ngIf="animal">
+              You chose: <i>{{animal}}</i>
+            </li>
+          </ol> -->
+
+          
+          </div>
+        </div>                             
+    </div>            
+</div>

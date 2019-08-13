@@ -1,4 +1,4 @@
-<app-back-nav></app-back-nav>
+<app-ins-nav></app-ins-nav>
 <div class="column1">
 <app-ins-nav-bar></app-ins-nav-bar>
 </div>
@@ -21,11 +21,13 @@
               {{ins.time}}<br>
             </p>
           </mat-card-content>
-          <!--<mat-card-actions>-->
-            <!--<button class="button mat-button">CANCEL</button>-->
-          <!--</mat-card-actions>-->
+          <mat-card-actions>
+          <button class="button mat-button" (click)="Accept(ins)">ACCEPT</button>
+          <button class="button mat-button" (click)="Cancel(ins)">CANCEL</button>
+          </mat-card-actions>
         </mat-card>
       </div>
+
       </div></div></div>
 <!--<app-ins-nav-bar></app-ins-nav-bar>-->
 <!-- import footer comonent -->

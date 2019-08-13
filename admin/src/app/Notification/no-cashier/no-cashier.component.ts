@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { NotificationService } from '../../shared/notification.service';
+import { NotificationService } from '../../shared/services/notification.service';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
-import { Notification } from '../../shared/notification.model';
+import { Notification } from '../../shared/models/notification.model';
+import { ToastrService } from 'ngx-toastr';
+import { CashierService } from '../../shared/services/cashier.service';
+import { Cashier } from '../../shared/models/cashier.model';
 
 @Component({
   selector: 'app-no-cashier',
@@ -12,9 +15,10 @@ import { Notification } from '../../shared/notification.model';
 })
 export class NoCashierComponent implements OnInit {
 
-  constructor(public UserProfileService:NotificationService) { }
-
+  constructor(public UserProfileService:NotificationService,public tosatr :ToastrService,public CashierService:CashierService) { }
+  serverErrorMessages: string;
   ngOnInit() {
+    this.refreshCashierList();
     this.resetForm();
   }
 
@@ -24,7 +28,7 @@ export class NoCashierComponent implements OnInit {
     this.UserProfileService.selectNotification = {
       
       title :"",
-      email : "",
+      tel:null,
       message:""
  }
 }
@@ -33,10 +37,11 @@ export class NoCashierComponent implements OnInit {
       res=>{
       //  this.refreshNotificationList();
             this.resetForm(form);
-            alert('sccess');
+            this.tosatr.success('Message sent Successfully','Somiru');
       },
       err=>{
-        alert('error');
+        this.serverErrorMessages = err.error.message;
+        this.tosatr.warning(this.serverErrorMessages,'Somiru');
       }
     );
   }
@@ -44,6 +49,12 @@ export class NoCashierComponent implements OnInit {
   {
     this.UserProfileService.getCashierNotificationList().subscribe((res)=> {
       this.UserProfileService.notification= res as Notification[];
+    });
+  }
+  refreshCashierList()
+  {
+    this.CashierService.getCashierList().subscribe((res)=> {
+      this.CashierService.cashier= res as Cashier[];
     });
   }
 
