@@ -1,29 +1,17 @@
 const mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
-    customerName: {
+    foodName: {
         type: String,
-        required: 'customerName can\'t be empty',
+        required: 'foodName can\'t be empty',
     },
-    food: {
+    type: {
         type: String,
-        required: 'food can\'t be empty',
+        required: 'type can\'t be empty',
     },
-    date1: {
-        type: Date,
-        required: 'date1 can\'t be empty',
-    },
-    cheffName: {
-        type: String,
-        required: 'cheffName can\'t be empty',
-    },
-    date2: {
-        type: Date,
-        required: 'date2 can\'t be empty',
-    },
-    orderDone: {
-        type: Boolean,
-        required: 'Email can\'t be empty',
+    price: {
+        type: Number,
+        required: 'price can\'t be empty',
     }
     
 });

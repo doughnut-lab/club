@@ -18,7 +18,7 @@ import { InsAssignDetailsComponent } from './user/instructor/component/ins-assig
 
 import { InsNotificationComponent } from './user/instructor/component/ins-notification/ins-notification.component';
 import { ProfileComponent } from './user/customer/profile/profile.component';
-
+import { CheffFoodOrderComponent} from './user/cashier/cheff-food-order/cheff-food-order.component'
 
 export const appRoutes: Routes = [
     {
@@ -74,6 +74,10 @@ export const appRoutes: Routes = [
     },
     {
         path: 'profile', component: ProfileComponent
+    },
+    //food-order from cashier
+    {
+        path: 'food-order', component: CheffFoodOrderComponent
     },
     {
         path: '', redirectTo: '/login', pathMatch: 'full'

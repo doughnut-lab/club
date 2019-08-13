@@ -3,14 +3,11 @@ const foodOrder = mongoose.model('foodOrder');
 var ObjectId =require('mongoose').Types.ObjectId;
 // const foodOrder = mongoose.model('foodOrder');
 
-module.exports.add_orderFood = (req, res, next) => {
+module.exports.add_foodOrder = (req, res, next) => {
     var fOrder = new foodOrder();
-    fOrder.customerName = req.body.customerName;
-    fOrder.food = req.body.food;
-    fOrder.date1 = req.body.date1;
-    fOrder.cheffName = req.body.cheffName;
-    fOrder.date2 = req.body.date2;
-    fOrder.orderDone = req.body.orderDone;
+    fOrder.foodName = req.body.foodName;
+    fOrder.type = req.body.type;
+    fOrder.price = req.body.price;
 
     fOrder.save((err, doc) => {
         if (!err)
@@ -30,13 +27,10 @@ module.exports.update_foodOrder = (req, res, next) => {
       return res.status(400).send('No record with given id : ${req.params.id}');
     
     var ins ={
-        customerName: req.body.customerName,
-        food :req.body.food,
-        date1 : req.body.date1,
-        cheffName : req.body.cheffName,
-        date2 : req.body.date2,
-        orderDone : req.body.orderDone,
-        
+        foodName : req.body.foodName,
+        type : req.body.type,
+        price : req.body.price,
+    
         
     };
     foodOrder.findByIdAndUpdate(req.params.id, { $set: ins},{ new: true},(err,doc) => {
@@ -47,7 +41,6 @@ module.exports.update_foodOrder = (req, res, next) => {
 }
 
 module.exports.delete_foodOrderByCheff = (req, res, next) => {
-    console.log('ishan');
     if(!ObjectId.isValid(req.params.id))
     return res.status(400).send('No record with given id : ${req.params.id}');   
     

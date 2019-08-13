@@ -24,12 +24,8 @@ const ctrlTable=require('../controllers/table.controller');
 const ctrlHall=require('../controllers/hall.controller');
 const ctrlSwimming=require('../controllers/swimmingpool.controller');
 const ctrlBilliard=require('../controllers/billiardtable.controlller');
-<<<<<<< HEAD
-const ctrlFoodOrder =require('../controllers/foodOrder.controller');
-// const ctrlImage=require('../controllers/iamges.controller');
-=======
 const ctrlGallery=require('../controllers/gallery.controller');
->>>>>>> 42979d0c2a80828d8add0ee46d9add4c55bb6c13
+const ctrlFoodOrder=require('../controllers/foodOrder.controller')
 
 const jwtHelper = require('../config/jwtHelper');
  
@@ -99,19 +95,17 @@ router.get('/view_billiardtable',ctrlBilliard.view_billiardtable);
 router.put('/update_billiardtable/:id',ctrlBilliard.update_billiardtable);
 router.delete('/delete_billiardtable/:id',ctrlBilliard.delete_billiardtable);
 
-<<<<<<< HEAD
-//foodorder
-router.post('/add_foodorder',ctrlFoodOrder.add_orderFood);
-router.get('/view_foodOrder',ctrlFoodOrder.view_foodOrder);
-router.put('/update_foodOrder/:id',ctrlFoodOrder.update_foodOrder);
-router.delete('/delete_foodOrderByCheff/:id',ctrlFoodOrder.delete_foodOrderByCheff);
-=======
 //gallery
 router.post('/gallery',ctrlGallery.add_gallery);
 router.get('/view_gallery',ctrlGallery.view_gallerys);
 router.put('/update_gallery/:id',ctrlGallery.update_gallery);
 router.delete('/delete_gallery/:id',ctrlGallery.delete_gallery);
->>>>>>> 42979d0c2a80828d8add0ee46d9add4c55bb6c13
+
+//foodOrder
+router.post('/add_foodOrder',ctrlFoodOrder.add_foodOrder);
+router.put('/update_foodOrder/:id',ctrlFoodOrder.update_foodOrder);
+router.get('/view_foodOrder',ctrlFoodOrder.view_foodOrder);
+router.delete('./delete_foodOrderByCheff:id',ctrlFoodOrder.delete_foodOrderByCheff);
 
 
 module.exports = router;

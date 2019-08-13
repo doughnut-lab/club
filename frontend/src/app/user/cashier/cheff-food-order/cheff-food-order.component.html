@@ -1,0 +1,61 @@
+<p>
+  cheff-food-order works!
+</p>
+<div class="row">
+  <form (submit)="addFood(cheffFoodOrderForm)" #cheffFoodOrderForm="ngForm">
+    
+      <mat-card >
+        <mat-card >
+          <!-- <h4>mat-select</h4> -->
+          <mat-form-field>
+            <mat-label>flavour</mat-label>
+            <mat-select>
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let food1 of food1s" [value]="food1">{{food1}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card>
+
+        <mat-card >
+          <!-- <h4>mat-select</h4> -->
+          <mat-form-field>
+            <mat-label>food</mat-label>
+            <mat-select>
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let food2 of food2s" [value]="food2">{{food2}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card>
+
+        <mat-card >
+            <!-- <h4>mat-select</h4> -->
+          <mat-form-field>
+            <mat-label>size</mat-label>
+            <mat-select>
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let size of sizes" [value]="size">{{size}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card>
+
+        <mat-card >
+          <!-- <h4>mat-select</h4> -->
+        <mat-form-field>
+          <mat-label>amount</mat-label>
+          <mat-select>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let amount of amounts" [value]="amount">{{amount}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card>
+      <mat-card >
+          <!-- <h4>mat-select</h4> -->
+        
+            <button class="btn btn-sm btn-primary" type="submit">
+                <i class=""></i> Add</button>
+       
+      </mat-card>
+    </mat-card>
+  </form>
+  
+</div>
