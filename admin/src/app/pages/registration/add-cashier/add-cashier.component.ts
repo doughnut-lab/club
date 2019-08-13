@@ -12,11 +12,15 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddCashierComponent implements OnInit {
 
-  constructor(public UserProfileService:CashierService,public tosatr :ToastrService) { }
+  constructor(public UserProfileService:CashierService,public tosatr :ToastrService,private router:Router) { }
   serverErrorMessages: string;
   ngOnInit() {
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
     this.refreshCashierList();
     this.resetForm();
+    
   }
   resetForm(form?: NgForm) {
     if(form)
@@ -27,6 +31,7 @@ export class AddCashierComponent implements OnInit {
       lastname : "",
       address:"",
       email:"",
+      tel:null,
       password:""
       
       

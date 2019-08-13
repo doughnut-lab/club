@@ -4,5 +4,6 @@ export class Cheff {
     lastname:string;
     address:string;
     email: string; 
+    tel:number;
     password: string;
 }

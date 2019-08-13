@@ -9,6 +9,10 @@ const _ = require('lodash');
 const pass="1234"
 const type="instructor"
 var nodemailer = require('nodemailer');
+const accountSid = 'AC35b07c0fb85a8dac36b031af16f58a8b';
+const authToken = '1234';
+const client = require('twilio')(accountSid, authToken);
+
 
 module.exports.enter_history = (req, res, next) => {
     var user = new User();
@@ -52,6 +56,7 @@ module.exports.register_instructor = (req, res, next) => {
     user.lastname = req.body.lastname;
     user.address = req.body.address;
     user.email = req.body.email;
+    user.tel = req.body.tel;
     user.password = pass;
     user.save((err, doc) => {
         if (!err)
@@ -75,7 +80,7 @@ module.exports.update_instructor = (req, res, next) => {
         lastname: req.body.lastname,
         address: req.body.address,
         email: req.body.email,
-        
+        tel: req.body.tel,
     };
     Instructor.findByIdAndUpdate(req.params.id, { $set: ins},{ new: true},(err,doc) => {
         if(!err) { res.send(doc); }
@@ -119,20 +124,26 @@ module.exports.user_ins_register = (req, res, next) => {
 }
 
 module.exports.ins_notification = (req, res, next) => {
-    var user = new Notification();
-    user.title = req.body.title;
-    user.email = req.body.email;
-    user.message = req.body.message;
-    user.save((err, doc) => {
-        if (!err)
-            res.send(doc);
-        else{
-            if (err.code == 11000)
-                res.status(422).send(['Duplicate Email Adress found.']);
-            else
-                return next(err);    
-        }
-    });
+    // var user = new Notification();
+    // user.title = req.body.title;
+    // user.email = req.body.email;
+    // user.message = req.body.message;
+    // user.save((err, doc) => {
+    //     if (!err)
+    //         res.send(doc);
+    //     else{
+    //         if (err.code == 11000)
+    //             res.status(422).send(['Duplicate Email Adress found.']);
+    //         else
+    //             return next(err);    
+    //     }
+    // });
+    client.messages.create({body: req.body.message, from: '+14805256961', to: req.body.tel},
+            function (err,data) {
+                 if(err){
+                     console.log("error : " + err)
+                 }console.log(data)
+             })
 }
 
 module.exports.view_instructor_notification = (req, res, next) => {
