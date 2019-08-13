@@ -53,6 +53,18 @@
                         </div>
                       </div>
                       <div class="row">
+                        <div class="col-25">
+                          <label for="lname">Telephone No</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="tel" #tel="ngModel" [(ngModel)]="UserProfileService.selectCheff.tel" placeholder="Telephone No" 
+                            required  [ngClass]="{'invalid-textbox' :CheffForm.submitted && !tel.valid }">
+                            <div *ngIf="CheffForm.submitted && !tel.valid">
+                            <label class="validation-message">This field is required.</label>
+                           </div><br>
+                        </div>
+                      </div>
+                      <div class="row">
                           <div class="col-25">
                             <label for="lname">Email</label>
                           </div>
@@ -72,6 +84,7 @@
                         <th>FirstName</th>
                          <th>LastName</th>
                          <th>Address</th>
+                         <th>Telephone No</th>
                          <th>Email</th>
                          
                          
@@ -82,6 +95,7 @@
                       <td>{{ins.firstname}}</td>
                       <td>{{ins.lastname}}</td>
                       <td>{{ins.address}}</td>
+                      <td>{{ins.tel}}</td>
                       <td>{{ins.email}}</td>
                       
                       

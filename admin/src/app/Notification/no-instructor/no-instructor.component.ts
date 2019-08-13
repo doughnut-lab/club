@@ -4,6 +4,8 @@ import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
 import { Notification } from '../../shared/models/notification.model';
 import { ToastrService } from 'ngx-toastr';
+import { InstructorService } from '../../shared/services/instructor.service';
+import { Instructor } from '../../shared/models/instructor.model';
 
 @Component({
   selector: 'app-no-instructor',
@@ -13,10 +15,10 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class NoInstructorComponent implements OnInit {
 
-  constructor(public UserProfileService:NotificationService,public tosatr :ToastrService) { }
+  constructor(public UserProfileService:NotificationService,public tosatr :ToastrService,public InstructorService:InstructorService) { }
   serverErrorMessages: string;
   ngOnInit() {
-    //this.refreshNotificationList();
+    this.refreshInstructorList();
     this.resetForm();
   }
   resetForm(form?: NgForm) {
@@ -25,7 +27,7 @@ export class NoInstructorComponent implements OnInit {
     this.UserProfileService.selectNotification = {
       
       title :"",
-      email : "",
+      tel:null,
       message:""
  }
 }
@@ -46,6 +48,16 @@ export class NoInstructorComponent implements OnInit {
   {
     this.UserProfileService.getInstrutorNotificationList().subscribe((res)=> {
       this.UserProfileService.notification= res as Notification[];
+    });
+  }
+  onEdit(ins : Instructor)
+  { this.InstructorService.selectInstructor=ins;
+
+  }
+  refreshInstructorList()
+  {
+    this.InstructorService.getInstrutorList().subscribe((res)=> {
+      this.InstructorService.instructor= res as Instructor[];
     });
   }
 

@@ -29,12 +29,12 @@
             </div>
             <div class="row">
               <div class="col-25">
-                <label for="lname">Email</label>
+                <label for="lname">Telephone No</label>
               </div>
               <div class="col-75">
-                <input type="text" name="email" #email="ngModel" [(ngModel)]="UserProfileService.selectNotification.email" placeholder="email" 
-                  required [ngClass]="{'invalid-textbox' :InstructorForm.submitted && !email.valid }">
-                  <div *ngIf="InstructorForm.submitted && !email.valid">
+                <input type="text" name="tel" #tel="ngModel" [(ngModel)]="UserProfileService.selectNotification.tel" placeholder="+94_________" 
+                  required [ngClass]="{'invalid-textbox' :InstructorForm.submitted && !tel.valid }">
+                  <div *ngIf="InstructorForm.submitted && !tel.valid">
                   <label class="validation-message">This field is required.</label>
                   </div><br>
               </div>
@@ -56,6 +56,32 @@
               <input type="submit" value="Send">
             </div>
             </form>
+            <table id="customers">
+              <thead>
+                <tr>
+                  <th>FirstName</th>
+                   <th>LastName</th>
+                   <th>Telephone No</th>
+                   
+                   
+                   <!-- <th></th> -->
+                </tr>
+              </thead>
+              <tr *ngFor="let ins of InstructorService.instructor">
+                <td>{{ins.firstname}}</td>
+                <td>{{ins.lastname}}</td>
+                <td>{{ins.tel}}</td>
+
+               
+                
+                
+                <!-- <td>
+                    <a class="action-btn" >
+                      <i class="material-icons" (click)="onEdit(ins)">edit</i>
+                    </a>
+                </td> -->
+              </tr>
+            </table>
           </div>
 
         </div>                             

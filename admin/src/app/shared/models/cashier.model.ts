@@ -4,5 +4,6 @@ export class Cashier {
     lastname:string;
     address:string;
     email: string; 
+    tel:number;
     password: string;
 }

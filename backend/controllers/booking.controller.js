@@ -6,7 +6,7 @@ const _ = require('lodash');
 // Download the Node helper library from twilio.com/docs/node/install
 // These are your accountSid and authToken from https://www.twilio.com/console
 const accountSid = 'AC35b07c0fb85a8dac36b031af16f58a8b';
-const authToken = '';
+const authToken = '1234';
 // const twilio = require('twilio');
 // const client = new twilio(accountSid, authToken);
 const client = require('twilio')(accountSid, authToken);

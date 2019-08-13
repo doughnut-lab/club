@@ -27,6 +27,7 @@ export class AddCheffComponent implements OnInit {
       lastname : "",
       address:"",
       email:"",
+      tel:null,
       password:""
       
       

@@ -4,6 +4,7 @@ export class Instructor {
     lastname:string;
     address:string;
     email: string; 
+    tel:number;
     password: string;
 
 }
