@@ -102,3 +102,14 @@ module.exports.filter_date =(req, res, next) => {
     Booking.find({reserveddate: req.params.bookingdate})
 }
 
+//find booking by id
+module.exports.view_booking_id = (req, res, next) => {
+    if(!ObjectId.isValid(req.params.id))
+    return res.status(400).send('No record with given id : ${req.params.id}');  
+
+    Booking.findById(req.params.id,(err, docs) => {
+        if(!err) {res.send(docs); }
+        else {console.log('Error in Retriving Booking :' + JSON.stringify(err, undefined, 2));}
+    });
+}
+

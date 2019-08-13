@@ -9,8 +9,11 @@ import { Booking } from '../models/booking.model';
 
 export class BookingService {
 
+  booking_id: String;
+
   urladdbooking = environment.appUrl+"/booking";
-  readonly viewbooking = environment.appUrl+'/view_booking'; 
+  readonly viewbooking = environment.appUrl+'/view_booking';
+  readonly viewbookingById = environment.appUrl+'/view_booking/'; 
 
   constructor(private http: HttpClient) { }
 
@@ -24,6 +27,18 @@ export class BookingService {
 
   getBookingList(){
     return this.http.get(this.viewbooking);
+  }
+
+  findBookingDetails(id){
+    return this.http.get(this.viewbookingById+id);
+  }
+
+  setBookingId(id){
+    this.booking_id = id;
+  }
+
+  getBookimgId(){
+    return this.booking_id;
   }
   
 }
