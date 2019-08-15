@@ -33,7 +33,7 @@ var userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    tableno: {
+    swimmingpoolno: {
         type: Number
     },
     state: {
@@ -51,4 +51,4 @@ var userSchema = new mongoose.Schema({
     saltSecret: String
 });
 
-mongoose.model('Booking', userSchema);
+mongoose.model('Swimmingpool_Booking', userSchema);

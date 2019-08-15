@@ -10,8 +10,10 @@
               <mat-card class="example-card">
                 <mat-card-header>
                   <mat-card-subtitle [(ngModel)]="tablenumber" id="tablenumber" name="tablenumber" >Table No: {{table.tablenumber}}</mat-card-subtitle>
+                  <!-- <input type="tel" matInput placeholder="tableno" [(ngModel)]="tableno" id="tableno" name="tableno" hidden value="{{table.tablenumber}}"> -->
                 </mat-card-header>
-                <img mat-card-image class="example-header-image" src="../../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu">
+                <!-- <img mat-card-image class="example-header-image" src="../../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu"> -->
+                <img mat-card-image class="example-header-image" [src]="urltable+table.tablenumber+'.jpg'">
                 <mat-card-subtitle>Location : {{table.location}}</mat-card-subtitle>
                 <mat-card-subtitle>Chair count : {{table.chaircount}}</mat-card-subtitle>
                 <mat-card-content>
@@ -25,7 +27,8 @@
                 <mat-card-header>
                   <mat-card-subtitle>Billiard Table No: {{billiardtable.tablenumber}}</mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu">
+                <!-- <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu"> -->
+                <img mat-card-image class="example-header-image" [src]="urltable+table.tablenumber+'.jpg'" >
               </mat-card>
             </div>
 
@@ -71,6 +74,12 @@
 
                   <table class="example-full-width" cellspacing="0"><tr>
                     <td><mat-form-field class="example-full-width">
+                        <input type="tel" matInput placeholder="tableno" [(ngModel)]="tableno" id="tableno" name="tableno" disabled value="{{table.tablenumber}}">
+                    </mat-form-field></td>
+                  </tr></table>
+
+                  <table class="example-full-width" cellspacing="0"><tr>
+                    <td><mat-form-field class="example-full-width">
                       <input matInput placeholder="Customer Name" [(ngModel)]="customername" id="customername" name="customername">
                     </mat-form-field></td>
                   </tr></table>
@@ -94,8 +103,14 @@
                   </tr></table>
 
                   <mat-form-field class="example-full-width">
-                    <input matInput  placeholder="Choose a date" [(ngModel)]="bookingdate" id="Bookingdate" name="bookingdate">
+                    <input matInput  placeholder="Choose a date" [(ngModel)]="reserveddate" id="Reserveddate" name="Reserveddate">
                   </mat-form-field>
+                  <!-- <mat-form-field>
+                    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field> -->
+
                   
                   
                   
@@ -118,6 +133,9 @@
                   
                   <mat-card-actions>
                     <button mat-raised-button color="primary" type="submit" >CONFIRM</button>
+                  </mat-card-actions>
+                  <mat-card-actions>
+                    <button mat-raised-button color="primary"  (click)="openDialog()">Add Food</button>
                   </mat-card-actions>
                   
                 </form> 

@@ -73,3 +73,14 @@ module.exports.view_gallery_id = (req, res, next) => {
         else {console.log('Error in Retriving gallery :' + JSON.stringify(err, undefined, 2));}
     });
 }
+
+//view gallery by catogory
+module.exports.view_gallery_catogory = (req, res, next) => {
+    // if(!ObjectId.isValid({catogory:req.params.catogory}))
+    // return res.status(400).send('No record with given id : ${req.params.id}');
+
+    Gallery.find({catogory:req.params.catogory},(err, docs) => {
+        if(!err) {res.send(docs); }
+        else {console.log('Error in Retriving gallery :' + JSON.stringify(err, undefined, 2));}
+    });
+}

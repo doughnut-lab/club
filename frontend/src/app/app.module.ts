@@ -38,6 +38,7 @@ import {
   MatStepperModule,
   MatRadioModule,
   MatTooltipModule,
+  MatDialogModule,
   
 
 } from '@angular/material';
@@ -82,6 +83,7 @@ import { ProfileComponent } from './user/customer/profile/profile.component';
 import { SidebarComponent } from './user/customer/reservation/components/sidebar/sidebar.component';
 import { PaymentComponent } from './user/customer/profile/components/payment/payment.component';
 import { InsNavComponent } from './user/instructor/component/ins-nav/ins-nav.component';
+import { TablemenuComponent } from './user/customer/reservation/components/tablemenu/tablemenu.component';
 //import {InstructorFilterPipe } from './user/instructor/component/ins-history/ins_history_filter.pipe';
 
 
@@ -129,6 +131,7 @@ import { InsNavComponent } from './user/instructor/component/ins-nav/ins-nav.com
     SidebarComponent,
     PaymentComponent,
     InsNavComponent,
+    TablemenuComponent,
     
   ],
   imports: [
@@ -158,10 +161,17 @@ import { InsNavComponent } from './user/instructor/component/ins-nav/ins-nav.com
     MatCardModule,
     MatTooltipModule,
     NgxPaginationModule,
+    MatDialogModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[
+    MenuComponent,
+    TablemenuComponent
+  ],
+
+  
 })
 export class AppModule { }
 export class PizzaPartyAppModule { }

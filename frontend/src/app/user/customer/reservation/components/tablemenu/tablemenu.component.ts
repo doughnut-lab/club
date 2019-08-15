@@ -1,19 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { GalleryService } from 'src/app/shared/services/gallery.service';
-import { Gallery } from '../../../shared/models/gallery.model';
+import { Gallery } from '../../../../../shared/models/gallery.model';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
-export interface Section {
-  name: string;
-  updated: Date;
-}
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  selector: 'app-tablemenu',
+  templateUrl: './tablemenu.component.html',
+  styleUrls: ['./tablemenu.component.css']
 })
-export class MenuComponent implements OnInit {
-
+export class TablemenuComponent implements OnInit {
   p=1;
   galleries: any
   catogory;
@@ -68,5 +64,7 @@ export class MenuComponent implements OnInit {
   // getCatogory(){
   //   this.catogory = this.galleryservice.getCtogory();
   // }
+
+  
 
 }
