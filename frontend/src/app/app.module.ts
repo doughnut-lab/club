@@ -89,12 +89,10 @@ import { OrderfoodComponent } from './user/cashier/component/orderfood/orderfood
 import { HandlepaymentComponent } from './user/cashier/component/handlepayment/handlepayment.component';
 import { CheffnavComponent } from './user/cheff/component/cheffnav/cheffnav.component';
 import { TablemenuComponent } from './user/customer/reservation/components/tablemenu/tablemenu.component';
-<<<<<<< HEAD
 import { BilliardTableBookingComponent } from './user/customer/reservation/components/billiard-table-booking/billiard-table-booking.component';
-=======
 import { CompletedordersComponent } from './user/cashier/component/completedorders/completedorders.component';
 import { SignupComponent } from './user/customer/signup/signup.component';
->>>>>>> master
+
 //import {InstructorFilterPipe } from './user/instructor/component/ins-history/ins_history_filter.pipe';
 
 // import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
@@ -149,12 +147,10 @@ import { SignupComponent } from './user/customer/signup/signup.component';
     HandlepaymentComponent,
     CheffnavComponent,
     TablemenuComponent,
-<<<<<<< HEAD
     BilliardTableBookingComponent,
-=======
     CompletedordersComponent,
     SignupComponent,
->>>>>>> master
+
     
   ],
   imports: [
