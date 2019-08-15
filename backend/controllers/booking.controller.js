@@ -36,17 +36,22 @@ module.exports.register = (req, res, next) => {
     booking.state = req.body.state;
     booking.price = req.body.price;
     booking.ispaid = req.body.ispaid;
+
+    booking.day = req.body.day;
+    booking.night = req.body.night;
+    booking.hallno = req.body.hallno;
+
     booking.saltSecret = req.body.saltSecret;
     
     booking.save((err, doc) => {
         if (!err){
-            var message='Hi,'+booking.customername+" your booking was successfully recorded! ";
-            client.messages.create({body: message, from: '+14805256961', to: '+94703177445'},
-            function (err,data) {
-                if(err){
-                    console.log("error : " + err)
-                }console.log(data)
-            })
+            // var message='Hi,'+booking.customername+" your booking was successfully recorded! ";
+            // client.messages.create({body: message, from: '+14805256961', to: '+94703177445'},
+            // function (err,data) {
+            //     if(err){
+            //         console.log("error : " + err)
+            //     }console.log(data)
+            // })
             res.send(doc);
         }       
         else{
@@ -119,4 +124,17 @@ module.exports.view_booking_id = (req, res, next) => {
         else {console.log('Error in Retriving Booking :' + JSON.stringify(err, undefined, 2));}
     });
 }
+
+
+// change reservation status
+module.exports.changeStatus =(req, res, next) => {
+    Booking.updateOne(
+        { _id: req.params.id },
+        { $set: { state: req.state } }
+    )
+    .then(result => callback(null, result))
+    .catch(err => callback(err));
+}
+
+
 

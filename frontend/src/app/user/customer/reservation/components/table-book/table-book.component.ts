@@ -13,6 +13,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../../../environments/environment';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { TablemenuComponent} from '../tablemenu/tablemenu.component';
+import { GalleryService } from 'src/app/shared/services/gallery.service';
+
 var today = new Date();
 @Component({
   selector: 'app-table-book',
@@ -65,7 +67,8 @@ export class TableBookComponent implements OnInit {
               private swimmingpoolservice:SwimmingpoolService,
               private billiardtableservice:BilliardtableService,
               private router: Router,
-              public dialog: MatDialog
+              public dialog: MatDialog,
+              private galleryservice: GalleryService
               ) { }
 
   ngOnInit() {
@@ -101,7 +104,7 @@ addbooking(){
     lunch :this.lunch,
     dinner :this.dinner,
     contact :this.contact,
-    foodlist :this.foodlist,
+    foodlist :this.galleryservice.getFoodArray(),
     address :this.address,
     email :this.email,
     reserveddate :this.reserveddate,
@@ -133,7 +136,8 @@ addbooking(){
 
   openDialog(): void {
     const dialogRef = this.dialog.open(TablemenuComponent, {
-
+      // width: '500px',
+      // minHeight: '700px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -141,6 +145,9 @@ addbooking(){
     });
   }
 
+  getFoodList(){
+    this.galleryservice.getFoodArray();
+  }
   
 
 }

@@ -48,6 +48,15 @@ var userSchema = new mongoose.Schema({
         type: String,
         default: "No"
     },
+    day: {
+        type: Boolean
+    },
+    night: {
+        type: Boolean
+    },
+    hallno: {
+        type: Number
+    },
     saltSecret: String
 });
 

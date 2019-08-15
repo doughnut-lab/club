@@ -3,7 +3,7 @@ import { BookingService } from 'src/app/shared/services/booking.service';
 import { Booking } from 'src/app/shared/models/booking.model';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { ReservationDetailsComponent } from '../reservation-details/reservation-details.component';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-viewreservation',
@@ -14,11 +14,16 @@ import { ReservationDetailsComponent } from '../reservation-details/reservation-
 export class ViewreservationComponent implements OnInit {
 
   bookinglist: Booking[];
+  bookings: Booking ;
+
+  
+  
 
   p: number = 1;
   constructor(
     private bookingService: BookingService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -38,5 +43,15 @@ export class ViewreservationComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+
+  changeState(id){
+    this.bookingService.updateBooking(id);
+  }
+  
+    
+
+    
+
+    
 
 }
