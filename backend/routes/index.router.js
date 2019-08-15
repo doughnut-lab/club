@@ -100,15 +100,12 @@ router.post('/gallery',ctrlGallery.add_gallery);
 router.get('/view_gallery',ctrlGallery.view_gallerys);
 router.put('/update_gallery/:id',ctrlGallery.update_gallery);
 router.delete('/delete_gallery/:id',ctrlGallery.delete_gallery);
-<<<<<<< HEAD
 
 //product
 router.post('/enter_product',ctrlProduct.enter_product);
 router.get('/view_product',ctrlProduct.view_product);
 //router.get('/view_product_details/:customer_name',ctrlProduct.view_product_details);
 router.post('/enter_products',ctrlProduct.enter_products);
-=======
 router.get('/view_gallery_catogory/:catogory',ctrlGallery.view_gallery_catogory);
->>>>>>> 57d5869de53a2a98fbaa9e63233d8448e2729bcc
 
 module.exports = router;

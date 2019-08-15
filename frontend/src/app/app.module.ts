@@ -136,15 +136,12 @@ import { TablemenuComponent } from './user/customer/reservation/components/table
     SidebarComponent,
     PaymentComponent,
     InsNavComponent,
-<<<<<<< HEAD
     CaNavComponent,
     CaSidenavComponent,
     OrderfoodComponent,
     HandlepaymentComponent,
     CheffnavComponent,
-=======
     TablemenuComponent,
->>>>>>> 57d5869de53a2a98fbaa9e63233d8448e2729bcc
     
   ],
   imports: [
