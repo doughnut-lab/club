@@ -14,21 +14,22 @@
             <table id="customers">
               <thead>
                 <tr>
+                  <th>Order ID</th>
                   <th>Customer Name</th>
-                   <th>Email</th>
-                   <th>Telephone</th>
-                   <th>Details</th>
-                   <th>Payment</th>
-                   <th>State</th>
-                   <th></th>
+                  <th>Email</th>
+                  <th>Telephone</th>
+                  <th>Details</th>
+                  <th>Payment</th>
+                  <th>State</th>
                 </tr>
               </thead>
               <tr *ngFor="let ins of bookinglist  | paginate: { itemsPerPage: 8, currentPage: p }">
+                <td>{{ins._id}}</td>
                 <td>{{ins.customername}}</td>
                 <td>{{ins.email}}</td>
                 <td>{{ins.contact}}</td>
                 <td>{{ins.address}}</td>
-                <td>Payment</td>
+                <td>Not Paid</td>
                 <td>
                     <a class="action-btn" >
                       <!-- <i class="material-icons" (click)="openDialog()">View</i> -->

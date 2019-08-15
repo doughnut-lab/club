@@ -96,6 +96,6 @@ router.post('/gallery',ctrlGallery.add_gallery);
 router.get('/view_gallery',ctrlGallery.view_gallerys);
 router.put('/update_gallery/:id',ctrlGallery.update_gallery);
 router.delete('/delete_gallery/:id',ctrlGallery.delete_gallery);
-
+router.get('/view_gallery_catogory/:catogory',ctrlGallery.view_gallery_catogory);
 
 module.exports = router;

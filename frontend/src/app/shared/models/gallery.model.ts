@@ -4,4 +4,5 @@ export class Gallery {
   name:string;
   description:string;
   price: string; 
+  catogory: string;
 }
