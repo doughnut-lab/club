@@ -46,7 +46,7 @@ export class BookingService {
 
   updateBooking(ins:Booking){
     console.log(updateBookingUrl+ins._id);
-    return this.http.put(updateBookingUrl+`/${ins._id}`,ins);
+    return this.http.put(updateBookingUrl+`${ins._id}`,ins);
   }
 
   

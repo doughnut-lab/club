@@ -50,17 +50,17 @@ export class ViewreservationComponent implements OnInit {
     );
   }
 
-  checked(ins:Booking) {
-    var myLayer = document.getElementById(ins._id+"");
+  // checked(ins:Booking) {
+  //   var myLayer = document.getElementById(ins._id+"");
 
-   if (ins.state=="close") {
-        // myLayer.class = "submit";
-        myLayer.removeAttribute("disabled");
-   } else {
-        // myLayer.class = "button:disabled";
-        myLayer.setAttribute("disabled","disabled");
-   };
-}
+  //  if (ins.state=="close") {
+  //       // myLayer.class = "submit";
+  //       myLayer.removeAttribute("disabled");
+  //  } else {
+  //       // myLayer.class = "button:disabled";
+  //       myLayer.setAttribute("disabled","disabled");
+  //  };
+// }
 
   
 
