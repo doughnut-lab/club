@@ -28,6 +28,8 @@ import { OrderfoodComponent } from './user/cashier/component/orderfood/orderfood
 import { HandlepaymentComponent } from './user/cashier/component/handlepayment/handlepayment.component';
 import { CompletedordersComponent } from './user/cashier/component/completedorders/completedorders.component';
 import { SignupComponent } from './user/customer/signup/signup.component';
+import { ContactUsComponent } from './user/customer/contact-us/contact-us.component';
+
 
 
 
@@ -112,6 +114,9 @@ export const appRoutes: Routes = [
     },
     {
         path: 'swimming-pool-booking', component: SwimmingPoolBookingComponent
+    },
+    {
+        path: 'contact', component: ContactUsComponent
     },
     {
         path: '', redirectTo: '/login', pathMatch: 'full'
