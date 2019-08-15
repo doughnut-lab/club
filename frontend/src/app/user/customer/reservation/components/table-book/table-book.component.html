@@ -58,7 +58,7 @@
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-7">
-                <form class="example-form" (ngSubmit)="addbooking()" method="POST" action="www">
+                <form class="example-form" >
                   <div class="example-h2">
                       <mat-checkbox [(ngModel)]="breakfast" id="breakfast" name="breakfast" class="example-margin" color="warn">Breakfast</mat-checkbox>
                       <mat-checkbox [(ngModel)]="lunch" id="lunch" name="lunch" class="example-margin" color="warn">Lunch</mat-checkbox>
@@ -132,7 +132,7 @@
                   
                   
                   <mat-card-actions>
-                    <button mat-raised-button color="primary" type="submit" >CONFIRM</button>
+                    <button mat-raised-button color="primary" (click)="addbooking()">CONFIRM</button>
                   </mat-card-actions>
                   <mat-card-actions>
                     <button mat-raised-button color="primary"  (click)="openDialog()">Add Food</button>

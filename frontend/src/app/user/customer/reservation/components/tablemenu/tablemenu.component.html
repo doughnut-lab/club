@@ -1,11 +1,11 @@
-<div id="colorlib-contact">
-  <div class="container">
+<!-- <div id="colorlib-contact">
+  <div class="container"> -->
     
-    <div class = "col-md-12">
+    <div class="card card-user" style="width:400px">
         <!-- <div *ngIf="category=='breakfast'"> -->
           <div class="row">
-              <mat-grid-list cols="3" rowHeight="280px">
-                  <mat-grid-tile *ngFor="let gallery of galleries | paginate: { itemsPerPage: 6, currentPage: p }" class="col-md-3 col-sm-3">
+              <mat-grid-list cols="2" rowHeight="280px">
+                  <mat-grid-tile *ngFor="let gallery of galleries | paginate: { itemsPerPage: 4, currentPage: p }" class="col-md-3 col-sm-3">
                       <mat-card>
                           <img
                               class="avatar border-gray"
@@ -20,7 +20,7 @@
                             <mat-card-subtitle>{{gallery.price}}</mat-card-subtitle>
                           </div>
                           <div class = "col-md-4">
-                              <button mat-raised-button color="accent">Add</button>
+                              <button mat-raised-button color="accent" (click)="addFood(gallery.name)">Add</button>
                           </div>
                       </mat-card>
 
@@ -45,6 +45,6 @@
           </div> 
         <!-- </div> -->
     </div>
-  </div>
-</div>
+  <!-- </div>
+</div> -->
 

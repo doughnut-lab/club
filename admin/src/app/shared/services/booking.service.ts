@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Booking } from '../models/booking.model';
 
+const updateBookingUrl = environment.appUrl+'/changeStatus/'; 
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +15,7 @@ export class BookingService {
   urladdbooking = environment.appUrl+"/booking";
   readonly viewbooking = environment.appUrl+'/view_booking';
   readonly viewbookingById = environment.appUrl+'/view_booking/'; 
+  
 
   constructor(private http: HttpClient) { }
 
@@ -40,6 +42,12 @@ export class BookingService {
   getBookimgId(){
     return this.booking_id;
   }
+
+  updateBooking(id){
+    return this.http.post(updateBookingUrl+id,id);
+  }
+
+  
   
 }
 

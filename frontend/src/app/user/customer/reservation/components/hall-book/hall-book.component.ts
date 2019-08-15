@@ -12,6 +12,7 @@ import {FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
+var today = new Date();
 @Component({
   selector: 'app-hall-book',
   templateUrl: './hall-book.component.html',
@@ -27,12 +28,12 @@ export class HallBookComponent implements OnInit {
   contact :Number;
   address :String;
   email :String;
-  reserveddate :Date;
+  reserveddate :Date = today;
   bookingdate :Date;
   hallno:Number;
-  state: String;
+  state: String = "open";
   price: Number;
-  ispaid: Boolean;
+  ispaid: Boolean = false;
   
   table:Table;
   
@@ -83,15 +84,19 @@ export class HallBookComponent implements OnInit {
   addbooking(){
 
     var body = {
-      reserveddate :"",
-      bookingdate :this.bookingdate,
+      
       customername :this.customername,
       day :this.day,
       night :this.night,
       contact :this.contact,
-      foodlist :"",
       address :this.address,
-      email :this.email
+      email :this.email,
+      reserveddate :this.reserveddate,
+      bookingdate :this.bookingdate,
+      hallno :this.hall.hallnumber,
+      state :this.state,
+      price:this.price,
+      ispaid :false,
     }
   
     
