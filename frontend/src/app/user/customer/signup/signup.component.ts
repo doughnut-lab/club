@@ -26,6 +26,7 @@ export class SignupComponent implements OnInit {
             
             this.resetForm(form);
             this.tosatr.success('Saved successfully','Somiru');
+            this.router.navigateByUrl('/login');
           },
           err => {
             if (err.status === 422) {
