@@ -94,6 +94,7 @@ import { BilliardTableBookingComponent } from './user/customer/reservation/compo
 
 import { CompletedordersComponent } from './user/cashier/component/completedorders/completedorders.component';
 import { SignupComponent } from './user/customer/signup/signup.component';
+import { CustomernavComponent } from './user/customer/customernav/customernav.component';
 //import {InstructorFilterPipe } from './user/instructor/component/ins-history/ins_history_filter.pipe';
 
 // import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
@@ -151,6 +152,7 @@ import { SignupComponent } from './user/customer/signup/signup.component';
     BilliardTableBookingComponent,
     CompletedordersComponent,
     SignupComponent,
+    CustomernavComponent
     
   ],
   imports: [
