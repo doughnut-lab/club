@@ -7,6 +7,10 @@ var userSchema = new mongoose.Schema({
         type: String,
         required: 'name can\'t be empty',
     }],
+    state: {
+        type: String,
+        required: 'state can\'t be empty',
+    },
     saltSecret: String
 });
 mongoose.model('Orderproduct', userSchema);

@@ -89,6 +89,8 @@ import { OrderfoodComponent } from './user/cashier/component/orderfood/orderfood
 import { HandlepaymentComponent } from './user/cashier/component/handlepayment/handlepayment.component';
 import { CheffnavComponent } from './user/cheff/component/cheffnav/cheffnav.component';
 import { TablemenuComponent } from './user/customer/reservation/components/tablemenu/tablemenu.component';
+import { CompletedordersComponent } from './user/cashier/component/completedorders/completedorders.component';
+import { SignupComponent } from './user/customer/signup/signup.component';
 //import {InstructorFilterPipe } from './user/instructor/component/ins-history/ins_history_filter.pipe';
 
 
@@ -142,6 +144,8 @@ import { TablemenuComponent } from './user/customer/reservation/components/table
     HandlepaymentComponent,
     CheffnavComponent,
     TablemenuComponent,
+    CompletedordersComponent,
+    SignupComponent,
     
   ],
   imports: [
