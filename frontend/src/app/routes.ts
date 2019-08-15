@@ -21,6 +21,7 @@ import { ProfileComponent } from './user/customer/profile/profile.component';
 import { PaymentComponent } from './user/customer/profile/components/payment/payment.component';
 
 import { TableBookComponent } from './user/customer/reservation/components/table-book/table-book.component';
+import { BilliardTableBookingComponent } from './user/customer/reservation/components/billiard-table-booking/billiard-table-booking.component';
 import { SwimmingPoolBookingComponent } from './user/customer/reservation/components/swimming-pool-booking/swimming-pool-booking.component';
 import { HallBookComponent } from './user/customer/reservation/components/hall-book/hall-book.component';
 import { OrderfoodComponent } from './user/cashier/component/orderfood/orderfood.component';
@@ -94,6 +95,9 @@ export const appRoutes: Routes = [
     },
     {
         path: 'hall-booking', component: HallBookComponent
+    },
+    {
+        path: 'billiard-table-booking', component: BilliardTableBookingComponent
     },
     {
         path: 'orderfood', component: OrderfoodComponent

@@ -14,6 +14,16 @@ import { environment } from '../../../../../../environments/environment';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { TablemenuComponent} from '../tablemenu/tablemenu.component';
 import { GalleryService } from 'src/app/shared/services/gallery.service';
+import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
+
+/** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 var today = new Date();
 @Component({
@@ -23,7 +33,13 @@ var today = new Date();
 })
 export class TableBookComponent implements OnInit {
 
-  
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+
+  matcher = new MyErrorStateMatcher();
+
   _id:String;
   table:Table;
   // tables: any;
@@ -47,6 +63,8 @@ export class TableBookComponent implements OnInit {
   state: String = "Open";
   price : Number = 1000;
   ispaid : Boolean;
+
+  bookingtype : String = "Table";
   
   time :String;
   
@@ -113,6 +131,7 @@ addbooking(){
     state :this.state,
     price:this.price,
     ispaid :false,
+    bookingtype : this.bookingtype,
   }
 
   console.log('submit_dk'+ body.breakfast +" "+ body.lunch +" "+ body.dinner)

@@ -48,7 +48,8 @@
                 <mat-card-header>
                   <mat-card-subtitle>Swimming Pool No: {{swimmingpool.poolnumber}}</mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu">
+                <!-- <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu"> -->
+                <img mat-card-image class="example-header-image" [src]="urltable+swimmingpool.poolnumber+'.jpg'">
               </mat-card>
             </div>
 
@@ -57,17 +58,20 @@
             <div class="col-md-7">
                 <form class="example-form" (ngSubmit)="addbooking()" method="POST" action="www">
                   <div class="example-h2">
-                      <mat-checkbox [(ngModel)]="breakfast" id="breakfast" name="breakfast" class="example-margin" color="warn">Breakfast</mat-checkbox>
-                      <mat-checkbox [(ngModel)]="lunch" id="lunch" name="lunch" class="example-margin" color="warn">Lunch</mat-checkbox>
-                      <mat-checkbox [(ngModel)]="dinner" id="dinner" name="dinner" class="example-margin" color="warn">Dinner</mat-checkbox>
+                      <table class="example-full-width" cellspacing="0"><tr>
+                        <td><mat-form-field class="example-full-width">
+                            <input matInput placeholder="Customer Name" [(ngModel)]="customername" id="customername" name="customername">
+                          </mat-form-field></td>
+                        </tr>
+                      </table>
                   </div>
                   <mat-divider></mat-divider>
                 
-                  <!-- <table class="example-full-width" cellspacing="0"><tr>
+                  <table class="example-full-width" cellspacing="0"><tr>
                     <td><mat-form-field class="example-full-width">
-                      <input matInput placeholder="Amount" [(ngModel)]="amount" id="Amount" name="amount" placeholder="Rs: {{table.price}}" disabled>
+                      <input matInput placeholder="Start Time" [(ngModel)]="starttime" id="starttime" name="starttime" >
                     </mat-form-field></td>
-                  </tr></table> -->
+                  </tr></table>
 
                   <table class="example-full-width" cellspacing="0"><tr>
                     <td><mat-form-field class="example-full-width">

@@ -68,7 +68,8 @@ export class LoginComponent implements OnInit {
       }
       else{
         //this.userService.setToken(res['token']);
-        this.router.navigateByUrl('/customer');
+        this.router.navigateByUrl('/customer-index');
+
         this.HistoryService.setEmail(email);
         this.tosatr.success('Login sucsessfully','Customer');
       }

@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { BookingService } from 'src/app/shared/services/booking.service';
 import { Booking } from 'src/app/shared/models/booking.model';
 
+
 @Component({
   selector: 'app-reservation-details',
   templateUrl: './reservation-details.component.html',
@@ -31,7 +32,12 @@ export class ReservationDetailsComponent implements OnInit {
       this.bookings.time="Dinner";
     }
     console.log(this.bookings.time);
+
+  
   }
+
+
+  
 
 
 

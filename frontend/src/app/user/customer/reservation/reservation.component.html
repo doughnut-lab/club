@@ -153,7 +153,7 @@
                 <div *ngIf="billiardtables.length>0" class="wrap-division">
                   <mat-grid-list cols="2" rows="2" rowHeight="450px">
                       <mat-grid-tile *ngFor="let billiardtable of billiardtables | paginate: { itemsPerPage: 4, currentPage: p }" class="col-md-3 col-sm-3">
-                          <a routerLink="/profile">  
+                          <a routerLink="/billiard-table-booking">  
                             <mat-card class="example-card">
                                 <mat-card-header>
                                     <mat-card-title>Billiard Table no:{{billiardtable.tablenumber}} </mat-card-title>

@@ -10,33 +10,37 @@
 
         <div class="page-content-wrap">              
             <!-- input here -->
+          <!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
+          
           <div>
             <table id="customers">
               <thead>
                 <tr>
                   <th>Order ID</th>
+                  <th>Type</th>
                   <th>Customer Name</th>
                   <th>Email</th>
                   <th>Telephone</th>
                   <th>Details</th>
-                  <th>Payment</th>
-                  <th>State</th>
+                  <!-- <th>Payment</th> -->
+                  <th></th>
                 </tr>
               </thead>
-              <tr *ngFor="let ins of bookinglist  | paginate: { itemsPerPage: 8, currentPage: p }">
+              <tr *ngFor="let ins of bookinglist.reverse()  | paginate: { itemsPerPage: 8, currentPage: p }" (click)="checked(ins)">
                 <td>{{ins._id}}</td>
+                <td>{{ins.bookingtype}}</td>
                 <td>{{ins.customername}}</td>
                 <td>{{ins.email}}</td>
                 <td>{{ins.contact}}</td>
                 <td>{{ins.address}}</td>
-                <td>Not Paid</td>
+                <!-- <td>{{ins.ispaid}}</td> -->
                 <td>
                     <a class="action-btn" >
                       <!-- <i class="material-icons" (click)="openDialog()">View</i> -->
                       <button mat-raised-button (click)="openDialog(ins._id)">View</button>
                     </a>
                     <a class="action-btn">
-                      <button mat-raised-button (click)="changeState(ins._id)">Close</button>
+                      <button mat-raised-button id="ins._id+''" (click)="changeState(ins)">Close</button>
                       <!-- <i class="material-icons" >Close</i> -->
                     </a>
                   </td>
