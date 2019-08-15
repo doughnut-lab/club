@@ -25,7 +25,8 @@
                 <mat-card-header>
                   <mat-card-subtitle>Billiard Table No: {{billiardtable.tablenumber}}</mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu">
+                <!-- <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu"> -->
+                <img mat-card-image  [src]="urltable+billiardtable.tablenumber+'.jpg'">
               </mat-card>
             </div>
 
@@ -48,8 +49,7 @@
                 <mat-card-header>
                   <mat-card-subtitle>Swimming Pool No: {{swimmingpool.poolnumber}}</mat-card-subtitle>
                 </mat-card-header>
-                <!-- <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu"> -->
-                <img mat-card-image class="example-header-image" [src]="urltable+swimmingpool.poolnumber+'.jpg'">
+                <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu">
               </mat-card>
             </div>
 

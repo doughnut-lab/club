@@ -57,6 +57,9 @@ var userSchema = new mongoose.Schema({
     hallno: {
         type: Number
     },
+    starttime: {
+        type: String
+    },
     saltSecret: String
 });
 

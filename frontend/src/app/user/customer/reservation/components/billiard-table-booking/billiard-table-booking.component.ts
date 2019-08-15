@@ -14,17 +14,17 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../../../environments/environment';
 
 var today = new Date();
+
 @Component({
-  selector: 'app-swimming-pool-booking',
-  templateUrl: './swimming-pool-booking.component.html',
-  styleUrls: ['./swimming-pool-booking.component.css']
+  selector: 'app-billiard-table-booking',
+  templateUrl: './billiard-table-booking.component.html',
+  styleUrls: ['./billiard-table-booking.component.css']
 })
-export class SwimmingPoolBookingComponent implements OnInit {
+export class BilliardTableBookingComponent implements OnInit {
 
   _id:String;
   customername :String;
   starttime :String;
-  // night :Boolean = false;
   contact :Number;
   address :String;
   email :String;
@@ -44,7 +44,7 @@ export class SwimmingPoolBookingComponent implements OnInit {
 
   time :String;
 
-  urltable          = environment.appUrl+"/images/swimpool/";
+  urltable          = environment.appUrl+"/images/billiardtable/";
 
   constructor(
               private tableService: TableService,
@@ -109,7 +109,5 @@ export class SwimmingPoolBookingComponent implements OnInit {
       }
     )
   }
-  
-          
 
 }

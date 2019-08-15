@@ -41,6 +41,8 @@ module.exports.register = (req, res, next) => {
     booking.night = req.body.night;
     booking.hallno = req.body.hallno;
 
+    booking.starttime = req.body.starttime;
+
     booking.saltSecret = req.body.saltSecret;
     
     booking.save((err, doc) => {
@@ -127,13 +129,24 @@ module.exports.view_booking_id = (req, res, next) => {
 
 
 // change reservation status
-module.exports.changeStatus =(req, res, next) => {
-    Booking.updateOne(
-        { _id: req.params.id },
-        { $set: { state: req.state } }
-    )
-    .then(result => callback(null, result))
-    .catch(err => callback(err));
+// module.exports.changeStatus =(req, res, next) => {
+//     Booking.updateOne(
+//         { _id: req.params.id },
+//         { $set: { state: "close" } }
+//     )
+//     .then(result => callback(null, result))
+//     .catch(err => callback(err));
+// }
+
+module.exports.changeStatus = (req, res, next) => {
+    console.log("In update");
+    if(!ObjectId.isValid(req.params.id))
+      return res.status(400).send('No record with given id : ${req.params.id}');
+      console.log("In update");
+      Booking.findByIdAndUpdate(req.params.id, { $set: { state: "close" }},{ new: true},(err,doc) => {
+        if(!err) { res.send(doc); }
+        else {console.log('Error in Cheff Update :' + JSON.stringify(err, undefined, 2)); }
+    });
 }
 
 
