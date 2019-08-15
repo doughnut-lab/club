@@ -91,6 +91,7 @@ import { CheffnavComponent } from './user/cheff/component/cheffnav/cheffnav.comp
 import { TablemenuComponent } from './user/customer/reservation/components/tablemenu/tablemenu.component';
 import { CompletedordersComponent } from './user/cashier/component/completedorders/completedorders.component';
 import { SignupComponent } from './user/customer/signup/signup.component';
+import { CustomernavComponent } from './user/customer/customernav/customernav.component';
 //import {InstructorFilterPipe } from './user/instructor/component/ins-history/ins_history_filter.pipe';
 
 
@@ -146,6 +147,7 @@ import { SignupComponent } from './user/customer/signup/signup.component';
     TablemenuComponent,
     CompletedordersComponent,
     SignupComponent,
+    CustomernavComponent,
     
   ],
   imports: [
