@@ -44,9 +44,26 @@ export class ViewreservationComponent implements OnInit {
     });
   }
 
-  changeState(id){
-    this.bookingService.updateBooking(id);
+  changeState(ins:Booking){
+    this.bookingService.updateBooking(ins).subscribe(
+      res=>{},err=>{}
+    );
   }
+
+  checked(ins:Booking) {
+    var myLayer = document.getElementById(ins._id+"");
+
+   if (ins.state=="close") {
+        // myLayer.class = "submit";
+        myLayer.removeAttribute("disabled");
+   } else {
+        // myLayer.class = "button:disabled";
+        myLayer.setAttribute("disabled","disabled");
+   };
+}
+
+  
+
   
     
 

@@ -42,7 +42,7 @@ export class HallBookComponent implements OnInit {
   billiardtable:Billiardtable;
   reservstion:any;
 
-  
+  bookingtype : String = "Hall";
   
   time :String;
   
@@ -97,6 +97,7 @@ export class HallBookComponent implements OnInit {
       state :this.state,
       price:this.price,
       ispaid :false,
+      bookingtype : this.bookingtype,
     }
   
     

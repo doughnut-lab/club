@@ -44,6 +44,8 @@ export class SwimmingPoolBookingComponent implements OnInit {
 
   time :String;
 
+  bookingtype : String = "Swimming_Pool";
+
   urltable          = environment.appUrl+"/images/swimpool/";
 
   constructor(
@@ -93,6 +95,7 @@ export class SwimmingPoolBookingComponent implements OnInit {
       state :this.state,
       price:this.price,
       ispaid :false,
+      bookingtype : this.bookingtype,
     }
   
     

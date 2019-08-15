@@ -60,6 +60,17 @@
             <div class="col-md-7">
                 <form class="example-form" >
                   <div class="example-h2">
+                      <!-- <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button [(ngModel)]="breakfast" color="warn" >Breakfast</mat-radio-button>
+                        <mat-radio-button [(ngModel)]="lunch" color="warn" >Lunch</mat-radio-button>
+                        <mat-radio-button [(ngModel)]="dinner" color="warn" >Dinner</mat-radio-button>
+                      </mat-radio-group> -->
+                        
+                    <!-- <mat-radio-group >
+                        <mat-radio-button [(ngModel)]="breakfast" id="breakfast" name="breakfast" class="example-margin" color="warn">Breakfast</mat-radio-button>
+                        <mat-radio-button [(ngModel)]="lunch" id="lunch" name="lunch" class="example-margin" color="warn">Lunch</mat-radio-button>
+                        <mat-radio-button [(ngModel)]="dinner" id="dinner" name="dinner" class="example-margin" color="warn">Dinner</mat-radio-button>
+                    </mat-radio-group> -->
                       <mat-checkbox [(ngModel)]="breakfast" id="breakfast" name="breakfast" class="example-margin" color="warn">Breakfast</mat-checkbox>
                       <mat-checkbox [(ngModel)]="lunch" id="lunch" name="lunch" class="example-margin" color="warn">Lunch</mat-checkbox>
                       <mat-checkbox [(ngModel)]="dinner" id="dinner" name="dinner" class="example-margin" color="warn">Dinner</mat-checkbox>
@@ -72,11 +83,11 @@
                     </mat-form-field></td>
                   </tr></table> -->
 
-                  <table class="example-full-width" cellspacing="0"><tr>
+                  <!-- <table class="example-full-width" cellspacing="0"><tr>
                     <td><mat-form-field class="example-full-width">
-                        <input type="tel" matInput placeholder="tableno" [(ngModel)]="tableno" id="tableno" name="tableno" disabled value="{{table.tablenumber}}">
+                        <input type="tel" matInput placeholder="tableno" [(ngModel)]="tableno" id="tableno" name="tableno" hidden value="{{table.tablenumber}}">
                     </mat-form-field></td>
-                  </tr></table>
+                  </tr></table> -->
 
                   <table class="example-full-width" cellspacing="0"><tr>
                     <td><mat-form-field class="example-full-width">
@@ -91,7 +102,15 @@
 
                   <table class="example-full-width" cellspacing="0"><tr>
                     <td><mat-form-field class="example-full-width">
-                        <input matInput placeholder="Enter your email" [(ngModel)]="email" id="Email" name="email" required>
+                        <input matInput placeholder="Enter your email" [(ngModel)]="email" id="Email" name="email"  matInput placeholder="Email" [formControl]="emailFormControl"
+                        [errorStateMatcher]="matcher" required>
+                        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                          Please enter a valid email address
+                        </mat-error>
+                        <mat-error *ngIf="emailFormControl.hasError('required')">
+                          Email is <strong>required</strong>
+                        </mat-error>
                         <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                     </mat-form-field></td>                    
                   </tr></table>

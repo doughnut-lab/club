@@ -92,6 +92,7 @@ import { TablemenuComponent } from './user/customer/reservation/components/table
 import { BilliardTableBookingComponent } from './user/customer/reservation/components/billiard-table-booking/billiard-table-booking.component';
 //import {InstructorFilterPipe } from './user/instructor/component/ins-history/ins_history_filter.pipe';
 
+// import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [

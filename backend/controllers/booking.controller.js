@@ -10,6 +10,7 @@ const authToken = 'a1d0a803e1c76fe0b13461b0304f388b';
 // const twilio = require('twilio');
 // const client = new twilio(accountSid, authToken);
 const client = require('twilio')(accountSid, authToken);
+var newstate = "close";
 
 
 
@@ -42,6 +43,8 @@ module.exports.register = (req, res, next) => {
     booking.hallno = req.body.hallno;
 
     booking.starttime = req.body.starttime;
+
+    booking.bookingtype = req.body.bookingtype;
 
     booking.saltSecret = req.body.saltSecret;
     
@@ -138,16 +141,30 @@ module.exports.view_booking_id = (req, res, next) => {
 //     .catch(err => callback(err));
 // }
 
+// module.exports.changeStatus = (req, res, next) => {
+//     console.log("In update");
+//     if(!ObjectId.isValid(req.params.id))
+//       return res.status(400).send('No record with given id : ${req.params.id}');
+//       console.log("In update");
+      
+//       Booking.findByIdAndUpdate(req.params.id, { $set: { state: "close" }},{ new: true},(err,doc) => {
+//         if(!err) { res.send(doc); }
+//         else {console.log('Error in Cheff Update :' + JSON.stringify(err, undefined, 2)); }
+//     });
+// }
+
 module.exports.changeStatus = (req, res, next) => {
-    console.log("In update");
+    
     if(!ObjectId.isValid(req.params.id))
       return res.status(400).send('No record with given id : ${req.params.id}');
-      console.log("In update");
-      Booking.findByIdAndUpdate(req.params.id, { $set: { state: "close" }},{ new: true},(err,doc) => {
+    
+    var ins ={
+        state: newstate
+    };
+    Booking.findByIdAndUpdate(req.params.id, { $set: ins},{ new: true},(err,doc) => {
         if(!err) { res.send(doc); }
-        else {console.log('Error in Cheff Update :' + JSON.stringify(err, undefined, 2)); }
+        else {console.log('Error in instructor Update :' + JSON.stringify(err, undefined, 2)); }
     });
 }
-
 
 

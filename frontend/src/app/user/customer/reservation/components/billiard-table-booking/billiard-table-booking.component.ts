@@ -44,6 +44,8 @@ export class BilliardTableBookingComponent implements OnInit {
 
   time :String;
 
+  bookingtype : String = "Billiard_Table";
+
   urltable          = environment.appUrl+"/images/billiardtable/";
 
   constructor(
@@ -93,6 +95,7 @@ export class BilliardTableBookingComponent implements OnInit {
       state :this.state,
       price:this.price,
       ispaid :false,
+      bookingtype : this.bookingtype,
     }
   
     

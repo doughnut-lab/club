@@ -17,5 +17,7 @@ export class Booking {
 
     time : String;
 
+    bookingtype : String;
+    starttime : String;
 }
 

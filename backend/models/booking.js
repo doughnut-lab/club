@@ -60,6 +60,9 @@ var userSchema = new mongoose.Schema({
     starttime: {
         type: String
     },
+    bookingtype: {
+        type: String
+    },
     saltSecret: String
 });
 
