@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
       }
       else if(this.getType() =="cashier"){
         //this.userService.setToken(res['token']);
-        this.router.navigateByUrl('/cashier');
+        this.router.navigateByUrl('/orderfood');
         this.HistoryService.setEmail(email);
         this.tosatr.success('Login sucsessfully','Cashier');
       }

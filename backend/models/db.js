@@ -22,3 +22,5 @@ require('./table');
 require('./billiardtable');
 require('./hall');
 require('./swimmingpool');
+require('./product');
+require('./orderproducts');

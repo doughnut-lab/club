@@ -1,0 +1,44 @@
+<app-ca-nav></app-ca-nav>
+<div class="main"> 
+  
+ 
+<div class="container-fluid">
+    <h3>
+        Your Cart
+      </h3>
+      <ul class="list-group">
+        Price Lists
+     <li *ngFor="let price of namelist;let i=index">{{i+1}}:{{price}}</li>
+
+       Totalprice:<h1>Rs {{totalprice}}</h1>
+
+     <button (click)="onOrder()"  class="btn btn-success">Order</button>
+      </ul>
+    <div class="row">
+      <div class="col-lg-6" *ngFor="let ins of UserProfileService.product; let i = index">
+          <div class="card mb-4 shadow-sm">
+              <img class="card-img-top" src="assets/images/food/{{ins.url}}" alt="Card image cap">
+              <div class="card-body">
+                  Price:{{ins.prize}}
+                  <p class="card-text">{{ins.type}}</p>
+                  <p class="card-text">{{ins.name}}</p>
+                  Quantity: <input type="number" id="myNumber" [(ngModel)]="quantity[i]"> <!--#quantity="ngModel" [(ngModel)]="model.quantity"> -->
+
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                      <!-- <button type="button"  class="btn btn-sm btn-outline-secondary">Wishlist</button> -->
+                    <button (click)="onClick(ins.prize,ins.name,quantity[i])" class="btn btn-sm btn-outline-secondary">Add To Cart</button>
+                  </div>
+                  <small class="text-muted"></small>
+                </div>
+              </div>
+            </div>
+      </div>
+     
+    </div>
+   
+  </div>
+</div>
+<!-- import footer comonent -->
+<app-footer></app-footer>
+

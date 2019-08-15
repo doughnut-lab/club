@@ -2,6 +2,7 @@ import { Component, OnInit,  Inject } from '@angular/core';
 import { BookingService } from 'src/app/shared/services/booking.service';
 import { Booking } from 'src/app/shared/models/booking.model';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { ReservationDetailsComponent } from '../reservation-details/reservation-details.component';
 
 @Component({
   selector: 'app-viewreservation',

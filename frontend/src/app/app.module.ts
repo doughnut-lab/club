@@ -82,6 +82,11 @@ import { ProfileComponent } from './user/customer/profile/profile.component';
 import { SidebarComponent } from './user/customer/reservation/components/sidebar/sidebar.component';
 import { PaymentComponent } from './user/customer/profile/components/payment/payment.component';
 import { InsNavComponent } from './user/instructor/component/ins-nav/ins-nav.component';
+import { CaNavComponent } from './user/cashier/component/ca-nav/ca-nav.component';
+import { CaSidenavComponent } from './user/cashier/component/ca-sidenav/ca-sidenav.component';
+import { OrderfoodComponent } from './user/cashier/component/orderfood/orderfood.component';
+import { HandlepaymentComponent } from './user/cashier/component/handlepayment/handlepayment.component';
+import { CheffnavComponent } from './user/cheff/component/cheffnav/cheffnav.component';
 //import {InstructorFilterPipe } from './user/instructor/component/ins-history/ins_history_filter.pipe';
 
 
@@ -129,6 +134,11 @@ import { InsNavComponent } from './user/instructor/component/ins-nav/ins-nav.com
     SidebarComponent,
     PaymentComponent,
     InsNavComponent,
+    CaNavComponent,
+    CaSidenavComponent,
+    OrderfoodComponent,
+    HandlepaymentComponent,
+    CheffnavComponent,
     
   ],
   imports: [

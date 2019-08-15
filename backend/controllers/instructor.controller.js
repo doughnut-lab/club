@@ -215,3 +215,9 @@ module.exports.cancel = (req, res, next) => {
         }
       });
 }
+module.exports.view_count = (req, res, next) => {
+    User.find({}).count((err, docs) => {
+        if(!err) {res.send(docs); }
+        else {console.log('Error in Retriving User :' + JSON.stringify(err, undefined, 2));}
+    });
+}

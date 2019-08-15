@@ -14,24 +14,34 @@
                  <th>Time</th>
                  
                  
-                 <th></th>
+                 <!-- <th></th> -->
               </tr>
             </thead>
-            <tr *ngFor="let ins of UserProfileService.history">
+            <tr *ngFor="let ins of UserProfileService.history  | paginate: { itemsPerPage: 3, currentPage: p }">
               <td>{{ins.customer_name}}</td>
               <td>{{ins.tel}}</td>
               <td>{{ins.date}}</td>
               <td>{{ins.time}}</td>
               
               
-              <td>
+              <!-- <td>
                   
                   <a class="action-btn">
                     <i class="material-icons" (click)="onDelete()">delete</i>
                   </a>
-                </td>
+                </td> -->
             </tr>
           </table>
+          <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="text-center">
+                    <pagination-controls
+                    class="my-pagination"
+                    (pageChange)="p = $event"
+                    ></pagination-controls>
+                </div>
+            </div>
+        </div>
       </div></div></div>
 <!--<app-ins-nav-bar></app-ins-nav-bar>-->
 <!-- import footer comonent -->

@@ -1,3 +1,48 @@
-<p>
-  cheff works!
-</p>
+<app-cheffnav></app-cheffnav> 
+
+  <div class="column1">
+  <div class="main">
+      <div class="row" >
+          <table id="customers" >
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Quantity</th>
+                   <th></th>
+                   <th></th>
+                   
+                   
+                   <!-- <th></th> -->
+                </tr>
+              </thead>
+              <tr ><!--</tr>*ngFor="paginate: { itemsPerPage: 3, currentPage: p }"> -->
+                <td>Fried Rice</td>
+                <td>2</td>
+                <td><button class="button">Accept</button></td>
+                <td><button class="button button3">Cancel</button></td>
+                
+              </tr>
+              <tr ><!--</tr>*ngFor="paginate: { itemsPerPage: 3, currentPage: p }"> -->
+                <td>White Rice</td>
+                <td>5</td>
+                <td><button class="button">Accept</button></td>
+                <td><button class="button button3">Cancel</button>
+                </td>
+                
+              </tr>
+            </table>
+            <div class="row">
+              <div class="col-md-12 text-center">
+                  <div class="text-center">
+                      <pagination-controls
+                      class="my-pagination"
+                      (pageChange)="p = $event"
+                      ></pagination-controls>
+                  </div>
+              </div>
+          </div>
+        </div></div></div>
+  <!--<app-ins-nav-bar></app-ins-nav-bar>-->
+  <!-- import footer comonent -->
+  <app-footer></app-footer>
+  
