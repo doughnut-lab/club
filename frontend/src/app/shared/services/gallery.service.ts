@@ -10,6 +10,9 @@ import { Gallery } from '../models/gallery.model';
 export class GalleryService {
   
   readonly baseURL=environment.appUrl+'/view_gallery';
+  readonly baseURLCatogory=environment.appUrl+'/view_gallery_catogory/';
+  catogory: String;
+
   constructor(private http: HttpClient) { }
   
   getFoodList(){
@@ -24,6 +27,18 @@ export class GalleryService {
 
   getgallery(){
 
+  }
+
+  getFoodByCatogory(catogory){
+    return this.http.get(this.baseURLCatogory+catogory);
+  }
+
+  setCatogory(catogory){
+    this.catogory = catogory;
+  }
+
+  getCtogory(){
+    return this.catogory;
   }
 }
 

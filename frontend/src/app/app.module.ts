@@ -38,6 +38,7 @@ import {
   MatStepperModule,
   MatRadioModule,
   MatTooltipModule,
+  MatDialogModule,
   
 
 } from '@angular/material';
@@ -87,6 +88,7 @@ import { CaSidenavComponent } from './user/cashier/component/ca-sidenav/ca-siden
 import { OrderfoodComponent } from './user/cashier/component/orderfood/orderfood.component';
 import { HandlepaymentComponent } from './user/cashier/component/handlepayment/handlepayment.component';
 import { CheffnavComponent } from './user/cheff/component/cheffnav/cheffnav.component';
+import { TablemenuComponent } from './user/customer/reservation/components/tablemenu/tablemenu.component';
 //import {InstructorFilterPipe } from './user/instructor/component/ins-history/ins_history_filter.pipe';
 
 
@@ -134,11 +136,15 @@ import { CheffnavComponent } from './user/cheff/component/cheffnav/cheffnav.comp
     SidebarComponent,
     PaymentComponent,
     InsNavComponent,
+<<<<<<< HEAD
     CaNavComponent,
     CaSidenavComponent,
     OrderfoodComponent,
     HandlepaymentComponent,
     CheffnavComponent,
+=======
+    TablemenuComponent,
+>>>>>>> 57d5869de53a2a98fbaa9e63233d8448e2729bcc
     
   ],
   imports: [
@@ -168,10 +174,17 @@ import { CheffnavComponent } from './user/cheff/component/cheffnav/cheffnav.comp
     MatCardModule,
     MatTooltipModule,
     NgxPaginationModule,
+    MatDialogModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[
+    MenuComponent,
+    TablemenuComponent
+  ],
+
+  
 })
 export class AppModule { }
 export class PizzaPartyAppModule { }

@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-const Booking = mongoose.model('Booking');
+const Swimmingpool_Booking = mongoose.model('Swimmingpool_Booking');
 var ObjectId =require('mongoose').Types.ObjectId;
 const _ = require('lodash');
 
 // Download the Node helper library from twilio.com/docs/node/install
 // These are your accountSid and authToken from https://www.twilio.com/console
 const accountSid = 'AC35b07c0fb85a8dac36b031af16f58a8b';
-const authToken = 'a1d0a803e1c76fe0b13461b0304f388b';
+const authToken = '1234';
 // const twilio = require('twilio');
 // const client = new twilio(accountSid, authToken);
 const client = require('twilio')(accountSid, authToken);
@@ -17,36 +17,37 @@ const client = require('twilio')(accountSid, authToken);
 
 // mongoose.connect('mongodb://localhost/mongoose');
 
-//add new booking
+//add new swimming_booking
 module.exports.register = (req, res, next) => {
     console.log("came to register")
-    var booking = new Booking();
+    var swimming_booking = new Swimmingpool_Booking();
     
-    booking.breakfast = req.body.breakfast;
-    booking.lunch = req.body.lunch;
-    booking.dinner = req.body.dinner;
-    booking.customername = req.body.customername;
-    booking.contact = req.body.contact;
-    booking.foodlist = req.body.foodlist;
-    booking.address = req.body.address;
-    booking.email = req.body.email;
-    booking.reserveddate = req.body.reserveddate;
-    booking.bookingdate = req.body.bookingdate;
-    booking.tableno = req.body.tableno;
-    booking.state = req.body.state;
-    booking.price = req.body.price;
-    booking.ispaid = req.body.ispaid;
-    booking.saltSecret = req.body.saltSecret;
+    swimming_booking.breakfast = req.body.breakfast;
+    swimming_booking.lunch = req.body.lunch;
+    swimming_booking.dinner = req.body.dinner;
+    swimming_booking.customername = req.body.customername;
+    swimming_booking.contact = req.body.contact;
+    swimming_booking.foodlist = req.body.foodlist;
+    swimming_booking.address = req.body.address;
+    swimming_booking.email = req.body.email;
+    swimming_booking.reserveddate = req.body.reserveddate;
+    swimming_booking.bookingdate = req.body.bookingdate;
+
+    swimming_booking.swimmingpoolno = req.body.swimmingpoolno;
+    swimming_booking.state = req.body.state;
+    swimming_booking.price = req.body.price;
+    swimming_booking.ispaid = req.body.ispaid;
+
+    swimming_booking.saltSecret = req.body.saltSecret;
     
-    booking.save((err, doc) => {
+    swimmingpool_Booking.save((err, doc) => {
         if (!err){
-            var message='Hi,'+booking.customername+" your booking was successfully recorded! ";
-            client.messages.create({body: message, from: '+14805256961', to: '+94703177445'},
-            function (err,data) {
-                if(err){
-                    console.log("error : " + err)
-                }console.log(data)
-            })
+            // client.messages.create({body: 'Hi there!', from: '+14805256961', to: '+94703177445'},
+            // function (err,data) {
+            //     if(err){
+            //         console.log("error : " + err)
+            //     }console.log(data)
+            // })
             res.send(doc);
         }       
         else{
@@ -58,7 +59,7 @@ module.exports.register = (req, res, next) => {
     });
 }
 
-//update booking details
+//update swimming_booking details
 module.exports.update_booking = (req, res, next) => {
     if(!ObjectId.isValid(req.params.id))
       return res.status(400).send('No record with given id : ${req.params.id}');
@@ -73,32 +74,32 @@ module.exports.update_booking = (req, res, next) => {
         email : req.body.email,
         reserveddate : req.body.reserveddate,
         bookingdate : req.body.bookingdate,
-        tableno : req.body.tableno,
+        swimmingpoolno : req.body.swimmingpoolno,
         state : req.body.state,
         price : req.body.price,
         ispaid : req.body.ispaid,
         saltSecret : req.body.saltSecret,
     };
-    Booking.findByIdAndUpdate(req.params.id, { $set: ins},{ new: true},(err,doc) => {
+    Swimmingpool_Booking.findByIdAndUpdate(req.params.id, { $set: ins},{ new: true},(err,doc) => {
         if(!err) { res.send(doc); }
         else {console.log('Error in Cashier Update :' + JSON.stringify(err, undefined, 2)); }
     });
 }
 
-//delete booking
+//delete swimming_booking
 module.exports.delete_booking = (req, res, next) => {
     if(!ObjectId.isValid(req.params.id))
     return res.status(400).send('No record with given id : ${req.params.id}');   
     
-   Booking.findByIdAndRemove(req.params.id, (err, doc) => {
+    Swimmingpool_Booking.findByIdAndRemove(req.params.id, (err, doc) => {
      if(!err) { res.send(doc); }
      else {console.log('Error in Cashier Delete :' + JSON.stringify(err, undefined, 2)); }
  });
 }
 
-//view booking
+//view swimming_booking
 module.exports.view_booking = (req, res, next) => {
-    Booking.find((err, docs) => {
+    Swimmingpool_Booking.find((err, docs) => {
         if(!err) {res.send(docs); }
         else {console.log('Error in Retriving Booking :' + JSON.stringify(err, undefined, 2));}
     });
@@ -106,15 +107,15 @@ module.exports.view_booking = (req, res, next) => {
 
 //filter date
 module.exports.filter_date =(req, res, next) => {
-    Booking.find({reserveddate: req.params.bookingdate})
+    Swimmingpool_Booking.find({reserveddate: req.params.bookingdate})
 }
 
-//find booking by id
+//find swimming_booking by id
 module.exports.view_booking_id = (req, res, next) => {
     if(!ObjectId.isValid(req.params.id))
     return res.status(400).send('No record with given id : ${req.params.id}');  
 
-    Booking.findById(req.params.id,(err, docs) => {
+    Swimmingpool_Booking.findById(req.params.id,(err, docs) => {
         if(!err) {res.send(docs); }
         else {console.log('Error in Retriving Booking :' + JSON.stringify(err, undefined, 2));}
     });

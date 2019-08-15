@@ -1,3 +1,42 @@
-<p>
-  reservation-details works!
-</p>
+<!-- h2 mat-dialog-title class="text-center">{{reservation.packagename}}</h2> -->
+<div class="card card-user" style="width:320px">
+    <div class="image">
+      <!-- <img src="./assets/img/bg5.jpg" alt="..."> -->
+    </div>
+    <div class="card-body">
+      <div class="author">
+        <div>
+          <!-- <img class="avatar border-gray" [src]="url+bookings.imgurl" alt="..."> -->
+          <h5 class="title text-warning">Order Id : {{bookings._id}}</h5>
+        </div>
+        <p class="">
+          Customer Name : {{bookings.customername}}
+          <br>
+          Telephone no : {{bookings.contact}} 
+          <br>
+          Email : {{bookings.contact}}
+          <br>
+          Address : {{bookings.address}}
+          <br>
+          Order placed Date : {{bookings.bookingdate}}
+          <br>
+          Booking Date : {{bookings.reserveddate}}
+          <br>
+
+        </p>
+      </div>
+      <p class=" text-center">
+         Table No : {{bookings.tableno}}
+        <br> 
+        Time :{{bookings.time}} 
+        <br> FoodList :{{bookings.price}}
+        <br> Total : {{bookings.price}}
+      </p>
+    </div>
+    <hr>
+    <div class="button-container">
+            <button  mat-dialog-close  class="btn btn-warning btn-round" style="margin:20px;width: 100px">Close</button>
+            <button  class="btn btn-danger btn-round"  [mat-dialog-close]="true" style="margin:20px;width:100px">Completed</button>
+    </div>
+  </div>
+<!-- <h1>dhwuaefue</h1> -->

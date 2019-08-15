@@ -1,31 +1,7 @@
-<!-- import main navigation component -->
-<app-back-nav></app-back-nav>
-
 <div id="colorlib-contact">
   <div class="container">
-    <div class = "col-md-3">
-      <mat-list role="list">
-        <mat-list-item role="listitem">
-            <button mat-raised-button color="primary" style="width: 200px">All</button>
-        </mat-list-item>
-        <mat-list-item role="listitem">
-            <button mat-raised-button color="primary" style="width: 200px" [(ngModel)]="category" (click)="setCatogory(breakfast)">Breakfast</button>
-        </mat-list-item>
-        <mat-list-item role="listitem">
-            <button mat-raised-button color="primary" style="width: 200px" [(ngModel)]="category" (click)="setCatogory(lunch)">Lunch</button>
-        </mat-list-item>
-        <mat-list-item role="listitem">
-            <button mat-raised-button color="primary" style="width: 200px" [(ngModel)]="category" (click)="setCatogory(dinner)">Dinner</button>
-        </mat-list-item>
-        <mat-list-item role="listitem">
-            <button mat-raised-button color="primary" style="width: 200px" [(ngModel)]="category" (click)="setCatogory(beverage)">Beverage</button>
-        </mat-list-item>
-        <mat-list-item role="listitem">
-            <button mat-raised-button color="primary" style="width: 200px">Dessert</button>
-        </mat-list-item>
-      </mat-list>   
-    </div>
-    <div class = "col-md-9">
+    
+    <div class = "col-md-12">
         <!-- <div *ngIf="category=='breakfast'"> -->
           <div class="row">
               <mat-grid-list cols="3" rowHeight="280px">
@@ -62,11 +38,13 @@
                 </div>
               </div> 
 
+              <div class="row">
+                <button mat-raised-button >Close</button>
+              </div>
+
           </div> 
         <!-- </div> -->
     </div>
   </div>
 </div>
 
-<!-- import footer component -->
-<app-footer></app-footer>

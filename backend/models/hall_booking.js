@@ -4,19 +4,13 @@ var userSchema = new mongoose.Schema({
     customername: {
         type: String
     },
-    breakfast: {
+    day: {
         type: Boolean
     },
-    lunch: {
-        type: Boolean
-    },
-    dinner: {
+    night: {
         type: Boolean
     },
     contact: String,
-    foodlist:{
-        type: Array
-    },
     address: {
         type: String,
         required: 'address can\'t be empty',
@@ -33,7 +27,7 @@ var userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    tableno: {
+    hallno: {
         type: Number
     },
     state: {
@@ -51,4 +45,4 @@ var userSchema = new mongoose.Schema({
     saltSecret: String
 });
 
-mongoose.model('Booking', userSchema);
+mongoose.model('Hall_Booking', userSchema);

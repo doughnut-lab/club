@@ -67,6 +67,9 @@ export const appRoutes: Routes = [
         path: 'gallery', component: GalleryComponent
     },
     {
+        path: 'menu', component: MenuComponent
+    },
+    {
         path: 'reservation', component: ReservationComponent
     },
     {

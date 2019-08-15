@@ -42,6 +42,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule} from 'ngx-pagination';
 import { ReservationDetailsComponent } from './pages/reservation/reservation-details/reservation-details.component';
 
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -81,11 +82,17 @@ import { ReservationDetailsComponent } from './pages/reservation/reservation-det
     ToastrModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    SweetAlert2Module,
   ],
-  exports: [RouterModule,ReservationDetailsComponent],
+  exports: [
+    RouterModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents:[
+    ReservationDetailsComponent,
+  ],
 })
 export class AppModule { }
 export class PizzaPartyAppModule { }

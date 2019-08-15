@@ -13,6 +13,9 @@ var userSchema = new mongoose.Schema({
     price: {
         type: String
     },
+    catogory: {
+        type: String
+    },
     saltSecret: String
 });
 
