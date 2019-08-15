@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
         if(this.getType() =="instructor")
         {
         
-        this.router.navigateByUrl('/instructor');
+        this.router.navigateByUrl('/assign');
         this.HistoryService.setEmail(email);
         this.tosatr.success('Login sucsessfully','Instructor');
         
@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
       }
       else if(this.getType() =="cashier"){
         //this.userService.setToken(res['token']);
-        this.router.navigateByUrl('/orderfood');
+        this.router.navigateByUrl('/completeorders');
         this.HistoryService.setEmail(email);
         this.tosatr.success('Login sucsessfully','Cashier');
       }

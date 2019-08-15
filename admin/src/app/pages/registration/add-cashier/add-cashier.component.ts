@@ -15,9 +15,9 @@ export class AddCashierComponent implements OnInit {
   constructor(public UserProfileService:CashierService,public tosatr :ToastrService,private router:Router) { }
   serverErrorMessages: string;
   ngOnInit() {
-    this.router.routeReuseStrategy.shouldReuseRoute = function () {
-      return false;
-    };
+    // this.router.routeReuseStrategy.shouldReuseRoute = function () {
+    //   return false;
+    // };
     this.refreshCashierList();
     this.resetForm();
     

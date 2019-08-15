@@ -58,7 +58,8 @@ router.post('/cancel',ctrlInstructor.cancel);
 //router.get('/view_count',ctrlInstructor.view_count);
 
 //customer
-router.post('/customer_register',ctrlCustomer.customer_register);
+router.post('/register_customer',ctrlCustomer.customer_register);
+router.post('/register_user_customer',ctrlCustomer.user_customer_register);
 
 //booking
 router.post('/booking',ctrlBooking.register);
@@ -108,5 +109,8 @@ router.get('/view_product',ctrlProduct.view_product);
 //router.get('/view_product_details/:customer_name',ctrlProduct.view_product_details);
 router.post('/enter_products',ctrlProduct.enter_products);
 router.get('/view_gallery_catogory/:catogory',ctrlGallery.view_gallery_catogory);
+router.get('/view_products',ctrlProduct.view_products);
+router.put('/update_products/:id',ctrlProduct.update_products);
+router.get('/view_product_state/:state',ctrlProduct.view_product_state);
 
 module.exports = router;

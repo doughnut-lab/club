@@ -1,6 +1,6 @@
 <app-ca-nav></app-ca-nav>
 <div class="main"> 
-  
+    <a routerLink="/completeorders" routerLinkActive="active" class="previous">&laquo; Back</a><br><br>
  
 <div class="container-fluid">
     <h3>
@@ -13,6 +13,7 @@
        Totalprice:<h1>Rs {{totalprice}}</h1>
 
      <button (click)="onOrder()"  class="btn btn-success">Order</button>
+     <button (click)="onClear()"  class="btn btn-success">Clear</button>
       </ul>
     <div class="row">
       <div class="col-lg-6" *ngFor="let ins of UserProfileService.product; let i = index">
@@ -34,7 +35,7 @@
               </div>
             </div>
       </div>
-     
+          
     </div>
    
   </div>
