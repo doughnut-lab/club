@@ -21,6 +21,8 @@ export class TablemenuComponent implements OnInit {
   beverage : any;
   dessert : any;
 
+  foodlist : Array<String> = [];
+
   url="http://localhost:3000/images/gallery/";
   constructor(private galleryservice: GalleryService) { }
 
@@ -42,10 +44,7 @@ export class TablemenuComponent implements OnInit {
     // });
     // this.galleryservice.getFoodByCatogory("dessert").subscribe((res)=>{
     //   this.dessert= res as Gallery[];
-    // });
-    
-    
-    
+    // }); 
   }
 
   selectCatogory(){
@@ -65,6 +64,14 @@ export class TablemenuComponent implements OnInit {
   //   this.catogory = this.galleryservice.getCtogory();
   // }
 
+  addFood(name){
+    this.foodlist.push(name);
+    console.log(this.foodlist);
+  }
+
+  setFoodArray(){
+    this.galleryservice.addFoodArray(this.foodlist);
+  }
   
 
 }

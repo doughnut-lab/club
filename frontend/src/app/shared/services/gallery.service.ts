@@ -12,6 +12,7 @@ export class GalleryService {
   readonly baseURL=environment.appUrl+'/view_gallery';
   readonly baseURLCatogory=environment.appUrl+'/view_gallery_catogory/';
   catogory: String;
+  foodList : Array<String> = [];
 
   constructor(private http: HttpClient) { }
   
@@ -39,6 +40,14 @@ export class GalleryService {
 
   getCtogory(){
     return this.catogory;
+  }
+
+  addFoodArray(foodlist){
+    this.foodList = foodlist;
+  }
+
+  getFoodArray(){
+    return this.foodList;
   }
 }
 

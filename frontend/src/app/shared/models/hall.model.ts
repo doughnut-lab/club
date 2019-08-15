@@ -4,5 +4,6 @@ export class Hall {
     name:string;
     description:string;
     price: string; 
+    hallnumber: number;
   }
   
