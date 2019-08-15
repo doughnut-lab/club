@@ -1,0 +1,81 @@
+<div class="main">
+<form #CashierForm="ngForm">
+    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="UserProfileService.selectCustomer._id">
+  <div class="row">
+    <div class="col-25">
+      <label for="fname">First Name</label>
+    </div>
+    <div class="col-75">
+        <input type="text" name="firstname" #firstname="ngModel" [(ngModel)]="UserProfileService.selectCustomer.firstname" placeholder="firstname" 
+        required [ngClass]="{'invalid-textbox' :CashierForm.submitted && !firstname.valid }">
+        <div *ngIf="CashierForm.submitted && !firstname.valid">
+          <label class="validation-message">This field is required.</label>
+        </div><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="lname">Last Name</label>
+    </div>
+    <div class="col-75">
+        <input type="text" name="lastname" #lastname="ngModel" [(ngModel)]="UserProfileService.selectCustomer.lastname" placeholder="lastname" 
+        required [ngClass]="{'invalid-textbox' :CashierForm.submitted && !lastname.valid }">
+        <div *ngIf="CashierForm.submitted && !lastname.valid">
+          <label class="validation-message">This field is required.</label>
+        </div><br>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-25">
+        <label for="lname">Address</label>
+      </div>
+      <div class="col-75">
+          <input type="text" name="address" #address="ngModel" [(ngModel)]="UserProfileService.selectCustomer.address" placeholder="address" 
+          required [ngClass]="{'invalid-textbox' :CashierForm.submitted && !address.valid }">
+        <div *ngIf="CashierForm.submitted && !address.valid">
+          <label class="validation-message">This field is required.</label>
+        </div><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Telephone No</label>
+      </div>
+      <div class="col-75">
+          <input type="text" name="tel" #tel="ngModel" [(ngModel)]="UserProfileService.selectCustomer.tel" placeholder="Telephone No" 
+          required [ngClass]="{'invalid-textbox' :CashierForm.submitted && !tel.valid }">
+          <div *ngIf="CashierForm.submitted && !tel.valid">
+            <label class="validation-message">This field is required.</label>
+          </div><br>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+          <label for="lname">Email</label>
+        </div>
+        <div class="col-75">
+            <input type="text" name="email" #email="ngModel" [(ngModel)]="UserProfileService.selectCustomer.email" placeholder="email" 
+            required [ngClass]="{'invalid-textbox' :CashierForm.submitted && !email.valid }">
+        <div *ngIf="CashierForm.submitted && !email.valid">
+          <label class="validation-message">This field is required.</label>
+        </div><br>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-25">
+            <label for="lname">Password</label>
+          </div>
+          <div class="col-75">
+              <input type="password" name="password" #password="ngModel" [(ngModel)]="UserProfileService.selectCustomer.password" placeholder="password" 
+              required [ngClass]="{'invalid-textbox' :CashierForm.submitted && !password.valid }">
+          <div *ngIf="CashierForm.submitted && !password.valid">
+            <label class="validation-message">This field is required.</label>
+          </div><br>
+          </div>
+        </div>
+      <div class="row">
+        <input type="submit" value="Submit" (click)="onSubmit(CashierForm)">
+        
+      </div>
+    </form>
+</div>

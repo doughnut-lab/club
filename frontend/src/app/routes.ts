@@ -26,6 +26,8 @@ import { SwimmingPoolBookingComponent } from './user/customer/reservation/compon
 import { HallBookComponent } from './user/customer/reservation/components/hall-book/hall-book.component';
 import { OrderfoodComponent } from './user/cashier/component/orderfood/orderfood.component';
 import { HandlepaymentComponent } from './user/cashier/component/handlepayment/handlepayment.component';
+import { CompletedordersComponent } from './user/cashier/component/completedorders/completedorders.component';
+import { SignupComponent } from './user/customer/signup/signup.component';
 
 
 
@@ -102,6 +104,11 @@ export const appRoutes: Routes = [
     },
     {
         path: 'handlepayment', component: HandlepaymentComponent
+    },{
+        path: 'signup', component: SignupComponent
+    },
+    {
+        path: 'completeorders', component: CompletedordersComponent
     },
     {
         path: 'swimming-pool-booking', component: SwimmingPoolBookingComponent

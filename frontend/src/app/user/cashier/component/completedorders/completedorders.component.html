@@ -1,35 +1,30 @@
-<app-cheffnav></app-cheffnav> 
-
- <div class="column1">
+<app-ca-nav></app-ca-nav>
+<div class="column1">
+    
+    <app-ca-sidenav></app-ca-sidenav>
+  </div>
+  <div class="column1">
   <div class="main">
       <div class="row" >
           <table id="customers" >
+             
               <thead>
                 <tr>
-                  <th>Product</th>
+                  <th>Products</th>
                   <!-- <th>Quantity</th> -->
-                   <th></th>
-                   <th></th>
+                  
                    
                    
                    <!-- <th></th> -->
                 </tr>
               </thead>
-              <tr *ngFor="let ins of UserProfileService.order | paginate: { itemsPerPage: 4, currentPage: p }"> 
+              <tr *ngFor="let ins of UserProfileService.order | paginate: { itemsPerPage: 6, currentPage: p }"> 
                 <td>{{ins.namelist}}</td>
                 <!-- <td>2</td> -->
-                <td><button class="button" (click)="onAccept(ins)">Accept</button></td>
-                <td><button class="button button3">View</button></td>
+                
                 
               </tr>
-              <!-- <tr >
-                <td>White Rice</td>
-                <td>5</td>
-                <td><button class="button">Accept</button></td>
-                <td><button class="button button3">Cancel</button>
-                </td>
-                
-              </tr> -->
+              
             </table>
             <div class="row">
               <div class="col-md-12 text-center">
@@ -41,8 +36,7 @@
                   </div>
               </div>
           </div>
-        </div></div></div><br><br><br><br>
+        </div></div></div>
   <!--<app-ins-nav-bar></app-ins-nav-bar>-->
   <!-- import footer comonent -->
   <app-footer></app-footer>
-  

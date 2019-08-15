@@ -18,7 +18,7 @@ export class OrderfoodComponent implements OnInit {
   namelist:string[]=[];
   
 
-  constructor(public UserProfileService:ProductService,public tosatr :ToastrService) { 
+  constructor(public UserProfileService:ProductService,public tosatr :ToastrService,private router : Router) { 
     
   }
   // model ={
@@ -46,6 +46,19 @@ export class OrderfoodComponent implements OnInit {
         //alert('error');
       }
     )
+
+  }
+  onClear(){
+    console.log("success");
+    this.namelist.pop();
+    // while (this.prices.length !== 0) {
+    //   this.namelist.pop();
+    // }
+    while (this.prices.length !== 0) {
+      this.prices.pop();
+    }
+    this.totalprice=0;
+    this.router.navigateByUrl('/orderfood');
 
   }
   onClick(prize:number,name:string,quantity:number){
