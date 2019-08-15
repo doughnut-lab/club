@@ -1,6 +1,6 @@
 export class Notification {
     title: string;
-    email:string;
+    tel:number;
     message:string;
     
 }

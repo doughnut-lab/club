@@ -4,6 +4,8 @@ import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
 import { Notification } from '../../shared/models/notification.model';
 import { ToastrService } from 'ngx-toastr';
+import { CheffService } from '../../shared/services/cheff.service';
+import { Cheff } from '../../shared/models/cheff.model';
 
 @Component({
   selector: 'app-no-cheff',
@@ -13,9 +15,10 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class NoCheffComponent implements OnInit {
 
-  constructor(public UserProfileService:NotificationService,public tosatr :ToastrService) { }
+  constructor(public UserProfileService:NotificationService,public tosatr :ToastrService,public CheffService:CheffService) { }
   serverErrorMessages: string;
   ngOnInit() {
+    this.refreshCheffList();
     this.resetForm();
   }
   resetForm(form?: NgForm) {
@@ -24,7 +27,7 @@ export class NoCheffComponent implements OnInit {
     this.UserProfileService.selectNotification = {
       
       title :"",
-      email : "",
+      tel:null,
       message:""
  }
 }
@@ -46,6 +49,16 @@ export class NoCheffComponent implements OnInit {
     this.UserProfileService.getCheffNotificationList().subscribe((res)=> {
       this.UserProfileService.notification= res as Notification[];
     });
+  }
+  refreshCheffList()
+  {
+    this.CheffService.getCheffList().subscribe((res)=> {
+      this.CheffService.ceff= res as Cheff[];
+    });
+  }
+  onEdit(ins : Cheff)
+  { this.CheffService.selectCheff=ins;
+
   }
 
 }

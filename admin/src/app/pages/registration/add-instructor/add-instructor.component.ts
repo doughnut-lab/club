@@ -28,6 +28,7 @@ export class AddInstructorComponent implements OnInit {
       lastname : "",
       address:"",
       email:"",
+      tel:null,
       password:""
       
       

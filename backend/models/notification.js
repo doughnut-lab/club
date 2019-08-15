@@ -7,9 +7,9 @@ var userSchema = new mongoose.Schema({
         type: String,
         required: 'Title can\'t be empty',
     },
-    email: {
-        type: String,
-        required: 'Email can\'t be empty',
+    tel: {
+        type: Number,
+        required: 'Telephone number can\'t be empty',
     },
     message: {
         type: String,
