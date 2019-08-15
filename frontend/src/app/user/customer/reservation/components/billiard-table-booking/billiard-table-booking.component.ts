@@ -11,20 +11,20 @@ import { Billiardtable } from 'src/app/shared/models/billiardtable.model';
 import {FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../../../environments/environment';
 
 var today = new Date();
-@Component({
-  selector: 'app-hall-book',
-  templateUrl: './hall-book.component.html',
-  styleUrls: ['./hall-book.component.css']
-})
-export class HallBookComponent implements OnInit {
 
-  
+@Component({
+  selector: 'app-billiard-table-booking',
+  templateUrl: './billiard-table-booking.component.html',
+  styleUrls: ['./billiard-table-booking.component.css']
+})
+export class BilliardTableBookingComponent implements OnInit {
+
   _id:String;
   customername :String;
-  day :Boolean = false;
-  night :Boolean = false;
+  starttime :String;
   contact :Number;
   address :String;
   email :String;
@@ -42,11 +42,11 @@ export class HallBookComponent implements OnInit {
   billiardtable:Billiardtable;
   reservstion:any;
 
-  bookingtype : String = "Hall";
-  
   time :String;
-  
-  
+
+  bookingtype : String = "Billiard_Table";
+
+  urltable          = environment.appUrl+"/images/billiardtable/";
 
   constructor(
               private tableService: TableService,
@@ -56,7 +56,7 @@ export class HallBookComponent implements OnInit {
               private swimmingpoolservice:SwimmingpoolService,
               private billiardtableservice:BilliardtableService,
               private router: Router
-  ) { }
+            ) { }
 
   ngOnInit() {
     this._id = this.tableService.getTableId();
@@ -86,14 +86,12 @@ export class HallBookComponent implements OnInit {
     var body = {
       
       customername :this.customername,
-      day :this.day,
-      night :this.night,
+      starttime :this.starttime,
       contact :this.contact,
       address :this.address,
       email :this.email,
       reserveddate :this.reserveddate,
       bookingdate :this.bookingdate,
-      hallno :this.hall.hallnumber,
       state :this.state,
       price:this.price,
       ispaid :false,
@@ -112,7 +110,7 @@ export class HallBookComponent implements OnInit {
       (err) => {
         console.log(err.error)
       }
-    )}
-  
+    )
+  }
 
 }

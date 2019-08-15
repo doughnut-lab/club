@@ -33,6 +33,7 @@ module.exports.register_cheff = (req, res, next) => {
         }
     });
 }
+
 module.exports.update_cheff = (req, res, next) => {
     if(!ObjectId.isValid(req.params.id))
       return res.status(400).send('No record with given id : ${req.params.id}');
@@ -49,9 +50,8 @@ module.exports.update_cheff = (req, res, next) => {
         if(!err) { res.send(doc); }
         else {console.log('Error in Cheff Update :' + JSON.stringify(err, undefined, 2)); }
     });
-
-
 }
+
 module.exports.delete_cheff = (req, res, next) => {
     if(!ObjectId.isValid(req.params.id))
     return res.status(400).send('No record with given id : ${req.params.id}');   

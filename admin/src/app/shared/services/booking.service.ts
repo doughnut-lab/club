@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment';
 import { Booking } from '../models/booking.model';
 
 const updateBookingUrl = environment.appUrl+'/changeStatus/'; 
+var booking:Booking;
 @Injectable({
   providedIn: 'root'
 })
@@ -43,8 +44,9 @@ export class BookingService {
     return this.booking_id;
   }
 
-  updateBooking(id){
-    return this.http.post(updateBookingUrl+id,id);
+  updateBooking(ins:Booking){
+    console.log(updateBookingUrl+ins._id);
+    return this.http.put(updateBookingUrl+`/${ins._id}`,ins);
   }
 
   
