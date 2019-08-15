@@ -13,6 +13,8 @@ import { ToastrService } from 'ngx-toastr';
 export class AddInstructorComponent implements OnInit {
 
   constructor(public UserProfileService:InstructorService,public tosatr :ToastrService) { }
+  emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  telRegex=/^\d{10}$/;
   serverErrorMessages: string;
   ngOnInit() {
     this.refreshInstructorList();

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('Cheff');
 const User1 = mongoose.model('User');
+const User2 = mongoose.model('Orderproduct');
 const Notification = mongoose.model('Notification');
 var ObjectId =require('mongoose').Types.ObjectId;
 const passport = require('passport');
@@ -65,6 +66,15 @@ module.exports.delete_cheff = (req, res, next) => {
 
 module.exports.view_cheff = (req, res, next) => {
     User.find((err, docs) => {
+        if(!err) {res.send(docs); }
+        else {console.log('Error in Retriving User :' + JSON.stringify(err, undefined, 2));}
+    });
+
+
+
+}
+module.exports.view_cheff_assign = (req, res, next) => {
+    User2.find((err, docs) => {
         if(!err) {res.send(docs); }
         else {console.log('Error in Retriving User :' + JSON.stringify(err, undefined, 2));}
     });

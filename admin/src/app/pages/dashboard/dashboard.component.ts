@@ -13,7 +13,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     //this.loadScript('../'); 
-  
+    //location.reload(true);
+   // window.stop();
   }
   public loadScript(url: string) {
     const body = <HTMLDivElement> document.body;

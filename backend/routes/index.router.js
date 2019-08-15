@@ -16,6 +16,7 @@ const ctrlHall=require('../controllers/hall.controller');
 const ctrlSwimming=require('../controllers/swimmingpool.controller');
 const ctrlBilliard=require('../controllers/billiardtable.controlller');
 const ctrlGallery=require('../controllers/gallery.controller');
+const ctrlProduct=require('../controllers/order.controller');
 
 const jwtHelper = require('../config/jwtHelper');
  
@@ -30,6 +31,7 @@ router.put('/update_cheff/:id',ctrlCheff.update_cheff);
 router.delete('/delete_cheff/:id',ctrlCheff.delete_cheff);
 router.get('/view_cheff',ctrlCheff.view_cheff);
 router.post('/user_cheff_register',ctrlCheff.user_cheff_register);
+router.get('/view_cheff_assign',ctrlCheff.view_cheff_assign);
 
 //cashier
 router.post('/cashier_no',ctrlCashier.cashier_notification);
@@ -38,6 +40,7 @@ router.get('/view_cashier',ctrlCashier.view_cashier);
 router.post('/register_cashier',ctrlCashier.register_cashier);
 router.put('/update_cashier/:id',ctrlCashier.update_cashier);
 router.delete('/delete_cashier/:id',ctrlCashier.delete_cashier);
+
 
 //instructor
 router.post('/register_instructor',ctrlInstructor.register_instructor);
@@ -52,6 +55,7 @@ router.post('/enter_history',ctrlInstructor.enter_history);
 router.get('/view_history',ctrlInstructor.view_history);
 router.post('/accept',ctrlInstructor.accept);
 router.post('/cancel',ctrlInstructor.cancel);
+//router.get('/view_count',ctrlInstructor.view_count);
 
 //customer
 router.post('/customer_register',ctrlCustomer.customer_register);
@@ -96,6 +100,12 @@ router.post('/gallery',ctrlGallery.add_gallery);
 router.get('/view_gallery',ctrlGallery.view_gallerys);
 router.put('/update_gallery/:id',ctrlGallery.update_gallery);
 router.delete('/delete_gallery/:id',ctrlGallery.delete_gallery);
+
+//product
+router.post('/enter_product',ctrlProduct.enter_product);
+router.get('/view_product',ctrlProduct.view_product);
+//router.get('/view_product_details/:customer_name',ctrlProduct.view_product_details);
+router.post('/enter_products',ctrlProduct.enter_products);
 router.get('/view_gallery_catogory/:catogory',ctrlGallery.view_gallery_catogory);
 
 module.exports = router;
