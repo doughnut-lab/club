@@ -87,7 +87,7 @@ export class TableBookComponent implements OnInit {
               private router: Router,
               public dialog: MatDialog,
               private galleryservice: GalleryService
-              ) { }
+      ) { }
 
   ngOnInit() {
     this._id = this.tableService.getTableId();
@@ -134,7 +134,7 @@ addbooking(){
     bookingtype : this.bookingtype,
   }
 
-  console.log('submit_dk'+ body.breakfast +" "+ body.lunch +" "+ body.dinner)
+  console.log('submit_dk'+ body.foodlist);
   this.reservationservice.addBooking(body).subscribe((result)=>{
       console.log('before result')
       if(result){

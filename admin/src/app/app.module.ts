@@ -19,7 +19,8 @@ import {
           MatButtonModule, 
           MatCheckboxModule,
           MatDialogModule,
-          MatFormFieldModule
+          MatFormFieldModule,
+          MatCardModule,
         } from '@angular/material';
 import { AssignInstructorComponent } from './assign_details/assign-instructor/assign-instructor.component';
 import { AddInstructorComponent } from './pages/registration/add-instructor/add-instructor.component';
@@ -76,6 +77,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     MatFormFieldModule,
     NoopAnimationsModule,
     MatButtonModule,
+    MatCardModule,
     MatCheckboxModule,
     FormsModule,
     BrowserAnimationsModule,

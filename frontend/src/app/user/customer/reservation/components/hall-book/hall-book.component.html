@@ -34,7 +34,8 @@
                 <mat-card-header>
                   <mat-card-subtitle>Hall No: {{hall.hallnumber}}</mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu">
+                <!-- <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu"> -->
+                <img mat-card-image  [src]="urltable+hall.hallnumber+'.jpg'">
                 <mat-card-subtitle>Gust count : {{hall.gustcount}}</mat-card-subtitle>
                 <mat-card-subtitle>Chair count : {{hall.chaircount}}</mat-card-subtitle>
                 <mat-card-content>

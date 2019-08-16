@@ -11,6 +11,7 @@ import { Billiardtable } from 'src/app/shared/models/billiardtable.model';
 import {FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../../../environments/environment';
 
 var today = new Date();
 @Component({
@@ -46,7 +47,7 @@ export class HallBookComponent implements OnInit {
   
   time :String;
   
-  
+  urltable          = environment.appUrl+"/images/hall/";
 
   constructor(
               private tableService: TableService,

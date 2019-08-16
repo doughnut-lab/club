@@ -11,8 +11,10 @@ export class GalleryService {
   
   readonly baseURL=environment.appUrl+'/view_gallery';
   readonly baseURLCatogory=environment.appUrl+'/view_gallery_catogory/';
+  readonly basecheckAvailability=environment.appUrl+'/checkAvailability';
+  
   catogory: String;
-  foodList : Array<String> = [];
+  static foodList : Array<String> = [];
 
   constructor(private http: HttpClient) { }
   
@@ -43,11 +45,15 @@ export class GalleryService {
   }
 
   addFoodArray(foodlist){
-    this.foodList = foodlist;
+    GalleryService.foodList = foodlist;
   }
 
   getFoodArray(){
-    return this.foodList;
+    return GalleryService.foodList;
+  }
+
+  checkAvailabilitySlot(){
+    return this.http.get(this.basecheckAvailability);
   }
 }
 

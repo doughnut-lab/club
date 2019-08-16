@@ -50,13 +50,13 @@ module.exports.register = (req, res, next) => {
     
     booking.save((err, doc) => {
         if (!err){
-            // var message='Hi,'+booking.customername+" your booking was successfully recorded! ";
-            // client.messages.create({body: message, from: '+14805256961', to: '+94703177445'},
-            // function (err,data) {
-            //     if(err){
-            //         console.log("error : " + err)
-            //     }console.log(data)
-            // })
+            var message='Hi,'+booking.customername+" your booking was successfully recorded! ";
+            client.messages.create({body: message, from: '+14805256961', to: '+94703177445'},
+            function (err,data) {
+                if(err){
+                    console.log("error : " + err)
+                }console.log(data)
+            })
             res.send(doc);
         }       
         else{
@@ -130,29 +130,7 @@ module.exports.view_booking_id = (req, res, next) => {
     });
 }
 
-
-// change reservation status
-// module.exports.changeStatus =(req, res, next) => {
-//     Booking.updateOne(
-//         { _id: req.params.id },
-//         { $set: { state: "close" } }
-//     )
-//     .then(result => callback(null, result))
-//     .catch(err => callback(err));
-// }
-
-// module.exports.changeStatus = (req, res, next) => {
-//     console.log("In update");
-//     if(!ObjectId.isValid(req.params.id))
-//       return res.status(400).send('No record with given id : ${req.params.id}');
-//       console.log("In update");
-      
-//       Booking.findByIdAndUpdate(req.params.id, { $set: { state: "close" }},{ new: true},(err,doc) => {
-//         if(!err) { res.send(doc); }
-//         else {console.log('Error in Cheff Update :' + JSON.stringify(err, undefined, 2)); }
-//     });
-// }
-
+//change state
 module.exports.changeStatus = (req, res, next) => {
     
     if(!ObjectId.isValid(req.params.id))
@@ -167,4 +145,30 @@ module.exports.changeStatus = (req, res, next) => {
     });
 }
 
+//check availability
+module.exports.checkAvailability = (body, callback) => {
+    // var enddate = new Date(body.date);
+    var date = new Date(body.date);
+    // var breakfast = body.breakfast;
+    // var lunch = body.lunch;
+    // var  = body.dinner;
+
+    Booking.find({
+        $and:[{ reserveddate: { $ne: date } },{ breakfast: { $ne: body.breakfast } }
+        ,{ reservelunchddate: { $ne: body.lunch } },{ dinner: { $ne: body.dinner } }]
+    });
+
+    if(!err) {res.send(docs); }
+        else {console.log('Error in Retriving User :' + JSON.stringify(err, undefined, 2));}
+
+  };
+
+
+//   module.exports.view_instructor_notification = (req, res, next) => {
+//     var date = new Date(req.date);
+//     Booking.find({reserveddate:req.params.reserveddate},(err, docs) => {
+//         if(!err) {res.send(docs); }
+//         else {console.log('Error in Retriving User :' + JSON.stringify(err, undefined, 2));}
+//     });
+// }
 
