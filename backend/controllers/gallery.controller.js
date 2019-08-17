@@ -78,8 +78,9 @@ module.exports.view_gallery_id = (req, res, next) => {
 module.exports.view_gallery_catogory = (req, res, next) => {
     // if(!ObjectId.isValid({catogory:req.params.catogory}))
     // return res.status(400).send('No record with given id : ${req.params.id}');
-
+console.log("backend gallery route called")
     Gallery.find({catogory:req.params.catogory},(err, docs) => {
+        console.log("gallery view")
         if(!err) {res.send(docs); }
         else {console.log('Error in Retriving gallery :' + JSON.stringify(err, undefined, 2));}
     });

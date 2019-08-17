@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { GalleryService } from 'src/app/shared/services/gallery.service';
 import { Gallery } from '../../../../../shared/models/gallery.model';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
@@ -10,6 +10,8 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
   styleUrls: ['./tablemenu.component.css']
 })
 export class TablemenuComponent implements OnInit {
+  //@Output()
+  //sendFoodList: EventEmitter<Array<String>> = new EventEmitter<Array<String>>(); //creating an output event
   p=1;
   galleries: any
   catogory;
@@ -70,7 +72,9 @@ export class TablemenuComponent implements OnInit {
   }
 
   setFoodArray(){
+    // this.sendFoodList.emit(this.foodlist)
     this.galleryservice.addFoodArray(this.foodlist);
+    
   }
   
 

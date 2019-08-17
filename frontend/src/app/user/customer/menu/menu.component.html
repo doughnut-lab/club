@@ -6,19 +6,19 @@
     <div class = "col-md-3">
       <mat-list role="list">
         <mat-list-item role="listitem">
-            <button mat-raised-button color="primary" style="width: 200px">All</button>
+            <button mat-raised-button color="primary" style="width: 200px" [(ngModel)]="category" (click)="setCatogory('all')">All</button>
         </mat-list-item>
         <mat-list-item role="listitem">
-            <button mat-raised-button color="primary" style="width: 200px" [(ngModel)]="category" (click)="setCatogory(breakfast)">Breakfast</button>
+            <button mat-raised-button color="primary" style="width: 200px" [(ngModel)]="category" (click)="setCatogory('breakfast')">Breakfast</button>
         </mat-list-item>
         <mat-list-item role="listitem">
-            <button mat-raised-button color="primary" style="width: 200px" [(ngModel)]="category" (click)="setCatogory(lunch)">Lunch</button>
+            <button mat-raised-button color="primary" style="width: 200px" [(ngModel)]="category" (click)="setCatogory('lunch')">Lunch</button>
         </mat-list-item>
         <mat-list-item role="listitem">
-            <button mat-raised-button color="primary" style="width: 200px" [(ngModel)]="category" (click)="setCatogory(dinner)">Dinner</button>
+            <button mat-raised-button color="primary" style="width: 200px" [(ngModel)]="category" (click)="setCatogory('dinner')">Dinner</button>
         </mat-list-item>
         <mat-list-item role="listitem">
-            <button mat-raised-button color="primary" style="width: 200px" [(ngModel)]="category" (click)="setCatogory(beverage)">Beverage</button>
+            <button mat-raised-button color="primary" style="width: 200px" [(ngModel)]="category" (click)="setCatogory('beverage')">Beverage</button>
         </mat-list-item>
         <mat-list-item role="listitem">
             <button mat-raised-button color="primary" style="width: 200px">Dessert</button>
@@ -44,7 +44,7 @@
                             <mat-card-subtitle>{{gallery.price}}</mat-card-subtitle>
                           </div>
                           <div class = "col-md-4">
-                              <button mat-raised-button color="accent">Add</button>
+                              <!-- <button mat-raised-button color="accent">Add</button> -->
                           </div>
                       </mat-card>
 
