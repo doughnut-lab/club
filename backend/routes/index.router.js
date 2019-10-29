@@ -68,6 +68,8 @@ router.get('/view_booking/:id',ctrlBooking.view_booking_id);
 router.put('/update_booking/:id',ctrlBooking.update_booking);
 router.delete('/delete_booking/:id',ctrlBooking.delete_booking);
 router.put('/changeStatus/:id',ctrlBooking.changeStatus);
+router.put('/checkAvailability',ctrlBooking.checkAvailability);
+
 
 //table
 router.post('/table',ctrlTable.add_table);

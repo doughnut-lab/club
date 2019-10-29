@@ -3,61 +3,19 @@
 
 
 <div id="colorlib-contact">
-        <div class="container">
-          <div class="col-md-4"> 
 
-            <div *ngIf="reservstion=='Table'" >
-              <mat-card class="example-card">
-                <mat-card-header>
-                  <mat-card-subtitle [(ngModel)]="tablenumber" id="tablenumber" name="tablenumber" >Table No: {{table.tablenumber}}</mat-card-subtitle>
-                </mat-card-header>
-                <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu">
-                <mat-card-subtitle>Location : {{table.location}}</mat-card-subtitle>
-                <mat-card-subtitle>Chair count : {{table.chaircount}}</mat-card-subtitle>
-                <mat-card-content>
-                  <p>{{table.description}}</p>
-                </mat-card-content>
-              </mat-card>
-            </div>
+      <div class="container" >
+        <div class="col-md-3"></div>
+        <div class="col-md-8" style="align-content: center"> 
+          <p style="font-size: 24px" >
+            Your Order placed successfully!</p>
+            <br><p style="font-size: 30px">*******Thank You!********</p>
+            <br>You will receive a SMS notification to confirm order replace.... :)
+          
+          
 
-            <div *ngIf="reservstion=='Billiard Table'" >
-              <mat-card class="example-card">
-                <mat-card-header>
-                  <mat-card-subtitle>Billiard Table No: {{billiardtable.tablenumber}}</mat-card-subtitle>
-                </mat-card-header>
-                <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu">
-              </mat-card>
-            </div>
-
-            <div *ngIf="reservstion=='Hall'" >
-              <mat-card class="example-card">
-                <mat-card-header>
-                  <mat-card-subtitle>Hall No: {{hall.hallnumber}}</mat-card-subtitle>
-                </mat-card-header>
-                <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu">
-                <mat-card-subtitle>Gust count : {{hall.gustcount}}</mat-card-subtitle>
-                <mat-card-subtitle>Chair count : {{hall.chaircount}}</mat-card-subtitle>
-                <mat-card-content>
-                  <p>{{hall.description}}</p>
-                </mat-card-content>
-              </mat-card>
-            </div>
-
-            <div *ngIf="reservstion=='Swimming Pool'" >
-              <mat-card class="example-card">
-                <mat-card-header>
-                  <mat-card-subtitle>Swimming Pool No: {{swimmingpool.poolnumber}}</mat-card-subtitle>
-                </mat-card-header>
-                <img mat-card-image class="example-header-image" src="../../../../assets/images/table.jpg" alt="Photo of a Shiba Inu">
-              </mat-card>
-            </div>
-
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-7">
-                
-            </div> 
-        </div>
+        </div> 
+      </div>
 </div>
     
       

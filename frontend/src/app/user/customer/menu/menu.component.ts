@@ -24,7 +24,7 @@ export class MenuComponent implements OnInit {
   dinner : any;
   beverage : any;
   dessert : any;
-
+  list:any[] = ["breakfast","lunch","dinner","beverage"]
   url="http://localhost:3000/images/gallery/";
   constructor(private galleryservice: GalleryService) { }
 
@@ -32,7 +32,8 @@ export class MenuComponent implements OnInit {
     this.galleryservice.getFoodList().subscribe((res)=> {
       this.galleries= res as Gallery[];
     });
-    // this.galleryservice.getFoodByCatogory("brakfast").subscribe((res)=>{
+    // this.galleryservice.getFoodByCatogory("breakfast").subscribe((res)=>{
+    //   console.log(res)
     //   this.brakfast= res as Gallery[];
     // });
     // this.galleryservice.getFoodByCatogory("lunch").subscribe((res)=>{
@@ -58,9 +59,25 @@ export class MenuComponent implements OnInit {
     });
   }
 
-  setCatogory(catogory){
+  setCatogory(catogory:String){
     this.galleryservice.setCatogory(catogory);
-    console.log(this.catogory);
+    console.log(catogory);
+    if(catogory == "all"){
+      this.galleryservice.getFoodList().subscribe((res)=> {
+        this.galleries= res as Gallery[];
+      });
+      // for(var i in this.list){
+      //   this.galleryservice.getFoodByCatogory(i).subscribe((res)=>{
+      //     this.galleries= res as Gallery[];
+      //     console.log(res)
+      //   });
+      // }
+    }
+    this.galleryservice.getFoodByCatogory(catogory).subscribe((res)=>{
+      this.galleries= res as Gallery[];
+      console.log(res)
+    });
+
     // this.selectCatogory();
     // window.location.reload();
   }

@@ -10,7 +10,7 @@ const pass="1234"
 const type="instructor"
 var nodemailer = require('nodemailer');
 const accountSid = 'AC35b07c0fb85a8dac36b031af16f58a8b';
-const authToken = '1234';
+const authToken = 'a1d0a803e1c76fe0b13461b0304f388b';
 const client = require('twilio')(accountSid, authToken);
 
 
